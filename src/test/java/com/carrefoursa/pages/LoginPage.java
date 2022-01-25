@@ -21,6 +21,9 @@ public class LoginPage extends BasePage{
     public WebElement errorMsgText;
     @FindBy(css = ".welcome-modal__container")
     public WebElement hosGeldinizPopup;
-
+    @FindBy(css = "span[class='error-message']")
+    public WebElement GecersizNumaraHataMesaji;
+    @FindBy(css = "div[class='login-error-message error-message']")
+    public WebElement HataliOtpMesaji;
 
 }

@@ -59,5 +59,28 @@ public class LoginStepDefinitions {
 
     }
 
+    @Given("Cep Telefonu Numaranız bolumune gecersiz bir numara girer")
+    public void cep_telefonu_numaranız_bolumune_gecersiz_bir_numara_girer() {
+
+        login.phoneNumberTextBox.sendKeys(ConfigReader.getProperty("invalid_phone_number"));
+
+    }
+
+    @Given("Gecersiz numara girildiginde cikan hata mesaji gorulur")
+    public void Gecersiz_numara_girildiginde_cikan_hata_mesaji_gorulur(){
+        login.GecersizNumaraHataMesaji.isDisplayed();
+    }
+
+
+    @Given("SMS Onay Kodu bolumune geçersiz bir Otp kodu girer")
+    public void SMS_Onay_Kodu_bolumune_geçersiz_bir_Otp_kodu_girer() {
+        login.otpCodeTextBox.sendKeys(ConfigReader.getProperty("invalid_otp_code"));
+    }
+
+    @Given("Gecersiz SMS onay hata mesaji gorlur")
+    public void Gecersiz_SMS_onay_hata_mesaji_gorlur(){
+        login.HataliOtpMesaji.isDisplayed();
+    }
 
 }
+
