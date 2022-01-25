@@ -16,5 +16,12 @@ Feature: US_002 Login Testleri
       And Giriş Yapın butonuna tıklar
       Then Gecersiz numara girildiginde cikan hata mesaji gorulur
 
-
+  @Login
+  Scenario: TC_203 Hatali Otp Girilmesi
+    And Anasayfadaki Giris Yap butonuna tiklar.
+    And Cep Telefonu Numaranız bolumune gecerli bir numara girer
+    And Giriş Yapın butonuna tıklar
+    And SMS Onay Kodu bolumune geçersiz bir Otp kodu girer
+    When Tamam butonuna tıklar
+    Then Gecersiz SMS onay hata mesaji gorlur
 
