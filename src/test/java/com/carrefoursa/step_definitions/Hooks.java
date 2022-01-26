@@ -20,16 +20,16 @@ public class Hooks {
 
     }
 
-    @AfterStep
+    @After
     public void tearDown(Scenario scenario) {
+        if (scenario.isFailed()) {
         final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot, "image/png", "screenshot");
 
     }
-    @After
-    public void closeDriver(){
-        Driver.closeDriver();
-    }
 
+
+        //Driver.closeDriver();
+    }
 
 }

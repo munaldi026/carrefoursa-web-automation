@@ -15,7 +15,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
+import static java.lang.Thread.sleep;
+
 public class ReusableMethods {
+
+
 
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
@@ -32,9 +36,9 @@ public class ReusableMethods {
     }
 
 
-    public static WebElement clickFunction(WebElement clickElement){
+    public static WebElement clickFunction(WebElement clickElement) {
 
-       // waitForClickablility(clickElement,10);
+        //   waitForClickablility(clickElement,10);
 
         //wait.until(ExpectedConditions.elementToBeClickable(clickElement));
 
@@ -53,6 +57,7 @@ public class ReusableMethods {
         }
         Driver.getDriver().switchTo().window(origin);
     }
+
     //========Hover Over=====//
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
@@ -86,11 +91,12 @@ public class ReusableMethods {
 //   waitFor(5);  => waits for 5 second
     public static void waitFor(int sec) {
         try {
-            Thread.sleep(sec * 1000);
+            sleep(sec * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
     //===============Explicit Wait==============//
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
@@ -123,6 +129,7 @@ public class ReusableMethods {
             }
         }
     }
+
     public static void waitForPageToLoad(long timeOutInSeconds) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -154,8 +161,10 @@ public class ReusableMethods {
 
         return element;
     }
+
     /**
      * Performs double click action on an element
+     *
      * @param element
      */
     public static void doubleClick(WebElement element) {
@@ -180,6 +189,7 @@ public class ReusableMethods {
 
     /**
      * Selects a random value from a dropdown list and returns the selected Web Element
+     *
      * @param select
      * @return
      */
@@ -190,9 +200,15 @@ public class ReusableMethods {
         select.selectByIndex(optionIndex);
         return select.getFirstSelectedOption();
     }
-    public static void closeCerez(){
-        Driver.getDriver().findElement(By.cssSelector(".glyphicon.glyphicon-remove")).click();
+
+    public static void closeCerez() {
+        WebElement cerez = Driver.getDriver().findElement(By.cssSelector(".cookie-notification.row"));
+        if (cerez.isEnabled()) {
+            Driver.getDriver().findElement(By.cssSelector(".js-close-notification")).click();
+        }
+
     }
 
 
-}
+    }
+
