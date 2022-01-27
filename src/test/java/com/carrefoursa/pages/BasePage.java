@@ -15,14 +15,5 @@ LoginPage login=new LoginPage();
     public static void closeCerez(){
        Driver.getDriver().findElement(By.cssSelector(".glyphicon.glyphicon-remove")).click();
     }
-
-    public void successLogin(){
-
-        login.myAccountBtn.click();
-        login.phoneNumberTextBox.sendKeys(ConfigReader.getProperty("phone_number"));
-        login.loginBtn.click();
-        login.otpCodeTextBox.sendKeys(ConfigReader.getProperty("otp_code"));
-        login.otpConfirmBtn.click();
-    }
-
+    
 }
