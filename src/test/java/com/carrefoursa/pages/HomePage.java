@@ -1,14 +1,13 @@
 package com.carrefoursa.pages;
 
+import com.carrefoursa.utilities.ReusableMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage{
 
-
     @FindBy(css = ".site-logo.head-row")
     public WebElement homePageButton;
-
     @FindBy(id = "js-site-search-input")
     public WebElement searchField;
     @FindBy(className = "js-search-validate")
@@ -19,7 +18,6 @@ public class HomePage extends BasePage{
     public WebElement category;
     @FindBy(className = "d-block")
     public WebElement myAccount;
-
     @FindBy(partialLinkText = "Kurumsal")
     public WebElement institutionalLink;
     @FindBy(partialLinkText = "En Yakın CarrefourSA")
