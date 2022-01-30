@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="carrefoursa-web-automation" />
         <module name="NttData CSA Web Automation" />
+        <module name="NttData-CSA-Web-Automation" />
       </profile>
     </annotationProcessing>
   </component>
