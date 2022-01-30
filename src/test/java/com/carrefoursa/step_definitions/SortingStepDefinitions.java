@@ -4,6 +4,7 @@ import com.carrefoursa.pages.HomePage;
 import com.carrefoursa.pages.PLPPage;
 import com.carrefoursa.pages.SortingPage;
 import com.carrefoursa.utilities.ConfigReader;
+import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,20 +18,16 @@ public class SortingStepDefinitions {
     PLPPage plpPage=new PLPPage();
     SortingPage sortingPage=new SortingPage();
 
-
-    @Given("Kullanıcı Ana Sayfadaki Arama kutusuna tıklar")
-    public void kullanıcı_ana_sayfadaki_arama_kutusuna_tıklar() {
+    @Given("Kullanici Ana Sayfadaki Arama kutusuna tiklar")
+    public void kullanici_ana_sayfadaki_arama_kutusuna_tiklar() {
         homePage.searchField.click();
-
     }
-    @Given("Aramak istediği ürünün adını yazar")
-    public void aramak_istediği_ürünün_adını_yazar() {
-        homePage.searchField.sendKeys(ConfigReader.getProperty("aranan_urun"));
-
-
+    @Given("Aramak istedigi urunun adini yazar")
+    public void aramak_istedigi_urunun_adini_yazar() {
+        homePage.searchField.sendKeys(Constants.searchProduct);
     }
-    @Given("Arama butonuna tıklar")
-    public void arama_butonuna_tıklar() {
+    @Given("Arama butonuna tiklar")
+    public void arama_butonuna_tiklar() {
 
         homePage.searchButton.click();
         try {
@@ -38,35 +35,27 @@ public class SortingStepDefinitions {
         } catch (Exception e) {
             System.out.println("Bilgilendirme Pop-up yok");
         }
-
     }
-    @When("Ürün listelemede Akıllı Sıralama da En Yuksek Fiyat secimini tıklar")
-    public void ürün_listelemede_akıllı_sıralama_da_en_yuksek_fiyat_secimini_tıklar() {
-
+    @When("Urun listelemede Akilli Siralama da En Yuksek Fiyat secimini tiklar")
+    public void urun_listelemede_akilli_siralama_da_en_yuksek_fiyat_secimini_tiklar() {
         Select sl=new Select(plpPage.smartSortOptions);
         sl.selectByVisibleText("En Yüksek Fiyat");
-
-
     }
-    @Then("Ürünlerin yüksek fiyattan düşük fiyata doğru sıralandığını kontrol eder")
-    public void ürünlerin_yüksek_fiyattan_düşük_fiyata_doğru_sıralandığını_kontrol_eder() {
+    @Then("Urunlerin yuksek fiyattan dusuk fiyata dogru siralandigini kontrol eder")
+    public void urunlerin_yuksek_fiyattan_dusuk_fiyata_dogru_siralandigini_kontrol_eder() {
         try {
             sortingPage.compareDescendingPrice();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
-    @When("Ürün listelemede Akıllı Sıralama da En Dusuk Fiyat secimini tıklar")
-    public void ürün_listelemede_akıllı_sıralama_da_en_dusuk_fiyat_secimini_tıklar() {
+    @When("Urun listelemede Akilli Siralama da En Dusuk Fiyat secimini tiklar")
+    public void urun_listelemede_akilli_siralama_da_en_dusuk_fiyat_secimini_tiklar() {
         Select sl=new Select(plpPage.smartSortOptions);
         sl.selectByVisibleText("En Düşük Fiyat");
-
     }
-
-    @Then("Ürünlerin düşük fiyattan yüksek fiyata doğru sıralandığını kontrol eder")
-    public void ürünlerin_düşük_fiyattan_yüksek_fiyata_doğru_sıralandığını_kontrol_eder() {
+    @Then("Urunlerin dusuk fiyattan yuksek fiyata dogru siralandigini kontrol eder")
+    public void urunlerin_dusuk_fiyattan_yuksek_fiyata_dogru_siralandigini_kontrol_eder() {
         try {
             sortingPage.compareAscendingPrice();
 
@@ -74,5 +63,4 @@ public class SortingStepDefinitions {
             e.printStackTrace();
         }
     }
-
 }

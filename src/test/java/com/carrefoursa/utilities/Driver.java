@@ -3,48 +3,79 @@ package com.carrefoursa.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.managers.OperaDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 public class Driver {
-    private Driver(){
+
+    private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
+
+    private Driver() {
     }
-    static private WebDriver driver;
-    static public WebDriver getDriver(){
-        if(driver==null){
-            switch (ConfigReader.getProperty("browser")){
+
+    public static WebDriver getDriver() {
+
+        if (driverPool.get() == null) {
+            System.out.println("TRYING TO CREATE DRIVER");
+            // this line will tell which browser should open based on the value from properties file
+            String browserParamFromEnv = System.getProperty("browser");
+            String browser = browserParamFromEnv == null ? ConfigReader.getProperty("browser") : browserParamFromEnv;
+            switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver=new ChromeDriver();
+                    driverPool.set(new ChromeDriver());
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver=new FirefoxDriver();
+                    driverPool.set(new FirefoxDriver());
+                    break;
+                case "firefox_headless":
+                    WebDriverManager.firefoxdriver().setup();
+                    driverPool.set(new FirefoxDriver(new FirefoxOptions().setHeadless(true)));
+                    break;
+                case "ie":
+                    if (!System.getProperty("os.name").toLowerCase().contains("windows")) {
+                        throw new WebDriverException("Your OS doesn't support Internet Explorer");
+                    }
+                    WebDriverManager.iedriver().setup();
+                    driverPool.set(new InternetExplorerDriver());
+                    break;
+                case "edge":
+                    if (!System.getProperty("os.name").toLowerCase().contains("windows")) {
+                        throw new WebDriverException("Your OS doesn't support Edge");
+                    }
+                    WebDriverManager.edgedriver().setup();
+                    driverPool.set(new EdgeDriver());
                     break;
                 case "safari":
-                    WebDriverManager.getInstance(SafariDriver.class);
-                    driver=new SafariDriver();
+                    if (!System.getProperty("os.name").toLowerCase().contains("mac")) {
+                        throw new WebDriverException("Your OS doesn't support Safari");
+                    }
+                    WebDriverManager.getInstance(SafariDriver.class).setup();
+                    driverPool.set(new SafariDriver());
                     break;
-                case "opera":
-                    OperaDriverManager.operadriver().setup();
-                    driver=new OperaDriver();
-                    break;
-            }
-        }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().deleteAllCookies();
 
-        return driver;
-    }
-    static public void closeDriver(){
-        if (driver != null){
-            ReusableMethods.waitFor(2);
-            driver.close();
-            driver=null;
+                }
         }
+
+        return driverPool.get();
+    }
+    public static void close() {
+        driverPool.get().quit();
+        driverPool.remove();
     }
 }
