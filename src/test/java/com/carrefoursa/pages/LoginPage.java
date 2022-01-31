@@ -36,6 +36,8 @@ public class LoginPage extends BasePage {
     public WebElement GecersizNumaraHataMesaji;
     @FindBy(css = "div[class='login-error-message error-message']")
     public WebElement HataliOtpMesaji;
+    @FindBy(className = "d-block")
+    public WebElement welcome;
 
     public void successLogin() {
         loginButton.click();

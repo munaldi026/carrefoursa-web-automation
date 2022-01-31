@@ -48,13 +48,7 @@ public class LoginStepDefinitions {
     }
     @Then("Basarili bir giris yaptigini control eder")
     public void basariliBirGirisYaptiginiControlEder() {
-        ReusableMethods.clickFunction(loginPage.wellcomePop_upClose);
-        ReusableMethods.closeCerez();
-        String expectedMsgOnMainPage = "Hoş geldiniz,";
-        System.out.println("expectedMsgOnMainPage = " + expectedMsgOnMainPage);
-        String actualMsgOnMainPage = homePage.myAccount.getText();
-        System.out.println("actualMsgOnMainPage = " + actualMsgOnMainPage);
-        Assert.assertTrue(actualMsgOnMainPage.contains(expectedMsgOnMainPage));
+       loginPage.welcome.isDisplayed();
 
     }
     @Given("Cep Telefonu Numaraniz bolumune gecersiz bir numara girer")

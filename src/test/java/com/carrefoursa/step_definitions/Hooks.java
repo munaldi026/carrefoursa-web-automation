@@ -35,8 +35,7 @@ public class Hooks {
         }else {
 
         }
-
-        //Driver.close();
+        Driver.close();
 
     }
 
