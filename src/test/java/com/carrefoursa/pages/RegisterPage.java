@@ -42,4 +42,18 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "selectStoreSubmit")
     public WebElement contiueButton;
 
+    @FindBy(xpath = "//*[contains(text(),'İstanbul')]")
+    public WebElement cityselectcode;
+
+    @FindBy(xpath = "//*[contains(text(),'Arnavutköy')]")
+    public WebElement townselectcode;
+
+    @FindBy(xpath = "//*[contains(text(),'Adnan Menderes Mh.')]")
+    public WebElement districtselectcode;
+
+    @FindBy(css = ".confirmationCode[name='confirmationCode']")
+    public WebElement registerotp;
+
+    @FindBy(xpath = "(//button[@id='confirmOTPBtn'])[2]")
+    public WebElement registerOtpConfirmButton;
 }
