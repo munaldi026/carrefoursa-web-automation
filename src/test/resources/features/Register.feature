@@ -35,3 +35,12 @@ Feature:
     And Kullanici uye olun buttonuna tiklar
     And Kullanici sms bolumune gecersiz otp girilir
     Then Kullanici gecersiz SMS onay hata mesaji gorulur
+
+  Scenario: TC_105 NegativeRegister
+    And Kullanici uye ol buttonuna tiklar
+    And Email bolumune email girilir
+    And Iletişim izni checkbox tiklanir
+    And Uyelik beyani checkbox tiklanir
+    And Aydintlatma beyani checkbox tiklanır
+    And Kullanici uye olun buttonuna tiklar
+    Then Lutfen telefon numarasi giriniz yazisi gorulur

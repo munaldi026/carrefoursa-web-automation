@@ -23,7 +23,6 @@ public class RegisterStepDefinitions {
         String phonenumber2=Integer.toString(phonenumber);
         registerPage.registerPhoneNumber.sendKeys(phonenumber2);
 
-        phonenumber=phonenumber+1;
 
     }
 
