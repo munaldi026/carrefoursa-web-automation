@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/carrefoursa/step_definitions",
         dryRun = false,
-        tags = "@Search2"
+        tags = "@smoke"
 )
 public class CukesRunner {
 }

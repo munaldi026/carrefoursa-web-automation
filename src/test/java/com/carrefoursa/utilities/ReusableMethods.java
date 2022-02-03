@@ -15,8 +15,6 @@ import static java.lang.Thread.sleep;
 public class ReusableMethods {
 
 
-
-
     public static WebElement clickFunction(WebElement clickElement) {
 
         waitForClickablility(clickElement,3);
@@ -36,7 +34,7 @@ public class ReusableMethods {
                 return;
             }
         }
-        Driver.getDriver().switchTo().window(origin);
+        //Driver.getDriver().switchTo().window(origin);
     }
     //========Hover Over=====//
     public static void hover(WebElement element) {

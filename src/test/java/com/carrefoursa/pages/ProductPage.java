@@ -1,6 +1,9 @@
 package com.carrefoursa.pages;
 
+import com.carrefoursa.utilities.Constants;
+import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,7 +23,7 @@ public class ProductPage extends BasePage{
     @FindBy(css = "#tabinstallment")
     public WebElement installmentLink;
 
-    @FindBy(css = "//div[@id='no_installment']")
+    @FindBy(css = "#no_installment")
     public WebElement verifyInstallment;
 
     @FindBy(xpath = "//a[@class='js-payment-tabs-head undefined'][contains(text(),'Garanti & İade')]")
@@ -38,7 +41,7 @@ public class ProductPage extends BasePage{
     @FindBy(css = "#tabreview")
     public WebElement reviews;
 
-    @FindBy(css = ".btn.btn-default.js-review-write-toggle")
+    @FindBy(css = ".js-no-review")
     public WebElement reviewButton;
 
     @FindBy(xpath = "//input[@name='headline']")
@@ -69,5 +72,16 @@ public class ProductPage extends BasePage{
         } catch (Exception e) {
             System.out.println("Bilgilendirme Pop-up yok");
         }
+    }
+    public void searchProduct(String productName){
+        homePage.searchField.click();
+        homePage.searchField.sendKeys(Constants.searchOrderProductName);
+        homePage.searchButton.click();
+        try {
+            homePage.informationPop_up.click();
+        } catch (Exception e) {
+            System.out.println("Bilgilendirme Pop-up yok");
+        }
+
     }
 }

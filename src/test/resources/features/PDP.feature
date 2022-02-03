@@ -2,8 +2,8 @@ Feature: US_010 PDP Testleri
 
     Background:
       Given Kullanici login olmus durumdadir
-      And Herhangi bir urunu secer
-      When Kullanici sectigi urunun uzerine tiklar
+      And Kullanici herhangi bir urunu aratir
+      When Kullanici arattigi urunune tiklar
 
     @alisverisListeEkle
     Scenario:
