@@ -19,7 +19,7 @@ public class HomePage extends BasePage{
     @FindBy(className = "d-block")
     public WebElement myAccount;
     @FindBy(partialLinkText = "Kurumsal")
-    public WebElement institutionalLink;
+    public WebElement corporateLink;
     @FindBy(partialLinkText = "En Yakın CarrefourSA")
     public WebElement locationsLink;
     @FindBy(css = ".call-center.head-row.pull-right")

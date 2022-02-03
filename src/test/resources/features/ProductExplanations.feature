@@ -1,9 +1,9 @@
 Feature: US_015 Product Explanations Tests
 
     Background:
-        Given Kullanici login olmus durumdadir
-        And Herhangi bir urunu secer
-        When Kullanici sectigi urunun uzerine tiklar
+      Given Kullanici login olmus durumdadir
+      And Kullanici herhangi bir urunu aratir
+      When Kullanici arattigi urunune tiklar
 
       @urunAciklamalari
       Scenario: TC_1501 Urun Aciklamalari Gorunurlugu Testi

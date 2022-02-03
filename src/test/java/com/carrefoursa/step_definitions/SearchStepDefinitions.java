@@ -41,9 +41,6 @@ public class SearchStepDefinitions {
         ReusableMethods.waitFor(3);
     }
 
-
-
 }
-
 
 

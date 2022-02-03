@@ -30,29 +30,31 @@ public class ProductExplanationsStepDefinitions {
             ReusableMethods.waitForClickablility(productPage.reviewHeadlineTextBox,2);
             productPage.reviewHeadlineTextBox.sendKeys(Constants.headline);
             productPage.commentTextAreaBox.sendKeys(Constants.comment);
+            System.out.println("Customer's comment = " + Constants.comment);
             productPage.starsOfComment.click();
             productPage.nameTextAreaBox.clear();
-            productPage.nameTextAreaBox.sendKeys(Constants.name);
-        }
+            productPage.nameTextAreaBox.sendKeys(Constants.commentName);
+            System.out.println("Customer Name = " + Constants.commentName);
+    }
     @When("Kullanici Yorumu gonder butonuna tiklar")
     public void kullanici_yorumu_gonder_butonuna_tiklar() {
             productPage.reviewSubmitButton.click();
         }
     @Then("Yapilan yorumun gonderildigini kontrol eder")
     public void yapilan_yorumun_gonderildigini_kontrol_eder() {
-            String commentText = productPage.verifyComment.getText();
-            System.out.println("commentText = " + commentText);
+            String verifyCommentText = productPage.verifyComment.getText();
+            System.out.println("verifyCommentText = " + verifyCommentText);
             Assert.assertTrue(productPage.verifyComment.isDisplayed());
         }
     @When("PDP sayfasindaki Taksit Bilgileri linkine tiklar")
     public void pdp_sayfasindaki_taksit_bilgileri_linkine_tiklar() {
-            productPage.installmentLink.click();
+            ReusableMethods.scrollToElement(productPage.installmentLink);
         }
     @Then("Kullanici PDP sayfasinda,sectigi urunle ilgili Taksit bilgilerinin geldigini kontrol eder")
     public void kullanici_pdp_sayfasinda_sectigi_urunle_ilgili_taksit_bilgilerinin_geldigini_kontrol_eder() {
             String installmentText = productPage.verifyInstallment.getText();
             System.out.println("installmentText = " + installmentText);
-            Assert.assertTrue(productPage.verifyComment.isDisplayed());
+            Assert.assertTrue(productPage.verifyInstallment.isDisplayed());
         }
     @Given("PDP sayfasindaki Garanti&Iade linkine tiklar")
     public void pdp_sayfasindaki_garanti_iade_linkine_tiklar() {

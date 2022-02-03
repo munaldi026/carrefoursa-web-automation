@@ -41,23 +41,11 @@ public class PDPPage extends BasePage {
     @FindBy(xpath = "//button[@class='btn btn-primary js-add-to-cart js-add-to-cart-product-detail']")
     public WebElement addToBasketButton;
 
-    @FindBy(xpath = "//a[normalize-space()='Carrefour Klozet Blok Çam 2 X 40 g']")
+    @FindBy(css = "div[class='details'] a[class='pr-name']")
     public WebElement productInBasket;
 
     @FindBy(css = "#link_30207311")
     public WebElement shoppingProductClose;
 
-    public void selectProduct() {
 
-        ReusableMethods.scrollToElement(homePage.category);
-        ReusableMethods.hover(homePage.category);
-        ReusableMethods.scrollToElement(subMenuCleaningProducts);
-        subMenuCleaningProducts.click();
-        try {
-            homePage.informationPop_up.click();
-        } catch (Exception e) {
-            System.out.println("Bilgilendirme Pop-up yok");
-        }
-
-    }
 }
