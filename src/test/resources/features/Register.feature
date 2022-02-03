@@ -44,3 +44,15 @@ Feature:
     And Aydintlatma beyani checkbox tiklanır
     And Kullanici uye olun buttonuna tiklar
     Then Lutfen telefon numarasi giriniz yazisi gorulur
+
+
+  Scenario: TC_106 NegativeRegister
+    And Kullanici uye ol buttonuna tiklar
+    And Cep Telefonu Numaraniz bolumune kayitli olmayan bir numara girer
+    And Email bolumune email girilir
+    And Iletişim izni checkbox tiklanir
+    And Uyelik beyani checkbox tiklanir
+    And Aydintlatma beyani checkbox tiklanır
+    And Kullanici uye olun buttonuna tiklar
+    And SMS Onay Kodu bolumune otp kodu bos birakilir
+    Then Sms kodunu eksik girdiniz yazisi gorulur
