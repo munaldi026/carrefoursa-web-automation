@@ -56,4 +56,6 @@ public class RegisterPage extends BasePage {
 
     @FindBy(xpath = "(//button[@id='confirmOTPBtn'])[2]")
     public WebElement registerOtpConfirmButton;
+
+
 }

@@ -67,5 +67,15 @@ public class LoginStepDefinitions {
     public void Gecersiz_SMS_onay_hata_mesaji_gorulur(){
         loginPage.HataliOtpMesaji.isDisplayed();
     }
+
+    @Given("Kullanıcı cikis yap buttonuna tiklar")
+    public void cikisYap_tiklanir(){
+        loginPage.logout.click();
+    }
+
+    @Given("Kullanıcı cikis yaptigini gorur")
+    public void cikis_yaptigini_gorur(){
+        loginPage.loginButton.isDisplayed();
+    }
 }
 
