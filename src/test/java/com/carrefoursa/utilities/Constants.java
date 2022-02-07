@@ -4,8 +4,12 @@ public class Constants {
 
     public static String headline="Automation Testing Team";
     public static String commentTitle="Automation Testing";
-//    public static String headline="Automation Testing Team";
-//    public static String headline="Automation Testing Team";
+    public static String discountCode="otomasyon";
+    public static String corporateCardNumber="6230152100000312";
+    public static String corporateCardPoint2="8215";
+    public static String corporateCardPoint3="1000";
+    public static String corporateCardPoint="0";
+    public static String corporateCardPoint1="1";
     public static String comment="The best wishes with you and your friends";
     public static String commentName="NTTDATA TR AUTOMATION TEAM";
     public static String searchProduct= "Yogurt";
@@ -19,4 +23,9 @@ public class Constants {
     public static String creditCardExpiryYear="2022";
     public static String creditCardCVV="000";
     public static String customerNote="This message was written for Automation testing.";
+    public static String invalidDiscountCode="otomasyon1";
+
+
+
+
 }

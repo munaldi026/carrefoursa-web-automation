@@ -70,12 +70,14 @@ public class LoginStepDefinitions {
 
     @Given("Kullanıcı cikis yap buttonuna tiklar")
     public void cikisYap_tiklanir(){
-        loginPage.logout.click();
+        loginPage.logoutIcon.click();
     }
 
     @Given("Kullanıcı cikis yaptigini gorur")
     public void cikis_yaptigini_gorur(){
-        loginPage.loginButton.isDisplayed();
+        String logoutMessage = loginPage.verifyLogoutMsg.getText();
+        System.out.println("logoutMessage = " + logoutMessage);
+        loginPage.verifyLogoutMsg.isDisplayed();
     }
 }
 

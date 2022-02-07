@@ -34,7 +34,6 @@ public class OrderStepDefinitions {
     @Given("Ana Sayfadaki Sepetim butonuna tiklar")
     public void ana_sayfadaki_sepetim_butonuna_tiklar() {
         homePage.myBasket.click();
-
     }
 
     @Given("Kullanici sepette Siparisi tamamla butonuna tiklar")
