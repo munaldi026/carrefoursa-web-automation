@@ -10,6 +10,12 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "(//a[@class='js-login-popup'])[2]")
     public WebElement loginButton;
 
+    @FindBy(css = "a[class='csa-logout js-logout col-xs-12 col-sm-6 col-md-3 col-lg-3'] em[class='icon']")
+    public WebElement logoutIcon;
+
+    @FindBy(css = ".alert.alert-warning.alert-dismissable")
+    public WebElement verifyLogoutMsg;
+
     @FindBy(id = "login_personal_phoneNumber")
     public WebElement phoneNumberTextBox;
 

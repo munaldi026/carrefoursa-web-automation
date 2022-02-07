@@ -31,7 +31,7 @@ public class OrderPage extends BasePage{
     @FindBy(xpath = "//tbody/tr[3]/td[3]/input[1]")
     public WebElement deliveryTime;
 
-    @FindBy(css = ".continue-btn-text")
+    @FindBy(css = "#deliverySlotSubmit")
     public WebElement deliverySlotSubmitButton;
 
     @FindBy(css= "#cc_at_delivery")

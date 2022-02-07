@@ -188,12 +188,13 @@ public class ReusableMethods {
     }
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
-        element.click();
+
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
     public static void HoverAndClick(WebDriver driver,WebElement elementToHover,WebElement elementToClick) {
         Actions action = new Actions(driver);

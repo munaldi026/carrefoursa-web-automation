@@ -1,10 +1,11 @@
-Feature:
+Feature:US_005 Address Tests
 Background:
   Given Kullanici login olmus durumdadir
+  When Kullanici hesabim buttonuna tiklar
+  And Kullanici adresim buttonuna tiklar
 
   Scenario: TC_501 Adres Ekleme
-    When Kullanici hesabim buttonuna tiklar
-    And Kullanici adresim buttonuna tiklar
+
     And Yeni adres olustur buttonuna tiklar
     And Adres tipi girilir
     And Kullanici ismi girilir
@@ -20,16 +21,14 @@ Background:
     Then Adresin basarili sekilde kayıtedildiği gorulur
 
     Scenario: TC_502 Adres Güncelleme
-      When Kullanici hesabim buttonuna tiklar
-      And Kullanici adresim buttonuna tiklar
+
       And Kullanici duzenle buttonuna tiklar
       And Kullanici adres ismini degistirir
       And Adresi guncelle buttonu tiklanir
       Then Adresi ismi basarili bir sekilde degistigi gorulur
 
-  Scenario: TC_502 Adres Silme
-    When Kullanici hesabim buttonuna tiklar
-    And Kullanici adresim buttonuna tiklar
-    And Kullanici sil buttonuna tiklar
-    And Popup uzerinde evet tiklanir
-    Then Adresin silindigi gorulur
+    Scenario: TC_503 Adres Silme
+
+      And Kullanici sil buttonuna tiklar
+      And Popup uzerinde evet tiklanir
+      Then Adresin silindigi gorulur

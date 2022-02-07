@@ -23,7 +23,7 @@ Feature: US_002 Login Testleri
       When Tamam butonuna tiklar
       Then Gecersiz SMS onay hata mesaji gorulur
 
-    Scenario: TC_208 LogOut
+    Scenario: TC_204 LogOut
       And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
       And Giris Yapin butonuna tiklar
       And SMS Onay Kodu bolumune gecerli bir Otp kodu girer
