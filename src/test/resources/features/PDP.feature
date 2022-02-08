@@ -5,22 +5,22 @@ Feature: US_010 PDP Testleri
       And Kullanici herhangi bir urunu aratir
       When Kullanici arattigi urunune tiklar
 
-    @alisverisListeEkle
-    Scenario:
+
+    Scenario: TC_1001 alisverisListeEkle
       And PDP sayfasindaki Alisveris listeme ekle linkine tiklar
       Then Kullanici sectigi urunun Alisveris listesine eklendigini kontrol eder
 
-    @alisverisListeCikar
-    Scenario:
+
+    Scenario: TC_1002 alisverisListeCikar
       And PDP sayfasindaki Alisveris listeme ekle linkine tiklar
       And Kullanici sectigi urunun Alisveris listesine eklendigini kontrol eder
       And Alisveris Listesindeki eklenmis olan urune tiklayarak PDP sayfasina doner
       And PDP sayfasindaki Alisveris listemden cikar linkine tiklar
       Then Urunun Alisveris listesinden cıkarildigini kontrol eder
-    @pdpSepeteEkle
-    Scenario:
-    And PDP sayfasindaki Sepete ekle butonuna tiklar
-    And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-    Then Sectigi urunun sepete eklendigini kontrol eder
+
+    Scenario: TC_1003 PDPSepeteEkle
+      And PDP sayfasindaki Sepete ekle butonuna tiklar
+      And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
+      Then Sectigi urunun sepete eklendigini kontrol eder
 
 

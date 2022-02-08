@@ -25,7 +25,7 @@ Feature:
     And Kullanici uye olun buttonuna tiklar
     Then Gecersiz numara girildiginde cikan hata mesaji ekranda gorulur
 
-  Scenario: TC_104 NegativeRegister
+  Scenario: TC_103 NegativeRegister
     And Kullanici uye ol buttonuna tiklar
     And Cep Telefonu Numaraniz bolumune kayitli olmayan bir numara girer
     And Email bolumune email girilir
@@ -36,7 +36,7 @@ Feature:
     And Kullanici sms bolumune gecersiz otp girilir
     Then Kullanici gecersiz SMS onay hata mesaji gorulur
 
-  Scenario: TC_105 NegativeRegister
+  Scenario: TC_104 NegativeRegister
     And Kullanici uye ol buttonuna tiklar
     And Email bolumune email girilir
     And Iletişim izni checkbox tiklanir
@@ -46,7 +46,7 @@ Feature:
     Then Lutfen telefon numarasi giriniz yazisi gorulur
 
 
-  Scenario: TC_106 NegativeRegister
+  Scenario: TC_105 NegativeRegister
     And Kullanici uye ol buttonuna tiklar
     And Cep Telefonu Numaraniz bolumune kayitli olmayan bir numara girer
     And Email bolumune email girilir
