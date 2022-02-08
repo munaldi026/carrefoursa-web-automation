@@ -14,7 +14,8 @@ public class PLPPage extends BasePage{
     public WebElement smartSortOptions;
     @FindBy(xpath = "(//button[@class='btn btn-default btn-block js-add-to-cart js-add-to-cart-product-item'])[1]")
     public WebElement sepeteEklePLP;
-
+    @FindBy(xpath = "//span[contains(@class,'black-color')][normalize-space()='Et, Balık, Kümes']")
+    public WebElement subMenuMeatandFishProducts;
 
 
     @FindBy(xpath = "//div[@class='hover-box']")
