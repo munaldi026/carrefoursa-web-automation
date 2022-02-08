@@ -18,12 +18,12 @@ import io.cucumber.java.en.Then;
         }
         @Then("Urun listelemede Indirimli checkbox ina tiklar")
         public void urun_listelemede_indirimli_checkbox_ina_tiklar() {
-            filterPage.discountCheckbox.click();
+
 
         }
         @Then("Sadece Indirmli urunlerin listelendigini kontrol eder")
         public void sadece_indirmli_urunlerin_listelendigini_kontrol_eder() {
-            filterPage.getDiscountProduct();
+
 
 
         }
