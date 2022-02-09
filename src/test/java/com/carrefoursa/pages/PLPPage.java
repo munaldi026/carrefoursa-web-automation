@@ -17,7 +17,7 @@ public class PLPPage extends BasePage{
     @FindBy(xpath = "//span[contains(@class,'black-color')][normalize-space()='Et, Balık, Kümes']")
     public WebElement subMenuMeatandFishProducts;
 
-    @FindBy(xpath = "//span[contains(@class,'black-color')][normalize-space()='Et, Balık, Kümes']")
+    @FindBy(xpath = "//span[contains(@class,'black-color')][normalize-space()='Kırmızı Etler']")
     public WebElement meatandFishSubProducts;
 
     @FindBy(xpath = "//div[@class='hover-box']")
