@@ -40,7 +40,6 @@ public class ReusableMethods {
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(element).perform();
-        actions.doubleClick();
     }
 
     //==========Return a list of string given a list of Web Element====////

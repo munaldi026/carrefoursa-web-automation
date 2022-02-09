@@ -49,14 +49,29 @@ public class OrderPage extends BasePage{
     @FindBy(className = "headline")
     public WebElement cancelOrderMsg;
 
-    @FindBy(xpath = "(//span[@class='info'])[1]")
-    public WebElement orderNumberInConfirmationPage;
-
-    @FindBy(xpath = "//a[@href='/my-account/order/132549041']")
-    public WebElement orderDetailButton;
-
     @FindBy(xpath = "//span[contains(text(),'Onay bekleyen siparişiniz bulunmamaktadır.')]")
     public WebElement consCancelledMsg;
+
+    @FindBy(xpath = "//button[@data-formurl='siparisEkOrder']")
+    public WebElement additionalOrderButton;
+
+    @FindBy(css = "button[class='btn btn-primary vuejs-qty-selector-plus'] span[class='glyphicon glyphicon-plus']")
+    public WebElement plusButtonInCart;
+
+    @FindBy(css = "#refOrderNoForEkSiparisText")
+    public WebElement verifyAdditionalOrderMsg;
+
+    @FindBy(css = "button[class='btn btn-primary js-add-to-cart js-add-to-cart-product-detail']")
+    public WebElement addToSubmitButtonPDP;
+
+    @FindBy(css = "#cboxLoadedContent")
+    public WebElement warningTextMsg;
+
+    @FindBy(css = ".addtoOrderWarningModalText")
+    public WebElement waitToAddingMsg;
+
+
+
 
 
 

@@ -22,6 +22,7 @@ public class OrderStepDefinitions {
     public void kullaniciHerhangiBirUrunuAratir() {
 
         productPage.searchProduct(Constants.searchOrderProductName);
+
     }
 
     @Given("PLP sayfasindaki Sepete ekle butonuna tiklar")
@@ -38,6 +39,7 @@ public class OrderStepDefinitions {
 
     @Given("Kullanici sepette Siparisi tamamla butonuna tiklar")
     public void kullanici_sepette_siparisi_tamamla_butonuna_tiklar() {
+
         orderPage.continueOrderButton.click();
 
     }
@@ -94,7 +96,7 @@ public class OrderStepDefinitions {
         String verifyOrderMsg = orderPage.cancelOrderMsg.getText();
         System.out.println("verifyOrderMsg = " + verifyOrderMsg);
         orderPage.cancelOrderMsg.isDisplayed();
-        homePage.homePageButton.click();
+        //homePage.homePageButton.click();
 
     }
 
