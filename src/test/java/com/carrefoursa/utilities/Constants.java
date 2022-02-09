@@ -14,8 +14,10 @@ public class Constants {
     public static String commentName="NTTDATA TR AUTOMATION TEAM";
     public static String searchProduct= "Yogurt";
     public static String searchProduct1="peynir";
-
-
+    public static String soldAloneProduct="CarrefourSA Hediye Kartı 250 TL";
+    public static String soldAloneProduct1="FOSSIL FES4610 Kadın Kol Saati";
+    public static String soldAloneProduct2="FOSSIL FFS5517 Erkek Kol Saati";
+    public static String soldAloneProduct3="NEOstill - Çakıltaşı Ayna A341";
     public static String searchOrderProductName="Carrefour Ayçiçek Yağı 5 lt";
     public static String creditCardNumber="4355084355084358";
     public static String creditCardHolderName="CarrefourSA";

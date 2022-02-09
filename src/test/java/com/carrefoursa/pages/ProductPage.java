@@ -5,11 +5,13 @@ import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class ProductPage extends BasePage{
     HomePage homePage=new HomePage();
     PDPPage pdpPage=new PDPPage();
+    OrderPage orderPage=new OrderPage();
 
     @FindBy(xpath = "//span[contains(@class,'black-color')][contains(text(),'Gıda, Şekerleme')]")
     public WebElement subMenuSweet;
@@ -62,6 +64,7 @@ public class ProductPage extends BasePage{
     @FindBy(xpath = "//div[@class='alert alert-info alert-dismissable']")
     public WebElement verifyComment;
 
+
     public void selectProduct(){
         ReusableMethods.scrollToElement(homePage.category);
         ReusableMethods.hover(homePage.category);
@@ -74,9 +77,11 @@ public class ProductPage extends BasePage{
         }
     }
     public void searchProduct(String productName){
+        ReusableMethods.waitForPageToLoad(5);
         homePage.searchField.click();
         homePage.searchField.sendKeys(Constants.searchOrderProductName);
         homePage.searchButton.click();
+
         try {
             homePage.informationPop_up.click();
         } catch (Exception e) {
