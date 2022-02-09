@@ -30,6 +30,12 @@ public class PLPStepDefinitions {
 
     }
 
+    @Given("Kullanici alt kategori urunleri gorur")
+    public void kullaniciAltKategoriUrunleriGorur() {
+        plpPage.meatandFishSubProducts.isDisplayed();
+
+    }
+
 
 
 }

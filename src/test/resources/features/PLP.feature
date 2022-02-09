@@ -7,3 +7,8 @@ Feature:
     And Kullanici kategori tiklar yapar
     And Kullanici herhangi bir kategoriye hover yapar
     Then Kullanici populer urunleri gorur
+
+  Scenario:  TC_1102 Tüm Kategoriler
+    And Kullanici kategori tiklar yapar
+    And Kullanici herhangi bir kategoriye hover yapar
+    And Kullanici alt kategori urunleri gorur
