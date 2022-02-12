@@ -47,5 +47,10 @@ public class PDPPage extends BasePage {
     @FindBy(css = "#link_30207311")
     public WebElement shoppingProductClose;
 
+    @FindBy(css = ".glyphicon.glyphicon-plus")
+    public WebElement plusIconInPDP;
+
+
+
 
 }

@@ -70,6 +70,12 @@ public class OrderPage extends BasePage{
     @FindBy(css = ".addtoOrderWarningModalText")
     public WebElement waitToAddingMsg;
 
+    @FindBy(css = ".col-sm-12.cart-summary-totals.minimum-cost.hidden-xs.hidden-sm")
+    public WebElement orderTotalAmountMsg;
+
+    @FindBy(css = "div[class='cartSubTotal'] span[class='count']")
+    public WebElement productPriceForOrderAmount;
+
 
 
 

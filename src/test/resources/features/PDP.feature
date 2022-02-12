@@ -2,7 +2,7 @@ Feature: US_010 PDP Testleri
 
     Background:
       Given Kullanici login olmus durumdadir
-      And Kullanici herhangi bir urunu aratir
+      And Kullanici belirli bir urunu aratir
       When Kullanici arattigi urunune tiklar
 
 
@@ -22,5 +22,9 @@ Feature: US_010 PDP Testleri
       And PDP sayfasindaki Sepete ekle butonuna tiklar
       And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
       Then Sectigi urunun sepete eklendigini kontrol eder
+
+    Scenario:  TC_1004 PDPSepette Maximum Satinalma
+      And PDP urun adedini maximum oranda artirir
+      When Maximum satin alma limitine ulastigini kontrol eder
 
 

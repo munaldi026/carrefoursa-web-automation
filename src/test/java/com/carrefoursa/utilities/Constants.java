@@ -15,9 +15,9 @@ public class Constants {
     public static String searchProduct= "Yogurt";
     public static String searchProduct1="peynir";
     public static String soldAloneProduct="CarrefourSA Hediye Kartı 250 TL";
-    public static String soldAloneProduct1="FOSSIL FES4610 Kadın Kol Saati";
-    public static String soldAloneProduct2="FOSSIL FFS5517 Erkek Kol Saati";
-    public static String soldAloneProduct3="NEOstill - Çakıltaşı Ayna A341";
+    public static String soldAloneProductSame1="FOSSIL FES4610 Kadın Kol Saati";
+    public static String soldAloneProductSame2="FOSSIL FFS5517 Erkek Kol Saati";
+    public static String soldAloneProductDifferent="NEOstill - Çakıltaşı Ayna A341";
     public static String searchOrderProductName="Carrefour Ayçiçek Yağı 5 lt";
     public static String creditCardNumber="4355084355084358";
     public static String creditCardHolderName="CarrefourSA";
@@ -26,6 +26,7 @@ public class Constants {
     public static String creditCardCVV="000";
     public static String customerNote="This message was written for Automation testing.";
     public static String invalidDiscountCode="otomasyon1";
+    public static String certainProductIdForPDP="30046006";
 
 
 

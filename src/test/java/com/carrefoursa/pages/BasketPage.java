@@ -53,6 +53,12 @@ public class BasketPage extends BasePage{
     @FindBy(css = ".name")
     public WebElement productNameInMiniCart;
 
+     @FindBy(css = ".alert-text")
+     public WebElement maximumProductAmountMsg;
+
+     @FindBy(css = "p[id='warning-text'] p")
+     public WebElement PDPmaximumProductMsg;
+
     public void verifyIncreaseQuantyInMiniCart() {
 
         String quantity = Driver.getDriver().findElement(By.id("quantity_0")).getAttribute("value");

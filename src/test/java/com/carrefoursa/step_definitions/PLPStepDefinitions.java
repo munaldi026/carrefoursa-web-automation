@@ -27,7 +27,6 @@ public class PLPStepDefinitions {
     @Given("Kullanici populer urunleri gorur")
     public void kullaniciPopulerUrunleriGorur() {
         searchPage.popularproducttitle.isDisplayed();
-
     }
 
     @Given("Kullanici alt kategori urunleri gorur")
