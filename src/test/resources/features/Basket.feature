@@ -7,12 +7,12 @@ Feature: US_003 Basket Tests
 
       Scenario: TC_301 Sepete urun Ekle
             When Kullanici Ana Sayfadaki Sepetim butonuna hover yapar
-            Then Sectigi urunun sepete eklendigini kontrol eder
+            Then Sectigi urunun mini sepete eklendigini kontrol eder
 
 
       Scenario:  TC_302 Sepette Urunu Sil-1
             And Kullanici Ana Sayfadaki Sepetim butonuna hover yapar
-            When Sepetteki Urunu Sil butonuna tiklar
+            When Mini sepetteki Urunu Sil butonuna tiklar
             When Kullanici Ana Sayfadaki Sepetim butonuna tiklar
             Then Sectigi urunun sepetten kaldirildigini kontrol eder
 

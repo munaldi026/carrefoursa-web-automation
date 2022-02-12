@@ -87,6 +87,15 @@ import org.junit.Assert;
             System.out.println("productInBasketText = " + productInBasketText);
             Assert.assertTrue(pdpPage.productInBasket.isDisplayed());
         }
+        @Then("Sectigi urunun mini sepete eklendigini kontrol eder")
+        public void sectigiUrununMiniSepeteEklendiginiKontrolEder() {
+            selectedProductText = Constants.searchOrderProductName;
+            System.out.println("selectedProductText = " + selectedProductText);
+            String productInBasketText = basketPage.productNameInMiniCart.getText();
+            System.out.println("productInBasketText = " + productInBasketText);
+            Assert.assertTrue(basketPage.productNameInMiniCart.isDisplayed());
+
+        }
 
         @And("PDP urun adedini maximum oranda artirir")
         public void pdpUrunAdediniMaximumOrandaArtirir() {
@@ -101,5 +110,6 @@ import org.junit.Assert;
             Assert.assertTrue(basketPage.PDPmaximumProductMsg.isDisplayed());
 
         }
+
 
     }

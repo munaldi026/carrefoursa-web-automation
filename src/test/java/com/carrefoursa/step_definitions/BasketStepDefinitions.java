@@ -31,12 +31,17 @@ public class BasketStepDefinitions {
         ReusableMethods.waitFor(2);
 
     }
+    @When("Mini sepetteki Urunu Sil butonuna tiklar")
+    public void miniSepettekiUrunuSilButonunaTiklar() {
+        basketPage.miniCartRemoveLink.click();
+        ReusableMethods.waitFor(3);
+
+    }
 
     @When("Sepetteki Urunu Sil butonuna tiklar")
     public void sepetteki_urunu_sil_butonuna_tiklar() {
         basketPage.removeProductButtonInBasket.click();
         ReusableMethods.waitFor(3);
-
     }
 
     @Then("Sectigi urunun sepetten kaldirildigini kontrol eder")
@@ -59,7 +64,6 @@ public class BasketStepDefinitions {
         basketPage.emptyCartComfirmButton.click();
 
     }
-
 
     @Given("Sepetteki Not eklemek istiyorum linkine tiklar")
     public void sepetteki_not_eklemek_istiyorum_linkine_tiklar() {
@@ -113,8 +117,6 @@ public class BasketStepDefinitions {
     public void sectigi_urunun_altindaki_sepete_ekle_butonuna_tiklar() {
 
     }
-
-
 
 
 

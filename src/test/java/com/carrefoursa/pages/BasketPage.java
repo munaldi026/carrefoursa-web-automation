@@ -32,7 +32,7 @@ public class BasketPage extends BasePage{
     @FindBy(css = ".pr-note-cont")
     public WebElement noMsgTextField;
 
-    @FindBy(xpath = "//a[@class='remove-cart-item-link']")
+    @FindBy(css = ".remove-cart-item-link")
     public WebElement miniCartRemoveLink;
 
     @FindBy(css = "div[class='no-result-cart'] h1 strong")
