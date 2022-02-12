@@ -43,7 +43,7 @@ import org.junit.Assert;
         }
         @Then("Kullanici sectigi urunun Alisveris listesine eklendigini kontrol eder")
         public void kullaniciSectigiUrununAlisverisListesineEklendiginiKontrolEder () {
-            selectedProductText = Constants.searchOrderProductName;
+            selectedProductText = Constants.certainProductIdForPDP;
             System.out.println("selectedProductText = " + selectedProductText);
             ReusableMethods.clickFunction(homePage.myAccount);
             ReusableMethods.clickFunction(accountPage.ShoppingListIcon);
@@ -80,11 +80,21 @@ import org.junit.Assert;
 
         @Then("Sectigi urunun sepete eklendigini kontrol eder")
         public void sectigi_urunun_sepete_eklendigini_kontrol_eder() {
+
+            selectedProductText = Constants.certainProductIdForPDP;
+            System.out.println("selectedProductText = " + selectedProductText);
+            String productInBasketText = pdpPage.productInBasket.getText();
+            System.out.println("productInBasketText = " + productInBasketText);
+            Assert.assertTrue(pdpPage.productInBasket.isDisplayed());
+        }
+        @Then("Sectigi urunun mini sepete eklendigini kontrol eder")
+        public void sectigiUrununMiniSepeteEklendiginiKontrolEder() {
             selectedProductText = Constants.searchOrderProductName;
             System.out.println("selectedProductText = " + selectedProductText);
-            String productNameInMiniCart = basketPage.productNameInMiniCart.getText();
-            System.out.println("productInBasketText = " + productNameInMiniCart);
+            String productInBasketText = basketPage.productNameInMiniCart.getText();
+            System.out.println("productInBasketText = " + productInBasketText);
             Assert.assertTrue(basketPage.productNameInMiniCart.isDisplayed());
+
         }
 
         @And("PDP urun adedini maximum oranda artirir")
@@ -100,5 +110,6 @@ import org.junit.Assert;
             Assert.assertTrue(basketPage.PDPmaximumProductMsg.isDisplayed());
 
         }
+
 
     }
