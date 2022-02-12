@@ -32,19 +32,21 @@ public class SupplierProductsPage extends BasePage{
     @FindBy(css = ".item-name")
     public WebElement productNameSecondSupplier;
 
+    @FindBy(className = "pr-name")
+    public static List<WebElement>cartList;
 
       public void verifyCartProductSameList(){
+
           List<String>expectedList=new ArrayList<>();
           expectedList.add("FOSSIL FES4610 Kadın Kol Saati");
           expectedList.add("FOSSIL FFS5517 Erkek Kol Saati");
-          List<WebElement>cartList= Driver.getDriver().findElements(By.className("details"));
+
           List<String>listOfProducts=new ArrayList<>();
-          System.out.println("cartList.size() = " + cartList.size());
+          //System.out.println("cartList.size() = " + cartList.size());
           for (WebElement productlist:cartList) {
-              System.out.println("productlist.getSize() = " + productlist.getSize());
               listOfProducts.add(productlist.getText());
           }
-
+          System.out.println("listOfProducts.size() = " + listOfProducts.size());
           System.out.println("expectedList = " + expectedList);
           System.out.println("listOfProducts = " + listOfProducts);
           Assert.assertEquals(expectedList,listOfProducts);

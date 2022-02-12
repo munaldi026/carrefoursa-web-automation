@@ -18,7 +18,6 @@
           When Kullanici Ana Sayfadaki Sepetim butonuna tiklar
           Then Her iki urununde sepete eklendigini konrtol eder
 
-
         Scenario: TC_2002 Different Supplier-Go On
 
           Given  Tek basina satilan ve baska bir tedarikciye ait yeni bir urun adi yazar
