@@ -26,7 +26,7 @@ public class Constants {
     public static String creditCardCVV="000";
     public static String customerNote="This message was written for Automation testing.";
     public static String invalidDiscountCode="otomasyon1";
-    public static String certainProductIdForPDP="30046006";
+    public static String certainProductIdForPDP="Komili Ege Sızma Zeytin Yağ 1 lt";
 
 
 

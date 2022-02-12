@@ -43,7 +43,7 @@ import org.junit.Assert;
         }
         @Then("Kullanici sectigi urunun Alisveris listesine eklendigini kontrol eder")
         public void kullaniciSectigiUrununAlisverisListesineEklendiginiKontrolEder () {
-            selectedProductText = Constants.searchOrderProductName;
+            selectedProductText = Constants.certainProductIdForPDP;
             System.out.println("selectedProductText = " + selectedProductText);
             ReusableMethods.clickFunction(homePage.myAccount);
             ReusableMethods.clickFunction(accountPage.ShoppingListIcon);
@@ -80,11 +80,12 @@ import org.junit.Assert;
 
         @Then("Sectigi urunun sepete eklendigini kontrol eder")
         public void sectigi_urunun_sepete_eklendigini_kontrol_eder() {
-            selectedProductText = Constants.searchOrderProductName;
+
+            selectedProductText = Constants.certainProductIdForPDP;
             System.out.println("selectedProductText = " + selectedProductText);
-            String productNameInMiniCart = basketPage.productNameInMiniCart.getText();
-            System.out.println("productInBasketText = " + productNameInMiniCart);
-            Assert.assertTrue(basketPage.productNameInMiniCart.isDisplayed());
+            String productInBasketText = pdpPage.productInBasket.getText();
+            System.out.println("productInBasketText = " + productInBasketText);
+            Assert.assertTrue(pdpPage.productInBasket.isDisplayed());
         }
 
         @And("PDP urun adedini maximum oranda artirir")

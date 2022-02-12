@@ -3,7 +3,6 @@ Feature: US_009 Order Tests
       Background:
         Given Kullanici login olmus durumdadir
 
-      @order
       Scenario: TC_901 Create Order
 
         Given Kullanici herhangi bir urunu aratir
@@ -19,7 +18,7 @@ Feature: US_009 Order Tests
         When Kullanici odemede Siparisi tamamla butonuna tiklar
         Then Kullanici siparisin tamamlandigini kontrol eder
 
-      @order1
+
       Scenario: TC_902 Delete Order
 
         Given Kullanici Hesabim butonuna tiklar
@@ -28,7 +27,7 @@ Feature: US_009 Order Tests
         When Siparis iptali ile ilgili cikan Pop-up uzerinde Evet butonuna tiklar
         Then Kullanici siparisin iptal edildigini kontrol eder
 
-      @order2
+
       Scenario: TC_903 Delete Order-1
 
         Given Kullanici herhangi bir urunu aratir

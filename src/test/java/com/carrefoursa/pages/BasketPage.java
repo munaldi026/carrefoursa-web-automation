@@ -50,7 +50,7 @@ public class BasketPage extends BasePage{
     @FindBy(css = "#js-qty-selector-minus_0")
     public WebElement miniCartMinusIcon;
 
-    @FindBy(css = ".name")
+    @FindBy(xpath = "//a[@class='name']")
     public WebElement productNameInMiniCart;
 
      @FindBy(css = ".alert-text")
