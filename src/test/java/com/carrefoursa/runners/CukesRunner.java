@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports"},
         features = "src/test/resources/features",
         glue = "com/carrefoursa/step_definitions",
-        dryRun = false,
-        tags = "@add"
+        dryRun = true,
+        tags = "@sup"
 )
 public class CukesRunner {
 }

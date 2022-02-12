@@ -6,6 +6,7 @@ import com.carrefoursa.pages.SortingPage;
 import com.carrefoursa.utilities.ConfigReader;
 import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.ReusableMethods;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -43,6 +44,7 @@ public class SortingStepDefinitions {
     }
     @Then("Urunlerin yuksek fiyattan dusuk fiyata dogru siralandigini kontrol eder")
     public void urunlerin_yuksek_fiyattan_dusuk_fiyata_dogru_siralandigini_kontrol_eder() {
+
         try {
             sortingPage.compareDescendingPrice();
         } catch (IOException e) {
@@ -63,4 +65,6 @@ public class SortingStepDefinitions {
             e.printStackTrace();
         }
     }
+
+
 }

@@ -17,3 +17,4 @@ public class FilterPage extends BasePage{
     @FindBy(xpath = "(//div[@class='searchFilters'])[1]")
     public WebElement intockCheckbox;
 }
+

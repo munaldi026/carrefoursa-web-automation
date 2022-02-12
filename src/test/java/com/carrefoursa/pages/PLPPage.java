@@ -21,7 +21,10 @@ public class PLPPage extends BasePage{
     public WebElement meatandFishSubProducts;
 
     @FindBy(xpath = "//div[@class='hover-box']")
-    public WebElement products;
+    public static List<WebElement> products;
+
+    @FindBy(css = "#addToCartButton")
+    public static List<WebElement> buttons;
 
     public String getValidationMessage() {
         WebElement username = Driver.getDriver().findElement(By.cssSelector(".added-to-cart-info"));
@@ -31,13 +34,12 @@ public class PLPPage extends BasePage{
     }
 
     public void addToFirstProduct(){
-        List<WebElement>products=Driver.getDriver().findElements(By.xpath("//div[@class='hover-box']"));
+        //List<WebElement>products=Driver.getDriver().findElements(By.xpath("//div[@class='hover-box']"));
         products.get(0).click();
-
     }
     public void addToBasketButton(){
-        List<WebElement>products=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
-        products.get(0).click();
+        //List<WebElement>products=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
+        buttons.get(0).click();
     }
 
 }

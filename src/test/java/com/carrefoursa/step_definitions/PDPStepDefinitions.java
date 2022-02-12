@@ -16,14 +16,20 @@ import org.junit.Assert;
         PDPPage pdpPage = new PDPPage();
         HomePage homePage = new HomePage();
         AccountPage accountPage = new AccountPage();
-        ProductPage productPage=new ProductPage();
+        OrderPage orderPage=new OrderPage();
         PLPPage plpPage=new PLPPage();
         BasketPage basketPage=new BasketPage();
+        ProductPage productPage=new ProductPage();
         String selectedProductText = null;
 
         @Given("Kullanici login olmus durumdadir")
         public void kullaniciLoginOlmusDurumdadir() {
             loginPage.successLogin();
+        }
+
+        @And("Kullanici belirli bir urunu aratir")
+        public void kullaniciBelirliBirUrunuAratir() {
+            productPage.searchCertainProduct(Constants.certainProductIdForPDP);
         }
 
         @When("Kullanici arattigi urunune tiklar")
@@ -72,7 +78,6 @@ import org.junit.Assert;
             homePage.myBasket.click();
         }
 
-
         @Then("Sectigi urunun sepete eklendigini kontrol eder")
         public void sectigi_urunun_sepete_eklendigini_kontrol_eder() {
             selectedProductText = Constants.searchOrderProductName;
@@ -82,5 +87,18 @@ import org.junit.Assert;
             Assert.assertTrue(basketPage.productNameInMiniCart.isDisplayed());
         }
 
+        @And("PDP urun adedini maximum oranda artirir")
+        public void pdpUrunAdediniMaximumOrandaArtirir() {
+
+            productPage.maxSearchCertainProduct();
+
+        }
+        @When("Maximum satin alma limitine ulastigini kontrol eder")
+        public void maximumSatinAlmaLimitineUlastiginiKontrolEder() {
+            String pdPmaximumProductMsgText = basketPage.PDPmaximumProductMsg.getText();
+            System.out.println("pdPmaximumProductMsgText = " + pdPmaximumProductMsgText);
+            Assert.assertTrue(basketPage.PDPmaximumProductMsg.isDisplayed());
+
+        }
 
     }

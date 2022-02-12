@@ -21,8 +21,7 @@ public class OrderStepDefinitions {
     @Given("Kullanici herhangi bir urunu aratir")
     public void kullaniciHerhangiBirUrunuAratir() {
 
-        productPage.searchProduct(Constants.searchOrderProductName);
-
+        productPage.searchProduct(Constants.certainProductIdForPDP);
     }
 
     @Given("PLP sayfasindaki Sepete ekle butonuna tiklar")
