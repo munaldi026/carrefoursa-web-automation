@@ -5,7 +5,7 @@ Feature:
 
   Scenario: TC_1101 Popüler Ürünler
     And Kullanici kategori tiklar yapar
-    And Kullanici herhangi bir kategoriye hover yapar
+    And Kullanici herhangi bir kategoriye tiklar
     Then Kullanici populer urunleri gorur
 
   Scenario:  TC_1102 Tüm Kategoriler
@@ -14,7 +14,7 @@ Feature:
 
   Scenario: TC_1103  Sub Kategoriler
     And Kullanici kategori tiklar yapar
-    And Kullanici herhangi bir kategoriye hover yapar
+    And Kullanici herhangi bir kategoriye tiklar
     Then Kullanici alt kategori urunleri gorur
 
   @ignore
@@ -42,3 +42,8 @@ Feature:
     And Kullanici bir markaya tiklar
     Then Kullanici tiklanan markaya ait urunleri listelendigi gorur
 
+  Scenario:  TC_1108 PLP Fiyat
+    And Kullanici kategori tiklar yapar
+    And Kullanici herhangi bir kategoriye tiklar
+    And Kullanici fiyat araligini secer
+    And Kullanici fiyat araligini ekranda gorur
