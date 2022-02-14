@@ -16,3 +16,7 @@ Feature:
     And Kullanici kategori tiklar yapar
     And Kullanici herhangi bir kategoriye hover yapar
     Then Kullanici alt kategori urunleri gorur
+
+  @ignore
+    #Test case bölgesel stok olmadığından uygulamıyor
+  Scenario:  TC_1104 Bölgesel Stok Kontrolü
