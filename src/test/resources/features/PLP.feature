@@ -9,6 +9,10 @@ Feature:
     Then Kullanici populer urunleri gorur
 
   Scenario:  TC_1102 Tüm Kategoriler
+
+
+
+  Scenario: TC_1103  Sub Kategoriler
     And Kullanici kategori tiklar yapar
     And Kullanici herhangi bir kategoriye hover yapar
-    And Kullanici alt kategori urunleri gorur
+    Then Kullanici alt kategori urunleri gorur

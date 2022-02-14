@@ -20,6 +20,27 @@ public class PLPPage extends BasePage{
     @FindBy(xpath = "//span[contains(@class,'black-color')][normalize-space()='Kırmızı Etler']")
     public WebElement meatandFishSubProducts;
 
+    @FindBy(xpath = "(//span[normalize-space()='Kampanyalar'])[1]")
+    public WebElement campaigns;
+
+    @FindBy(xpath = "(//h3[@class='campaign-title'])[1]")
+    public WebElement campaignstitle;
+
+    @FindBy(xpath = "//a[@href='#product-campaigns']")
+    public WebElement discountedproducts;
+
+    @FindBy(xpath = "(//*[contains(text(),'Api̇koğlu')])")
+    public WebElement apikogluproducts;
+
+    @FindBy(xpath = "(//*[contains(text(),'APİKOĞLU')])[4]")
+    public WebElement apikogluproduct;
+
+    @FindBy(xpath = "(//*[contains(text(),'Balık ve Deniz Mahsülleri')])[2]")
+    public WebElement category;
+
+    @FindBy(xpath = "(//*[contains(text(),'0 TL - 49,99 TL')])")
+    public WebElement price;
+
     @FindBy(xpath = "//div[@class='hover-box']")
     public static List<WebElement> products;
 
