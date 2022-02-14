@@ -38,6 +38,11 @@ public class PLPStepDefinitions {
         ReusableMethods.waitFor(4);
 
     }
+    @Given("Kullanici kampanyalar kategorisine tiklar")
+    public void kullaniciKampanyalarKategorisineTiklar() {
+        plpPage.campaigns.click();
+        ReusableMethods.waitFor(5);
+    }
 
     @Given("Kullanici alt kategori urunleri gorur")
     public void kullaniciAltKategoriUrunleriGorur() {
@@ -45,13 +50,9 @@ public class PLPStepDefinitions {
 
     }
 
-    @Given("Kullanici kampanyalara hover yapar")
-    public void kullaniciKampanyalaraHoverYapar() {
-        plpPage.campaigns.click();
-        ReusableMethods.waitFor(2);
-    }
 
-    @Given("Kullanici kampanyalara urunleri gorur")
+
+    @Given("Kullanici kampanyalari ekranda gorur")
     public void kullaniciKampanyalaraUrunleriGorur() {
         plpPage.campaignstitle.isDisplayed();
         ReusableMethods.waitFor(2);

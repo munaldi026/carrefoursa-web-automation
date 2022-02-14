@@ -20,3 +20,10 @@ Feature:
   @ignore
     #Test case bölgesel stok olmadığından uygulamıyor
   Scenario:  TC_1104 Bölgesel Stok Kontrolü
+
+  @ignore
+    #Pre Prod ortamında kampanyalar sayfası açılmamaktadır
+  Scenario:  TC_1105 Kampanyalar
+    And Kullanici kategori tiklar yapar
+    And Kullanici kampanyalar kategorisine tiklar
+    And Kullanici kampanyalari ekranda gorur
