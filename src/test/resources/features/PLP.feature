@@ -35,3 +35,10 @@ Feature:
     And Kullanici kampanyalar kategorisine tiklar
     And Kullanici indirimli urunlere tiklar
     Then Kullanici kampanyalari ekranda gorur
+
+  Scenario:  TC_1107 PLP Marka
+    And Kullanici kategori tiklar yapar
+    And Kullanici herhangi bir kategoriye tiklar
+    And Kullanici bir markaya tiklar
+    Then Kullanici tiklanan markaya ait urunleri listelendigi gorur
+

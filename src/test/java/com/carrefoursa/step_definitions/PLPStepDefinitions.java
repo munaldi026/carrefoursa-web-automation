@@ -18,9 +18,10 @@ public class PLPStepDefinitions {
         homePage.category.click();
     }
 
-    @Given("Kullanici herhangi bir kategoriye hover yapar")
+    @Given("Kullanici herhangi bir kategoriye tiklar")
     public void kullaniciHerhangiKategoriTiklar() {
-        plpPage.subMenuMeatandFishProducts.click();
+        ReusableMethods.hover(pdpPage.subMenuCleaningProducts);
+        pdpPage.subMenuCleaningProducts.click();
         ReusableMethods.waitFor(5);
     }
 
