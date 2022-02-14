@@ -27,3 +27,11 @@ Feature:
     And Kullanici kategori tiklar yapar
     And Kullanici kampanyalar kategorisine tiklar
     And Kullanici kampanyalari ekranda gorur
+
+  @ignore
+    #Pre Prod ortamında kampanyalar sayfası açılmamaktadır
+  Scenario:  TC_1106 Kampanyalar-1
+    And Kullanici kategori tiklar yapar
+    And Kullanici kampanyalar kategorisine tiklar
+    And Kullanici indirimli urunlere tiklar
+    Then Kullanici kampanyalari ekranda gorur
