@@ -1,14 +1,14 @@
-Feature:
+Feature: US_011_PLP_Tests
 
   Background:
     Given Kullanici login olmus durumdadir
 
-  Scenario: TC_1101 Popüler Ürünler
+  Scenario: TC_1101 Populer Urunler
     And Kullanici kategori tiklar yapar
     And Kullanici herhangi bir kategoriye tiklar
     Then Kullanici populer urunleri gorur
 
-  Scenario:  TC_1102 Tüm Kategoriler
+  Scenario:  TC_1102 Tum Kategoriler
 
 
 
@@ -19,7 +19,7 @@ Feature:
 
   @ignore
     #Test case bölgesel stok olmadığından uygulamıyor
-  Scenario:  TC_1104 Bölgesel Stok Kontrolü
+  Scenario:  TC_1104 Bolgesel Stok Kontrolu
 
   @ignore
     #Pre Prod ortamında kampanyalar sayfası açılmamaktadır

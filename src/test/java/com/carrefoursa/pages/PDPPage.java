@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PDPPage extends BasePage {
 
     HomePage homePage = new HomePage();
@@ -19,6 +22,39 @@ public class PDPPage extends BasePage {
 
     @FindBy(xpath = "//span[contains(@class,'black-color')][normalize-space()='Temizlik Ürünleri']")
     public WebElement subMenuCleaningProducts;
+
+    @FindBy(xpath = "//span[contains(@class,'black-color')][contains(text(),'Katalog Ürünleri, Fırsatlar')]")
+    public WebElement subMenuCatalogProducts1;
+
+    @FindBy(xpath = "//span[@class='black-color font-bold'][normalize-space()='Katalog Ürünleri']")
+    public WebElement subMenuCatalogProducts;
+
+    @FindBy(xpath = "//a[normalize-space()='true']")
+    public WebElement promotionFlagTrue;
+
+    @FindBy(xpath = "//a[normalize-space()='false']")
+    public WebElement promotionFlagFalse;
+
+    @FindBy(xpath = "//span[@class='facet-val']")
+    public WebElement verifyFalseFlag;
+
+
+    @FindBy(className = "camp-badge")
+    public static List<WebElement>flags;
+
+    public List<String> getFlagList(){
+        List<String>flagList=new ArrayList<>();
+
+        for (WebElement element:flags
+             ) {
+            flagList.add(element.getText());
+        }
+        System.out.println("flagList.size() = " + flagList.size());
+        System.out.println("flagList = " + flagList);
+
+        return flagList;
+    }
+
 
     @FindBy(xpath = "(//div[@class='hover-box'])[1]")
     public WebElement selectedProduct;

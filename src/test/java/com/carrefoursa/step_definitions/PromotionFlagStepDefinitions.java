@@ -37,25 +37,25 @@ public class PromotionFlagStepDefinitions {
     public void promotion_flag_linki_altindaki_true_linkine_tiklar() {
         ReusableMethods.waitFor(3);
 
-        actions.moveToElement(productPage.promotionFlagTrue);
-        productPage.promotionFlagTrue.click();
+        actions.moveToElement(pdpPage.promotionFlagTrue);
+        pdpPage.promotionFlagTrue.click();
     }
     @Given("Promotion flag tasiyan urunlerin listelendigini kontrol eder")
     public void promotion_flag_tasiyan_urunlerin_listelendigini_kontrol_eder() {
-        productPage.getFlagList();
+        pdpPage.getFlagList();
     }
     @Given("PromotionFlag linki altindaki false linkine tiklar")
     public void promotion_flag_linki_altindaki_false_linkine_tiklar() {
 
-        actions.moveToElement(productPage.promotionFlagFalse);
-        productPage.promotionFlagFalse.click();
+        actions.moveToElement(pdpPage.promotionFlagFalse);
+        pdpPage.promotionFlagFalse.click();
     }
     @Given("Promotion flag tasiyan urunlerin listelenmedigini kontrol eder")
     public void promotion_flag_tasiyan_urunlerin_listelenmedigini_kontrol_eder() {
 
-        String falseText=productPage.verifyFalseFlag.getText();
+        String falseText=pdpPage.verifyFalseFlag.getText();
         System.out.println("falseText = " + falseText);
-        productPage.verifyFalseFlag.isDisplayed();
+        pdpPage.verifyFalseFlag.isDisplayed();
 
     }
 }

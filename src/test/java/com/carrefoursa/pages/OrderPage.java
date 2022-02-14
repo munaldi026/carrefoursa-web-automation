@@ -13,7 +13,7 @@ public class OrderPage extends BasePage{
     @FindBy(id = "cboxContent")
     public WebElement calcelOrderPop_up;
 
-    @FindBy(css = "#cart-btn")
+    @FindBy(css = ".continue-btn-text")
     public WebElement continueOrderButton;
 
     @FindBy(css = ".js-pickupinstore-cargo-choice")
@@ -25,13 +25,13 @@ public class OrderPage extends BasePage{
     @FindBy(xpath = "//span[normalize-space()='Fatura adresi olarak seçtiniz']")
     public WebElement selectBillingAdresButton;
 
-    @FindBy(id = "deliveryAddressSubmit")
+    @FindBy(css = ".continue-btn-text")
     public WebElement deliveryAddressSubmitButton;
 
     @FindBy(xpath = "//tbody/tr[3]/td[3]/input[1]")
     public WebElement deliveryTime;
 
-    @FindBy(css = "#deliverySlotSubmit")
+    @FindBy(css = ".continue-btn-text")
     public WebElement deliverySlotSubmitButton;
 
     @FindBy(css= "#cc_at_delivery")
@@ -40,7 +40,7 @@ public class OrderPage extends BasePage{
     @FindBy(css = "#shopping_loan")
     public WebElement payByShoppingLoan;
 
-    @FindBy(id = "btnCcAtDelivery")
+    @FindBy(css = ".continue-btn-text")
     public WebElement onlinePaySubmitButton;
 
     @FindBy(css = "#termsCheck")

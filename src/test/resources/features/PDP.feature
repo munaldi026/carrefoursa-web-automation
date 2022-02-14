@@ -1,4 +1,4 @@
-Feature: US_010 PDP Testleri
+Feature: US_010_PDP_Tests
 
     Background:
       Given Kullanici login olmus durumdadir
