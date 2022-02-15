@@ -129,6 +129,8 @@ public class RegisterStepDefinitions {
         loginPage.errorMsgText.isDisplayed();
     }
 
+
+
     @Given("Sms kodunu eksik girdiniz yazisi gorulur")
     public void sms_kodunu_eksik_girdiniz_yazisi_gorulur(){
         loginPage.HataliOtpMesaji.isDisplayed();

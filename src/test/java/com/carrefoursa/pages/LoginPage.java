@@ -45,6 +45,20 @@ public class LoginPage extends BasePage {
     @FindBy(className = "d-block")
     public WebElement welcome;
 
+    @FindBy(css = ".forgotten-password[id='validEmail']")
+    public WebElement confirmationmessage;
+
+    @FindBy(xpath = "//a[@class='js-password-forgotten']")
+    public WebElement notLoginButton;
+
+    @FindBy(css = ".form-control[id='forgottenPwd.email']")
+    public WebElement notLoginEmail;
+
+    @FindBy(id = "forgottenPassword")
+    public WebElement verificationLink;
+
+
+
     public void successLogin() {
         loginButton.click();
         phoneNumberTextBox.sendKeys(ConfigReader.getProperty("phone_number"));

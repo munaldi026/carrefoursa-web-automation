@@ -68,9 +68,34 @@ public class LoginStepDefinitions {
         loginPage.HataliOtpMesaji.isDisplayed();
     }
 
+    @Given("SMS Onay Kodu bolumune eksik bir Otp kodu girer")
+    public void eksikOtp() {
+        loginPage.otpCodeTextBox.sendKeys(ConfigReader.getProperty("missing_otp_code"));
+    }
+
     @Given("Kullanıcı cikis yap buttonuna tiklar")
     public void cikisYap_tiklanir(){
         loginPage.logoutIcon.click();
+    }
+
+    @Given("Kullanıcı giris yapamiyorum buttonuna tiklar")
+    public void girisYapamiyorum(){
+        loginPage.notLoginButton.click();
+    }
+
+    @Given("Dogrulama kodu icin bir email adresi girilir")
+    public void dogrulamEmail(){
+        loginPage.notLoginEmail.sendKeys(ConfigReader.getProperty("unregistered_email"));
+    }
+
+    @Given("Dogrulama baglantisi gonder buttonu tiklanir")
+    public void dogrulamButtonuTiklanir(){
+        loginPage.verificationLink.click();
+    }
+
+    @Given("Ekranda dogrulam mesaji gonderildi mesajı gorulur")
+    public void dogrulamaMesajiGorulur(){
+        loginPage.confirmationmessage.isDisplayed();
     }
 
     @Given("Kullanıcı cikis yaptigini gorur")
