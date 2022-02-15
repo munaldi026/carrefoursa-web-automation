@@ -1,4 +1,5 @@
-Feature:
+@miniSmoke
+Feature:US_019_PLP_Sold_Alone_Product_Tests
 
   Background:
     Given Kullanici login olmus durumdadir

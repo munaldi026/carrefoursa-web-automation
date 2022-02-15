@@ -1,7 +1,7 @@
 
 Feature: US_006_Filter_Tests
 
-  Background:
+      Background:
 
       Given Kullanici Ana Sayfadaki Arama kutusuna tiklar
       When Aramak istedigi urunun adini yazar
@@ -24,7 +24,7 @@ Feature: US_006_Filter_Tests
         And Urun listelemede Marka checkbox ina tiklar
         Then Sadece secili markali urunlerin listelendigini kontrol eder
 
-
+      @miniSmoke
       Scenario: TC_604 Filter-4 Remove Filter
 
       Given Urun listelemede Stokta Var ve indirimli secimlerinin disinda herhangi bir secim yapar

@@ -1,5 +1,5 @@
-@add
-Feature: US_021 Additional Order Test
+
+Feature: US_021_Additional_Order_Tests
 
       Background:
         Given Kullanici login olmus durumdadir

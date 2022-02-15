@@ -1,5 +1,5 @@
-     @amount
-Feature: US_022 Cart Order Amount Tests
+
+Feature: US_022_Cart_Order_Amount_Tests
 
       Background:
 

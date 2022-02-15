@@ -1,4 +1,5 @@
-Feature: US_003 Basket Tests
+
+Feature: US_003_Basket_Tests
 
       Background:
             Given Kullanici login olmus durumdadir

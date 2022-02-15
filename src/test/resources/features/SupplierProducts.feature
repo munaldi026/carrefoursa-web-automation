@@ -1,5 +1,5 @@
-
-      Feature: US_020 Supplier Products Tests
+@miniSmoke
+Feature: US_020_Supplier_Products_Tests
 
       Background:
         Given Kullanici login olmus durumdadir
