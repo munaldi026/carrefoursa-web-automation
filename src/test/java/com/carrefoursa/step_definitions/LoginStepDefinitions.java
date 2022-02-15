@@ -98,6 +98,18 @@ public class LoginStepDefinitions {
         loginPage.confirmationmessage.isDisplayed();
     }
 
+    @Given("Giris yap sayfasi kapatılır")
+    public void girisYapKapatalir(){
+        loginPage.loginClose.click();
+    }
+
+    @Given("Numaranin bloke oldugu gorulur")
+    public void blokeMesajiGorulur(){
+        loginPage.errorMsgText.isDisplayed();
+    }
+
+
+
     @Given("Kullanıcı cikis yaptigini gorur")
     public void cikis_yaptigini_gorur(){
         String logoutMessage = loginPage.verifyLogoutMsg.getText();

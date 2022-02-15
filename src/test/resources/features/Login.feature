@@ -56,6 +56,27 @@ Feature: US_002_Login_Tests
         And Kullanıcı cikis yap buttonuna tiklar
         Then Kullanıcı cikis yaptigini gorur
 
+      Scenario: TC_209 Numaranin Bloke Olmasi
+        And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
+        And Giris Yapin butonuna tiklar
+        And SMS Onay Kodu bolumune gecersiz bir Otp kodu girer
+        When Tamam butonuna tiklar
+        And Giris yap sayfasi kapatılır
+        And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
+        And Giris Yapin butonuna tiklar
+        And SMS Onay Kodu bolumune gecersiz bir Otp kodu girer
+        When Tamam butonuna tiklar
+        And Giris yap sayfasi kapatılır
+        And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
+        And Giris Yapin butonuna tiklar
+        And SMS Onay Kodu bolumune gecersiz bir Otp kodu girer
+        When Tamam butonuna tiklar
+        And Giris yap sayfasi kapatılır
+        And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
+        And Giris Yapin butonuna tiklar
+       Then Numaranin bloke oldugu gorulur
+
+
 
 
 

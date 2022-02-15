@@ -57,6 +57,9 @@ public class LoginPage extends BasePage {
     @FindBy(id = "forgottenPassword")
     public WebElement verificationLink;
 
+    @FindBy(className = "close-icon")
+    public WebElement loginClose;
+
 
 
     public void successLogin() {
