@@ -129,6 +129,15 @@ public class RegisterStepDefinitions {
         loginPage.errorMsgText.isDisplayed();
     }
 
+    @Given("Hatali bir email adresi girilir")
+    public void hataliEmail(){
+        registerPage.registerEmail.sendKeys(ConfigReader.getProperty("invalid_email"));
+    }
+
+    @Given("Gecerli bir email girilmeli yazisi gorulur")
+    public void hataliEmailYazisi(){
+        loginPage.errorMsgText.isDisplayed();
+    }
 
 
     @Given("Sms kodunu eksik girdiniz yazisi gorulur")

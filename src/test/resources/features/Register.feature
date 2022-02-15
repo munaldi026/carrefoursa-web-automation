@@ -57,3 +57,13 @@ Feature: US_001_Register_Tests
         And Kullanici uye olun buttonuna tiklar
         And SMS Onay Kodu bolumune otp kodu bos birakilir
         Then Sms kodunu eksik girdiniz yazisi gorulur
+
+      Scenario: TC_106 Hatali Email Register
+        And Kullanici uye ol buttonuna tiklar
+        And Cep Telefonu Numaraniz bolumune kayitli olmayan bir numara girer
+        And Hatali bir email adresi girilir
+        And Iletişim izni checkbox tiklanir
+        And Uyelik beyani checkbox tiklanir
+        And Aydintlatma beyani checkbox tiklanır
+        And Kullanici uye olun buttonuna tiklar
+        Then Gecerli bir email girilmeli yazisi gorulur
