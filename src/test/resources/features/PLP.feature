@@ -48,9 +48,3 @@ Feature: US_011_PLP_Tests
     And Kullanici herhangi bir kategoriye tiklar
     And Kullanici fiyat araligini secer
     And Kullanici fiyat araligini ekranda gorur
-
-  Scenario: TC_1109 PLP Filitreleri Temizle
-    And Kullanici kategori tiklar yapar
-    And Kullanici herhangi bir kategoriye tiklar
-    And Kullanici bir markaya tiklar
-    Then Kullanici tiklanan markaya ait urunleri listelendigi gorur
