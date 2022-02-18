@@ -2,7 +2,7 @@
 Feature: US_002_Login_Tests
 
       Background:
-       Given Anasayfadaki Giris Yap butonuna tiklar.
+      Given Anasayfadaki Giris Yap butonuna tiklar.
 
       Scenario: TC_201 Positive Login
         And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
@@ -74,7 +74,7 @@ Feature: US_002_Login_Tests
         And Giris yap sayfasi kapatılır
         And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
         And Giris Yapin butonuna tiklar
-       Then Numaranin bloke oldugu gorulur
+        Then Numaranin bloke oldugu gorulur
 
 
 

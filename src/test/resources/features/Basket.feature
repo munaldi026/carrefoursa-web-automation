@@ -1,36 +1,23 @@
-
+@basket
 Feature: US_003_Basket_Tests
 
       Background:
             Given Kullanici login olmus durumdadir
             And Kullanici herhangi bir urunu aratir
-            Then PLP sayfasindaki Sepete ekle butonuna tiklar
+            When PLP sayfasindaki Sepete ekle butonuna tiklar
+            Then Kullanici Ana Sayfadaki Sepetim butonuna tiklar
 
-      Scenario: TC_301 Sepete urun Ekle
-            When Kullanici Ana Sayfadaki Sepetim butonuna hover yapar
-            Then Sectigi urunun mini sepete eklendigini kontrol eder
+      Scenario: TC_301 Sepete Urun Ekle
 
+            Then Sepete eklemis oldugu urunun dogru urun oldugunu kontrol eder
 
-      Scenario:  TC_302 Sepette Urunu Sil-1
-            And Kullanici Ana Sayfadaki Sepetim butonuna hover yapar
-            When Mini sepetteki Urunu Sil butonuna tiklar
-            When Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-            Then Sectigi urunun sepetten kaldirildigini kontrol eder
+      Scenario:  TC_302 Sepete Urunu Sil
 
-      Scenario:  TC_303 Sepete Urunu Sil-2
-            And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
             When Sepetteki Urunu Sil butonuna tiklar
             Then Sectigi urunun sepetten kaldirildigini kontrol eder
 
-      Scenario:  TC_304 Sepeti Bosalt
-            And Kullanici Ana Sayfadaki Sepetim butonuna hover yapar
-            When Sepetteki Sepeti Bosalt butonuna tiklar
-            Then Cikan Popup uzerindeki Evet butonuna tiklar
-            When Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-            Then Sectigi urunun sepetten kaldirildigini kontrol eder
+      Scenario:  TC_303 Sepete Not Ekle ve Sil
 
-      Scenario:  TC_305 Sepete Not Ekle ve Sil
-            And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
             And Sepetteki Not eklemek istiyorum linkine tiklar
             And Cikan Notunuz baslikli Pop-up uzerindeki ilgili kisma istedigi notu yazar
             And Kaydet butonuna tiklar
@@ -40,3 +27,41 @@ Feature: US_003_Basket_Tests
             And Sepetteki Not eklemek istiyorum linkine tiklar
             Then Notun silinmis oldugunu kontrol eder
 
+      Scenario:  TC_304 Sepete Temassiz Teslimat
+
+            Given Siparis ozetinde Temassiz Teslimat checkbox ini tiklar
+            And Kullanici sepette Siparisi tamamla butonuna tiklar
+            And Gelen sayfada,teslimat sekli olarak Size Getirelim seceneginin secili oldugunu gorur
+            And Teslimat adresi secer
+            And Adres secimi sayfasinda Devam Et butonuna tiklar
+            And Gelen sayfada teslimat zamanini secer
+            And Teslimat zamani sayfasinda Devam Et butonuna tiklar
+            And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
+            When Kullanici odemede Siparisi tamamla butonuna tiklar
+            Then Temassiz teslimat oldugunu kontrol eder
+
+      Scenario:  TC_305 Sepette Poset Secimi
+
+            Given Siparis ozetinde Poset ile teslim edilmesini istiyorum secimini tiklar
+            And Kullanici sepette Siparisi tamamla butonuna tiklar
+            And Gelen sayfada,teslimat sekli olarak Size Getirelim seceneginin secili oldugunu gorur
+            And Teslimat adresi secer
+            And Adres secimi sayfasinda Devam Et butonuna tiklar
+            And Gelen sayfada teslimat zamanini secer
+            And Teslimat zamani sayfasinda Devam Et butonuna tiklar
+            And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
+            When Kullanici odemede Siparisi tamamla butonuna tiklar
+            Then Siparis ozetinde poset eklenmis oldugunu kontrol eder
+
+      Scenario:  TC_306 Sepette Bez Poset Secimi
+
+            Given Siparis ozetinde Bez Poset ile teslim edilmesini istiyorum secimini tiklar
+            And Kullanici sepette Siparisi tamamla butonuna tiklar
+            And Gelen sayfada,teslimat sekli olarak Size Getirelim seceneginin secili oldugunu gorur
+            And Teslimat adresi secer
+            And Adres secimi sayfasinda Devam Et butonuna tiklar
+            And Gelen sayfada teslimat zamanini secer
+            And Teslimat zamani sayfasinda Devam Et butonuna tiklar
+            And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
+            When Kullanici odemede Siparisi tamamla butonuna tiklar
+            Then Siparis ozetinde bez poset eklenmis oldugunu kontrol eder

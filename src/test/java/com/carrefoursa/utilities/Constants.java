@@ -27,6 +27,12 @@ public class Constants {
     public static String customerNote="This message was written for Automation testing.";
     public static String invalidDiscountCode="otomasyon1";
     public static String certainProductIdForPDP="Komili Ege Sızma Zeytin Yağ 1 lt";
+    public static String alternativepruductForPDP="Carrefour Bulaşık Makinesi Tableti 50 li";
+
+
+
+
+
     public static String itemSoldAlone="FOSSIL FES4610 Kadın Kol Saati";
 
 

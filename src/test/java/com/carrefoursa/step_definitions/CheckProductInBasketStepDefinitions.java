@@ -16,7 +16,7 @@ public class CheckProductInBasketStepDefinitions {
 
     @Then("Sepette urun adedi artirilir")
     public void sepetteUrunAdediArtirilir() {
-        //basketPage.miniCartRemoveProduct();
+
         basketPage.miniCartPlusIcon.click();
 
     }
@@ -27,8 +27,7 @@ public class CheckProductInBasketStepDefinitions {
 
     @Then("Sepette urun adedi azaltilir")
     public void sepetteUrunAdediAzaltilir() {
-        //basketPage.miniCartRemoveProduct();
-        //basketPage.miniCartPlusIcon.click();
+
         ReusableMethods.waitFor(1);
         basketPage.miniCartMinusIcon.click();
     }
