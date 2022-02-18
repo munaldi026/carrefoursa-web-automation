@@ -27,9 +27,9 @@ Feature: US_006_Filter_Tests
       @miniSmoke
       Scenario: TC_604 Filter-4 Remove Filter
 
-      Given Urun listelemede Stokta Var ve indirimli secimlerinin disinda herhangi bir secim yapar
-      When Filitreleri temizle kisminda yapmis oldugu secimin yanindaki x'a  tiklar
-      Then Yaptigi secimin temizlendigini kontrol eder
+         Given Urun listelemede Stokta Var ve indirimli secimlerinin disinda herhangi bir secim yapar
+         When Filitreleri temizle kisminda yapmis oldugu secimin yanindaki x'a  tiklar
+         Then Yaptigi secimin temizlendigini kontrol eder
 
 
 

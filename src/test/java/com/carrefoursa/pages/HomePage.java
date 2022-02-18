@@ -8,9 +8,12 @@ import org.openqa.selenium.support.FindBy;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BasePage{
+
+    OrderPage orderPage=new OrderPage();
 
     @FindBy(css = ".site-logo.head-row")
     public WebElement homePageButton;
@@ -34,8 +37,13 @@ public class HomePage extends BasePage{
     public WebElement selectionRegionLink;
     @FindBy(xpath = "(//a[@class='btn btn-default btn-block closeColorBox'])[6]")
     public WebElement informationPop_up;
+
+
     @FindBy(className = "yCmsComponent")
     public static List<WebElement> list_banners;
+
+    @FindBy(className = "ui-menu-item")
+    public static List<WebElement> searhboxProductlist;
 
 
     public void checkLinks(){

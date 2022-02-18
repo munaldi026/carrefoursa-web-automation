@@ -10,8 +10,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
-    public class PDPStepDefinitions {
+public class PDPStepDefinitions {
         LoginPage loginPage = new LoginPage();
         PDPPage pdpPage = new PDPPage();
         HomePage homePage = new HomePage();
@@ -109,7 +110,30 @@ import org.junit.Assert;
             System.out.println("pdPmaximumProductMsgText = " + pdPmaximumProductMsgText);
             Assert.assertTrue(basketPage.PDPmaximumProductMsg.isDisplayed());
 
+
+
         }
+
+//    public String getProductCode() {
+//
+//        sleep(2000);
+//        String productCode = "---***---";
+////        Ürün Kodu :2000030174
+//        try {
+//            sleep(1000);
+//            String productCodeText = driver.findElement(By.cssSelector(".mr-auto.text-c2")).getText().trim();
+//            System.out.println("productCodeText = " + productCodeText);
+//            productCode = productCodeText.substring(productCodeText.indexOf(":") + 1);
+//
+//          /*  productCode=driver.findElement(By.cssSelector(".font-size-2 > .mr-auto")).getText();
+//            System.out.println("ürün kodu: "+productCode);
+//            productCode=productCode.substring(productCode.indexOf(":")+1);*/
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        sleep(2000);
+//        return productCode;
+//    }
 
 
     }

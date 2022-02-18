@@ -6,18 +6,18 @@ Feature: US_009_Order_Tests
 
       Scenario: TC_901 Create Order
 
-        Given Kullanici herhangi bir urunu aratir
-        And PLP sayfasindaki Sepete ekle butonuna tiklar
-        And Ana Sayfadaki Sepetim butonuna tiklar
-        And Kullanici sepette Siparisi tamamla butonuna tiklar
-        And Gelen sayfada,teslimat sekli olarak Size Getirelim seceneginin secili oldugunu gorur
-        And Teslimat adresi secer
-        And Adres secimi sayfasinda Devam Et butonuna tiklar
-        And Gelen sayfada teslimat zamanini secer
-        And Teslimat zamani sayfasinda Devam Et butonuna tiklar
-        And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
-        When Kullanici odemede Siparisi tamamla butonuna tiklar
-        Then Kullanici siparisin tamamlandigini kontrol eder
+       Given Kullanici herhangi bir urunu aratir
+       And PLP sayfasindaki Sepete ekle butonuna tiklar
+       And Ana Sayfadaki Sepetim butonuna tiklar
+       And Kullanici sepette Siparisi tamamla butonuna tiklar
+       And Gelen sayfada,teslimat sekli olarak Size Getirelim seceneginin secili oldugunu gorur
+       And Teslimat adresi secer
+       And Adres secimi sayfasinda Devam Et butonuna tiklar
+       And Gelen sayfada teslimat zamanini secer
+       And Teslimat zamani sayfasinda Devam Et butonuna tiklar
+       And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
+       When Kullanici odemede Siparisi tamamla butonuna tiklar
+       Then Kullanici siparisin tamamlandigini kontrol eder
 
 
       Scenario: TC_902 Delete Order

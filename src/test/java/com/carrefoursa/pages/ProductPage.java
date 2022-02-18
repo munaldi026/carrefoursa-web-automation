@@ -4,6 +4,7 @@ import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 public class ProductPage extends BasePage {
     HomePage homePage = new HomePage();
     PDPPage pdpPage = new PDPPage();
-    OrderPage orderPage = new OrderPage();
+    Actions actions=new Actions(Driver.getDriver());
 
     @FindBy(xpath = "//span[contains(@class,'black-color')][contains(text(),'Gıda, Şekerleme')]")
     public WebElement subMenuSweet;
@@ -64,6 +65,68 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//div[@class='alert alert-info alert-dismissable']")
     public WebElement verifyComment;
 
+    @FindBy(xpath = "//div[@id='alternativeProductOptions_0']//span[@class='radiomark']")
+    public WebElement radioButtonInBasket;
+
+    @FindBy(xpath = "//input[@name='alternativeProductItemCheckbox']")
+    public WebElement alternativeItemCheckbox;
+
+    @FindBy(xpath = "//button[@id='setSelectedProduct']")
+    public WebElement selectAlternativeProductButton;
+
+    @FindBy(css = "#selectedSubstituteProduct_0")
+    public WebElement selectedAlternativeProductName;
+
+    @FindBy(css = ".price.one")
+    public WebElement priceInBasket;
+
+    @FindBy(css = "//b[contains(text(),'Carrefour Bulaşık Makinesi Tableti 50 li')]")
+    public WebElement searchFieldFirsItem;
+
+    public int getPriceFromBasket() {
+        String priceInBasketText = priceInBasket.getText();
+        System.out.println("priceInBasketText = " + priceInBasketText);
+        String priceInBasketText1 = priceInBasketText.replace(",", "")
+                .replace("TL", "").trim();
+        int price = Integer.parseInt(priceInBasketText1);
+        return price;
+    }
+    public void searchSupplierProductSame1(String productName) {
+        homePage.searchField.click();
+        homePage.searchField.sendKeys(Constants.soldAloneProductSame1);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+    }
+    public void searchSupplierProductSame2(String productName) {
+        homePage.searchField.click();
+        homePage.searchField.sendKeys(Constants.soldAloneProductSame2);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+    }
+    public void soldAloneProductDifferent(String productName) {
+        homePage.searchField.click();
+        homePage.searchField.sendKeys(Constants.soldAloneProductDifferent);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+    }
+
+
+
 
     public void selectProduct() {
         ReusableMethods.scrollToElement(homePage.category);
@@ -83,36 +146,50 @@ public class ProductPage extends BasePage {
         homePage.searchField.sendKeys(Constants.searchOrderProductName);
         homePage.searchButton.click();
 
-        try {
-            homePage.informationPop_up.click();
-        } catch (Exception e) {
-            System.out.println("Bilgilendirme Pop-up yok");
-        }
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
 
     }
+
     public void searchCertainProduct(String productName) {
         ReusableMethods.waitForPageToLoad(5);
         homePage.searchField.click();
         homePage.searchField.sendKeys(Constants.certainProductIdForPDP);
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+    }
+
+    public void searchAlternativeProduct() {
+        //ReusableMethods.waitForPageToLoad(5);
+        homePage.searchField.click();
+        homePage.searchField.sendKeys(Constants.alternativepruductForPDP);
         homePage.searchButton.click();
-        try {
-            homePage.informationPop_up.click();
-        } catch (Exception e) {
-            System.out.println("Bilgilendirme Pop-up yok");
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+    }
+
+            public void maxSearchCertainProduct () {
+
+            pdpPage.plusIconInPDP.click();
+            ReusableMethods.waitFor(1);
+            pdpPage.plusIconInPDP.click();
+            ReusableMethods.waitFor(1);
+            pdpPage.plusIconInPDP.click();
+            ReusableMethods.waitFor(1);
+            pdpPage.plusIconInPDP.click();
+            ReusableMethods.waitFor(1);
+            pdpPage.plusIconInPDP.click();
         }
+
+
     }
-    public void maxSearchCertainProduct() {
-
-        pdpPage.plusIconInPDP.click();
-        ReusableMethods.waitFor(1);
-        pdpPage.plusIconInPDP.click();
-        ReusableMethods.waitFor(1);
-        pdpPage.plusIconInPDP.click();
-        ReusableMethods.waitFor(1);
-        pdpPage.plusIconInPDP.click();
-        ReusableMethods.waitFor(1);
-        pdpPage.plusIconInPDP.click();
-    }
-
-
-}

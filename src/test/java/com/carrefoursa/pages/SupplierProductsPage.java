@@ -42,7 +42,6 @@ public class SupplierProductsPage extends BasePage{
           expectedList.add("FOSSIL FFS5517 Erkek Kol Saati");
 
           List<String>listOfProducts=new ArrayList<>();
-          //System.out.println("cartList.size() = " + cartList.size());
           for (WebElement productlist:cartList) {
               listOfProducts.add(productlist.getText());
           }

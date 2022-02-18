@@ -28,11 +28,11 @@ public class PLPSoldAloneProductStepDefinitions {
 
     }
 
-    @Given("Herhangi bir urun sepete eklenir")
-    public void kullaniciSepeteEklenir() {
-        searchPage.addtoBasket.click();
-        ReusableMethods.waitFor(3);
-    }
+//    @Given("Herhangi bir urun sepete eklenir")
+//    public void kullaniciSepeteEklenir() {
+//        searchPage.addtoBasket.click();
+//        ReusableMethods.waitFor(3);
+//    }
 
     @Given("Kullanici tek basina satilan ve ayni tedarikciye ait baska bir urun adini yazar")
     public void tekBasinaSatilan() {

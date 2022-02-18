@@ -7,6 +7,7 @@ import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.interactions.Actions;
 
@@ -57,5 +58,10 @@ public class PromotionFlagStepDefinitions {
         System.out.println("falseText = " + falseText);
         pdpPage.verifyFalseFlag.isDisplayed();
 
+    }
+
+    @Given("urune tiklar")
+    public void uruneTiklar() {
+        Driver.getDriver().findElement(By.cssSelector("img[title='Dana Tas Kebabı kg']")).click();
     }
 }

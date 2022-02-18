@@ -1,10 +1,8 @@
 package com.carrefoursa.pages;
 
 import com.carrefoursa.utilities.Driver;
-import com.carrefoursa.utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
@@ -42,22 +40,11 @@ public class PDPPage extends BasePage {
     @FindBy(className = "camp-badge")
     public static List<WebElement>flags;
 
-    public List<String> getFlagList(){
-        List<String>flagList=new ArrayList<>();
-
-        for (WebElement element:flags
-             ) {
-            flagList.add(element.getText());
-        }
-        System.out.println("flagList.size() = " + flagList.size());
-        System.out.println("flagList = " + flagList);
-
-        return flagList;
-    }
 
 
     @FindBy(xpath = "(//div[@class='hover-box'])[1]")
     public WebElement selectedProduct;
+
 
     @FindBy(xpath = "//h1[normalize-space()='Carrefour Wc Tropikal Blok 40 g']")
     public WebElement PDPProductName;
@@ -89,4 +76,35 @@ public class PDPPage extends BasePage {
 
 
 
-}
+
+    public List<String> getFlagList(){
+        List<String>flagList=new ArrayList<>();
+
+        for (WebElement element:flags
+        ) {
+            flagList.add(element.getText());
+        }
+        System.out.println("flagList.size() = " + flagList.size());
+        System.out.println("flagList = " + flagList);
+
+        return flagList;
+    }
+    public String getProductCodeFromPLP(){
+        String productCode=null;
+        productCode=Driver.getDriver().findElement(By.cssSelector(".item-name")).getAttribute("content");
+        return productCode;
+
+    }
+    public int getIntProductCodeFromPLP(){
+        String productCode=null;
+        productCode=Driver.getDriver().findElement(By.cssSelector(".item-name")).getAttribute("content");
+        int code =Integer.parseInt(productCode);
+        return code;
+
+    }
+
+        }
+
+
+
+

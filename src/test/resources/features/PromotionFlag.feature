@@ -7,6 +7,11 @@ Feature: US_023_Promotion_Flag_Tests
           When Kullanici Ana Sayfadaki hamburger menu iconuna hover yapar
           Then Katalog urunleri ,Firsatlar linkine tiklar
 
+          Scenario:
+              Given urune tiklar
+              And PDP sayfasinda Sepete Ekle butonuna tiklar
+              And Ana Sayfadaki Sepetim butonuna tiklar
+
 
           Scenario: TC_2301 Promotion Flag-True
 

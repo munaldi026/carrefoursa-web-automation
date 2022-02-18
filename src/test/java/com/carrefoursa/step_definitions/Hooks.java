@@ -1,6 +1,8 @@
 package com.carrefoursa.step_definitions;
 
 
+import com.carrefoursa.pages.HomePage;
+import com.carrefoursa.pages.LoginPage;
 import com.carrefoursa.utilities.ConfigReader;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
@@ -15,14 +17,17 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Hooks {
+    LoginPage loginPage=new LoginPage();
+    HomePage homePage=new HomePage();
 
     @Before
     public void setUp(){
         Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Driver.getDriver().get(ConfigReader.getProperty("url_preProd"));
         Driver.getDriver().manage().deleteAllCookies();
         ReusableMethods.closeCerez();
+
 
     }
 
@@ -33,7 +38,9 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
-        //Driver.close();
+
+
+        Driver.close();
 
     }
 
