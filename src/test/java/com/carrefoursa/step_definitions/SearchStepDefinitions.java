@@ -40,6 +40,26 @@ public class SearchStepDefinitions {
         searchPage.popularproducttitle.isDisplayed();
         ReusableMethods.waitFor(3);
     }
+    @Given("Kullanici Ana Sayfadaki arama kutusuna tiklar")
+    public void kullanici_ana_sayfadaki_arama_kutusuna_tiklar() {
+        homePage.searchField.click();
+        ReusableMethods.waitFor(3);
+
+    }
+    @Given("Arama kutusuna hicbir sey yazmaz")
+    public void arama_kutusuna_hicbir_sey_yazmaz() {
+        homePage.searchField.sendKeys("");
+
+    }
+    @Then("Arama yapilamayacagini kontrol eder")
+    public void arama_yapilamayacagini_kontrol_eder() {
+        searchPage.searchMsg();
+    }
+    @Given("Arama kutusuna sadece tek bir harf yazar")
+    public void arama_kutusuna_sadece_tek_bir_harf_yazar() {
+        homePage.searchField.sendKeys(Constants.singleLetter);
+
+    }
 
 }
 
