@@ -117,3 +117,20 @@ Feature:US_005_Address_Tests
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen ilce giriniz yazısını gorursunuz
+
+
+  Scenario: TC_510 Bireysel Adres Mahelle Alani Bos Birakilir
+
+    And Yeni adres olustur buttonuna tiklar
+    And Adres tipi girilir
+    And Kullanici ismi girilir
+    And Kullanici soyismi girilir
+    And Kullanici kimlik numarasi girilir
+    And Kullanici sehiri girer
+    And Kullanici ilceyi girer
+    And Kullanici mahalleyi girer
+    And Kullanici adresi girilir
+    And Kullanici epostasi girilir
+    And Kullanici telefon numarasi girilir
+    And Bu adresi kaydet buttonuna basılır
+    Then Lutfen Mahalle giriniz yazısını gorursunuz
