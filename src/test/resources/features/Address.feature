@@ -34,3 +34,8 @@ Feature:US_005_Address_Tests
             And Kullanici sil buttonuna tiklar
             And Popup uzerinde evet tiklanir
             Then Adresin silindigi gorulur
+
+  Scenario: TC_504 Adres Silme Hayir Popup Secilir
+    And Kullanici sil buttonuna tiklar
+    And Popup uzerinde hayir tiklanir
+    Then Adresin silinmedigi gorulur

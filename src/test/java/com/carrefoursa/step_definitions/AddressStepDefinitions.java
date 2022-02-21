@@ -150,4 +150,41 @@ public class AddressStepDefinitions {
 
     }
 
+    @Given("Bu Alanı Doldurmanız Zorunlu Yazısı Gorulur")
+    public void alaniDoldurmalisiniz() {
+        addressPage.addressErrorsMessage.isDisplayed();
+
+    }
+
+    @Given("Lutfen isim giriniz yazısını gorursunuz")
+    public void isimAlani() {
+        addressPage.firstNameError.isDisplayed();
+    }
+
+
+    @Given("Lutfen soyisim giriniz yazısını gorursunuz")
+    public void soyIsimAlani() {
+        addressPage.lastNameError.isDisplayed();
+    }
+
+    @Given("Lutfen ilce giriniz yazısını gorursunuz")
+    public void ilceAlani() {
+        addressPage.townError.isDisplayed();
+    }
+
+    @Given("Lutfen Mahalle giriniz yazısını gorursunuz")
+    public void mahalleAlani() {
+        addressPage.districtError.isDisplayed();
+    }
+
+    @Given("Adresin silinmedigi gorulur")
+    public void adresSilinmez() {
+
+    }
+
+    @Given("Popup uzerinde hayir tiklanir")
+    public void hayirTiklanir() {
+
+    }
+
 }

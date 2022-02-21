@@ -61,5 +61,27 @@ public class AddressPage extends BasePage{
     @FindBy(xpath = "(//a[@class='btn btn-default deleteAddressLink'])[3]")
     public WebElement yespopupbutton;
 
+    @FindBy(id = "addressClass.errors")
+    public WebElement addressErrorsMessage;
 
+    @FindBy(id = "firstName.errors")
+    public WebElement firstNameError;
+
+    @FindBy(id = "lastName.errors")
+    public WebElement lastNameError;
+
+    @FindBy(xpath = "(//span[@id='townCode.errors'])[2]")
+    public WebElement townError;
+
+    @FindBy(xpath = "(//span[@id='districtCode.errors'])[2]")
+    public WebElement districtError;
+
+    @FindBy(xpath = "(//span[@id='streetname.errors'])[2]")
+    public WebElement addressError;
+
+    @FindBy(id = "email.errors")
+    public WebElement emailError;
+
+    @FindBy(id = "mobilePhoneNumber.errors")
+    public WebElement phoneNumberError;
 }
