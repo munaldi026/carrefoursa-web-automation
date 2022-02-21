@@ -103,3 +103,17 @@ Feature:US_005_Address_Tests
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır
     Then Adresin basarili sekilde kayıtedildiği gorulur
+
+  Scenario: TC_509 Bireysel Adres İlce Alani Bos Birakilir
+
+    And Yeni adres olustur buttonuna tiklar
+    And Adres tipi girilir
+    And Kullanici ismi girilir
+    And Kullanici soyismi girilir
+    And Kullanici kimlik numarasi girilir
+    And Kullanici sehiri girer
+    And Kullanici adresi girilir
+    And Kullanici epostasi girilir
+    And Kullanici telefon numarasi girilir
+    And Bu adresi kaydet buttonuna basılır
+    Then Lutfen ilce giriniz yazısını gorursunuz
