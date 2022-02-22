@@ -187,4 +187,49 @@ public class AddressStepDefinitions {
 
     }
 
+
+    @Given("Lutfen Adres giriniz yazısını gorursunuz")
+    public void adresAlani() {
+        addressPage.addressError.isDisplayed();
+    }
+
+    @Given("Lutfen Email giriniz yazısını gorursunuz")
+    public void emailAlani() {
+        addressPage.emailError.isDisplayed();
+    }
+
+    @Given("Lutfen Cep Telefonu giriniz yazısını gorursunuz")
+    public void cepTelefonuAlani() {
+        addressPage.phoneNumberError.isDisplayed();
+    }
+
+    @Given("Kurumsal Adres buttonu tiklanir")
+    public void kurumsalButton() {
+        addressPage.corporate.click();
+    }
+
+    @Given("Sirket ismi girilir")
+    public void companyName() {
+        addressPage.companyname.sendKeys(ConfigReader.getProperty("address_type"));
+    }
+
+    @Given("Vergi kimlik numarası girilir")
+    public void taxIdentificationNumber() {
+        addressPage.taxidentificationnumber.sendKeys(ConfigReader.getProperty("tax_identification_number"));
+    }
+
+
+    @Given("Vergi kimlik numarası girmeniz gerek yazısı gorulur")
+    public void taxNumberErrors() {
+        addressPage.taxNumberErrors.isDisplayed();
+    }
+
+
+    @Given("Please enter a company name yazısı gorulur")
+    public void companyNameErrors() {
+        addressPage.taxNumberErrors.isDisplayed();
+    }
+
+
+
 }

@@ -84,4 +84,20 @@ public class AddressPage extends BasePage{
 
     @FindBy(id = "mobilePhoneNumber.errors")
     public WebElement phoneNumberError;
+
+    @FindBy(id = "addressCustomerTypeEnterprise")
+    public WebElement corporate;
+
+    @FindBy(css = ".form-control[id='address.companyName']")
+    public WebElement companyname;
+
+    @FindBy(css = ".form-control[id='address.taxNumber']")
+    public WebElement taxidentificationnumber;
+
+
+    @FindBy(id = "companyName.errors")
+    public WebElement companyNameErrors;
+
+    @FindBy(id = "taxNumber.errors")
+    public WebElement taxNumberErrors;
 }
