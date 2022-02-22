@@ -180,3 +180,20 @@ Feature:US_005_Address_Tests
     And Kullanici epostasi girilir
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen Cep Telefonu giriniz yazısını gorursunuz
+
+
+  Scenario: TC_514 Kurumsal Adres Ekleme
+
+    And Yeni adres olustur buttonuna tiklar
+    And Kurumsal Adres buttonu tiklanir
+    And Adres tipi girilir
+    And Sirket ismi girilir
+    And Vergi kimlik numarası girilir
+    And Kullanici sehiri girer
+    And Kullanici ilceyi girer
+    And Kullanici mahalleyi girer
+    And Kullanici adresi girilir
+    And Kullanici epostasi girilir
+    And Kullanici telefon numarasi girilir
+    And Bu adresi kaydet buttonuna basılır
+    Then Adresin basarili sekilde kayıtedildiği gorulur
