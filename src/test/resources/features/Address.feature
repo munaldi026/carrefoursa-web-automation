@@ -197,3 +197,10 @@ Feature:US_005_Address_Tests
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır
     Then Adresin basarili sekilde kayıtedildiği gorulur
+
+  Scenario: TC_515 Kurumsal Adres Guncelleme
+
+    And Kullanici duzenle buttonuna tiklar
+    And Kullanici adres ismini degistirir
+    And Adresi guncelle buttonu tiklanir
+    Then Adresi ismi basarili bir sekilde degistigi gorulur
