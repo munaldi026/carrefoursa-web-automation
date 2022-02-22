@@ -216,3 +216,19 @@ Feature:US_005_Address_Tests
     And Kullanici sil buttonuna tiklar
     And Popup uzerinde hayir tiklanir
     Then Adresin silinmedigi gorulur
+
+
+  Scenario: TC_518 Kurumsal Adres Adres tipi Bos Birakilir
+
+    And Yeni adres olustur buttonuna tiklar
+    And Kurumsal Adres buttonu tiklanir
+    And Sirket ismi girilir
+    And Vergi kimlik numarası girilir
+    And Kullanici sehiri girer
+    And Kullanici ilceyi girer
+    And Kullanici mahalleyi girer
+    And Kullanici adresi girilir
+    And Kullanici epostasi girilir
+    And Kullanici telefon numarasi girilir
+    And Bu adresi kaydet buttonuna basılır
+    Then Bu Alanı Doldurmanız Zorunlu Yazısı Gorulur
