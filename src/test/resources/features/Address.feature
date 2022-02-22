@@ -211,3 +211,8 @@ Feature:US_005_Address_Tests
     And Kullanici sil buttonuna tiklar
     And Popup uzerinde evet tiklanir
     Then Adresin silindigi gorulur
+
+  Scenario: TC_517 Adres Silme Hayir Popup Tiklanir
+    And Kullanici sil buttonuna tiklar
+    And Popup uzerinde hayir tiklanir
+    Then Adresin silinmedigi gorulur
