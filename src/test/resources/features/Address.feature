@@ -204,3 +204,10 @@ Feature:US_005_Address_Tests
     And Kullanici adres ismini degistirir
     And Adresi guncelle buttonu tiklanir
     Then Adresi ismi basarili bir sekilde degistigi gorulur
+
+
+  Scenario: TC_516 Kurumsal Adres Silme
+
+    And Kullanici sil buttonuna tiklar
+    And Popup uzerinde evet tiklanir
+    Then Adresin silindigi gorulur
