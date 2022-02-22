@@ -327,3 +327,18 @@ Feature:US_005_Address_Tests
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen Email giriniz yazısını gorursunuz
 
+  Scenario: TC_526  Kurumsal Cep Telefonu Alani Bos Birakilir
+
+    And Yeni adres olustur buttonuna tiklar
+    And Kurumsal Adres buttonu tiklanir
+    And Adres tipi girilir
+    And Sirket ismi girilir
+    And Vergi kimlik numarası girilir
+    And Kullanici sehiri girer
+    And Kullanici ilceyi girer
+    And Kullanici mahalleyi girer
+    And Kullanici adresi girilir
+    And Kullanici epostasi girilir
+    And Bu adresi kaydet buttonuna basılır
+    Then Lutfen Cep Telefonu giriniz yazısını gorursunuz
+
