@@ -1,9 +1,6 @@
 package com.carrefoursa.step_definitions;
 
-import com.carrefoursa.pages.HomePage;
-import com.carrefoursa.pages.PLPSoldAloneProduct;
-import com.carrefoursa.pages.SearchPage;
-import com.carrefoursa.pages.SupplierProductsPage;
+import com.carrefoursa.pages.*;
 import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
@@ -11,6 +8,7 @@ import io.cucumber.java.en.Given;
 public class PLPSoldAloneProductStepDefinitions {
     SearchPage searchPage=new SearchPage();
     HomePage homePage=new HomePage();
+    PDPPage pdpPage=new PDPPage();
    PLPSoldAloneProduct plpSoldAloneProduct=new PLPSoldAloneProduct();
 
 
@@ -28,11 +26,11 @@ public class PLPSoldAloneProductStepDefinitions {
 
     }
 
-//    @Given("Herhangi bir urun sepete eklenir")
-//    public void kullaniciSepeteEklenir() {
-//        searchPage.addtoBasket.click();
-//        ReusableMethods.waitFor(3);
-//    }
+        @Given("Herhangi bir urun sepete eklenir")
+       public void kullaniciSepeteEklenir() {
+        pdpPage.addToBasketButton.click();
+        ReusableMethods.waitFor(3);
+    }
 
     @Given("Kullanici tek basina satilan ve ayni tedarikciye ait baska bir urun adini yazar")
     public void tekBasinaSatilan() {
