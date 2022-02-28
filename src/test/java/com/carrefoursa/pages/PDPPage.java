@@ -70,11 +70,11 @@ public class PDPPage extends BasePage {
     @FindBy(css = "#link_30207311")
     public WebElement shoppingProductClose;
 
-    @FindBy(css = ".glyphicon.glyphicon-plus")
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-plus']")
     public WebElement plusIconInPDP;
 
-
-
+    @FindBy(css = "a[class='name']")
+    public WebElement sacrificialInMiniCart;
 
 
     public List<String> getFlagList(){
@@ -89,12 +89,22 @@ public class PDPPage extends BasePage {
 
         return flagList;
     }
+
     public String getProductCodeFromPLP(){
         String productCode=null;
         productCode=Driver.getDriver().findElement(By.cssSelector(".item-name")).getAttribute("content");
         return productCode;
 
     }
+
+    public String getSacrificialFromMiniCart(){
+
+        String sacrificialName=sacrificialInMiniCart.getText();
+        return sacrificialName;
+
+    }
+
+
     public int getIntProductCodeFromPLP(){
         String productCode=null;
         productCode=Driver.getDriver().findElement(By.cssSelector(".item-name")).getAttribute("content");

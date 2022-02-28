@@ -34,6 +34,9 @@ public class OrderPage extends BasePage{
     @FindBy(css = ".continue-btn-text")
     public WebElement deliverySlotSubmitButton;
 
+    @FindBy(css = ".continue-btn-text")
+    public WebElement continueButton;
+
     @FindBy(css= "#cc_at_delivery")
     public WebElement payByCCAtDelivery;
 
@@ -55,9 +58,6 @@ public class OrderPage extends BasePage{
     @FindBy(xpath = "//button[@data-formurl='siparisEkOrder']")
     public WebElement additionalOrderButton;
 
-    @FindBy(css = "button[class='btn btn-primary vuejs-qty-selector-plus'] span[class='glyphicon glyphicon-plus']")
-    public WebElement plusButtonInCart;
-
     @FindBy(css = "#refOrderNoForEkSiparisText")
     public WebElement verifyAdditionalOrderMsg;
 
@@ -75,6 +75,8 @@ public class OrderPage extends BasePage{
 
     @FindBy(css = "div[class='cartSubTotal'] span[class='count']")
     public WebElement productPriceForOrderAmount;
+
+
 
 
 

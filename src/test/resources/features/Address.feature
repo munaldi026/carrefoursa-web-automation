@@ -281,7 +281,6 @@ Feature:US_005_Address_Tests
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen ilce giriniz yazısını gorursunuz
 
-
   Scenario: TC_523 Kurumsal Mahalle Alani Bos Birakilir
 
     And Yeni adres olustur buttonuna tiklar

@@ -15,11 +15,11 @@ public class HomePage extends BasePage{
 
     OrderPage orderPage=new OrderPage();
 
-    @FindBy(css = ".site-logo.head-row")
+    @FindBy(css = "img[src='https://reimg-carrefour.mncdn.com/staticimage/carrefoursacom-logo.svg']")
     public WebElement homePageButton;
     @FindBy(id = "js-site-search-input")
     public WebElement searchField;
-    @FindBy(className = "js-search-validate")
+    @FindBy(css = ".js-search-validate")
     public WebElement searchButton;
     @FindBy(className = "js-minicart-total-price")
     public WebElement myBasket;
@@ -37,7 +37,6 @@ public class HomePage extends BasePage{
     public WebElement selectionRegionLink;
     @FindBy(xpath = "(//a[@class='btn btn-default btn-block closeColorBox'])[6]")
     public WebElement informationPop_up;
-
 
     @FindBy(className = "yCmsComponent")
     public static List<WebElement> list_banners;

@@ -62,5 +62,9 @@ public class PLPPage extends BasePage{
         //List<WebElement>products=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
         buttons.get(0).click();
     }
+    public void addToSartificialButton(){
+        //List<WebElement>products=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
+        products.get(2).click();
+    }
 
 }

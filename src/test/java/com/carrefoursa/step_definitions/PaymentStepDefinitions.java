@@ -1,8 +1,12 @@
 package com.carrefoursa.step_definitions;
 
+import com.carrefoursa.pages.BasketPage;
 import com.carrefoursa.pages.CreditCardPage;
+import com.carrefoursa.pages.HomePage;
 import com.carrefoursa.pages.OrderPage;
 import com.carrefoursa.utilities.Constants;
+import com.carrefoursa.utilities.Driver;
+import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,6 +18,8 @@ public class PaymentStepDefinitions {
 
     OrderPage orderPage=new OrderPage();
     CreditCardPage creditCardPage=new CreditCardPage();
+    BasketPage basketPage=new BasketPage();
+    HomePage homePage=new HomePage();
 
 
 
@@ -42,6 +48,7 @@ public class PaymentStepDefinitions {
         //creditCardPage.creditCardRadioButton.click();
 
         creditCardPage.fillCreditCardInformations();
+        ReusableMethods.waitFor(3);
 
 //        creditCardPage.creditCardNumberField.sendKeys(Constants.creditCardNumber);
 //        creditCardPage.creditCardHolderNameField.sendKeys(Constants.creditCardHolderName);
@@ -61,7 +68,10 @@ public class PaymentStepDefinitions {
         String creditCartMsgText = creditCardPage.verifyCreditCartMsg.getText();
         System.out.println("creditCartMsgText = " + creditCartMsgText);
         Assert.assertTrue(creditCardPage.verifyCreditCartMsg.isDisplayed());
-
+        ReusableMethods.waitFor(3);
+        Driver.getDriver().navigate().back();
+        Driver.getDriver().navigate().refresh();
+        homePage.homePageButton.click();
     }
 
 

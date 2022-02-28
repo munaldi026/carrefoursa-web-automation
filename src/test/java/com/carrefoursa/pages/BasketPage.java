@@ -47,6 +47,9 @@ public class BasketPage extends BasePage {
     @FindBy(css = "div[class='no-result-cart'] h1 strong")
     public WebElement miniCartEmptyMsg;
 
+    @FindBy(tagName = "h1")
+    public WebElement emptyCartValueMsg;
+
     @FindBy(css = ".js-empty-cart-link")
     public WebElement miniCartRemoveAllLink;
 
@@ -69,7 +72,7 @@ public class BasketPage extends BasePage {
     public WebElement PDPmaximumProductMsg;
 
     @FindBy(css = ".name")
-    public static List<WebElement> MiniCartList;
+    public List<WebElement> miniCartList;
 
     @FindBy(css = ".d-sm-none.js-minicart-total-price")
     public WebElement emptyCartValue;
@@ -96,6 +99,8 @@ public class BasketPage extends BasePage {
     public WebElement verifyClothBag;
 
 
+
+
     public void verifyClothBag(){
         String verifyClothBagText = verifyClothBag.getText();
         System.out.println("verifyClothBagMsg= " + verifyClothBagText);
@@ -112,6 +117,10 @@ public class BasketPage extends BasePage {
         String deliveryText = verifyTouchlessDeliveryText.getText();
         System.out.println("touchlessDeliveryMsg = " + deliveryText);
         Assert.assertTrue(verifyTouchlessDeliveryText.isDisplayed());
+    }
+
+    public void getremoveProductButtonInBasket(){
+        removeProductButtonInBasket.click();
     }
 
     public void removeAllCart (){
@@ -142,19 +151,18 @@ public class BasketPage extends BasePage {
     }
 
     public void removeAllProducts() {
+
         try {
 
             List<String> listOfProducts = new ArrayList<>();
-            for (WebElement productlist : MiniCartList) {
+            for (WebElement productlist : miniCartList) {
                 listOfProducts.add(productlist.getText());
             }
-
             System.out.println("listOfProducts.size() = " + listOfProducts.size());
             if (emptyCartValue.getText().contains("0,00 TL")){
                 productPage.searchProduct(Constants.certainProductIdForPDP);
                 plpPage.addToBasketButton();
             }
-
             else if (!emptyCartValue.getText().contains("0,00 TL")){
 
                 ReusableMethods.hover(homePage.myBasket);
@@ -169,5 +177,11 @@ public class BasketPage extends BasePage {
         }
         Driver.getDriver().navigate().refresh();
 
+    }
+
+    public void removeMiniCart(){
+        ReusableMethods.hover(homePage.myBasket);
+        miniCartRemoveAllLink.click();
+        emptyCartComfirmButton.click();
     }
 }

@@ -102,14 +102,13 @@ public class PDPStepDefinitions {
         public void pdpUrunAdediniMaximumOrandaArtirir() {
 
             productPage.maxSearchCertainProduct();
-
         }
+
         @When("Maximum satin alma limitine ulastigini kontrol eder")
         public void maximumSatinAlmaLimitineUlastiginiKontrolEder() {
             String pdPmaximumProductMsgText = basketPage.PDPmaximumProductMsg.getText();
             System.out.println("pdPmaximumProductMsgText = " + pdPmaximumProductMsgText);
             Assert.assertTrue(basketPage.PDPmaximumProductMsg.isDisplayed());
-
 
 
         }

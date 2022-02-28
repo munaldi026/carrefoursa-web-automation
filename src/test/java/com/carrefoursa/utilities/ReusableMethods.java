@@ -1,5 +1,6 @@
 package com.carrefoursa.utilities;
 
+import com.carrefoursa.pages.OrderPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
@@ -50,7 +51,10 @@ public class ReusableMethods {
                 elemTexts.add(el.getText());
             }
         }
+        System.out.println("elemTexts.size() = " + elemTexts.size());
+        System.out.println("elemTexts = " + elemTexts);
         return elemTexts;
+
     }
 
     //========Returns the Text of the element given an element locator==//
@@ -198,6 +202,11 @@ public class ReusableMethods {
     public static void HoverAndClick(WebDriver driver,WebElement elementToHover,WebElement elementToClick) {
         Actions action = new Actions(driver);
         action.moveToElement(elementToHover).click(elementToClick).build().perform();
+    }
+    static OrderPage orderPage=new OrderPage();
+
+    public static void clickContinueButton(){
+        orderPage.continueButton.click();
     }
     }
 

@@ -24,8 +24,9 @@ Feature: US_010_PDP_Tests
         And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
         Then Sectigi urunun sepete eklendigini kontrol eder
 
-      @miniSmoke
+
       Scenario:  TC_1004 PDPSepette Maximum Satinalma
+
         And PDP urun adedini maximum oranda artirir
         When Maximum satin alma limitine ulastigini kontrol eder
 

@@ -65,6 +65,7 @@ public class LoginStepDefinitions {
     }
     @Given("Gecersiz SMS onay hata mesaji gorulur")
     public void Gecersiz_SMS_onay_hata_mesaji_gorulur(){
+
         loginPage.HataliOtpMesaji.isDisplayed();
     }
 

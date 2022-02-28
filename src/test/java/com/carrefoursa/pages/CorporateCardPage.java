@@ -1,5 +1,6 @@
 package com.carrefoursa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -35,4 +36,6 @@ public class CorporateCardPage extends BasePage{
 
        @FindBy(css = "div[class='form-group response-area response-error'] span")
        public WebElement totalOrderCountMsg;
+
+
 }

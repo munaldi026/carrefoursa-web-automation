@@ -22,6 +22,7 @@ Feature: US_017_Check_Product_In_Basket_Tests
         When Sepette urun adedi azaltilir
         Then Azalma durumu kontrol edilir
 
+        @maximumOrder
         Scenario: TC_1703 Sepette Maximum Satinalma
 
         And Kullanici Ana Sayfadaki Sepetim butonuna tiklar

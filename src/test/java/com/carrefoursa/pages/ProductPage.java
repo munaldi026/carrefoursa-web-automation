@@ -68,6 +68,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//div[@id='alternativeProductOptions_0']//span[@class='radiomark']")
     public WebElement radioButtonInBasket;
 
+
     @FindBy(xpath = "//input[@name='alternativeProductItemCheckbox']")
     public WebElement alternativeItemCheckbox;
 
@@ -83,6 +84,10 @@ public class ProductPage extends BasePage {
     @FindBy(css = "//b[contains(text(),'Carrefour Bulaşık Makinesi Tableti 50 li')]")
     public WebElement searchFieldFirsItem;
 
+    @FindBy(xpath = "//span[@class='glyphicon glyphicon-plus']")
+    public WebElement plusButtonInCart;
+
+
     public int getPriceFromBasket() {
         String priceInBasketText = priceInBasket.getText();
         System.out.println("priceInBasketText = " + priceInBasketText);
@@ -94,6 +99,17 @@ public class ProductPage extends BasePage {
     public void searchSupplierProductSame1(String productName) {
         homePage.searchField.click();
         homePage.searchField.sendKeys(Constants.soldAloneProductSame1);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+    }
+    public void searchSacrificialName() {
+        homePage.searchField.click();
+        homePage.searchField.sendKeys(Constants.sacrificialName);
         homePage.searchButton.click();
 
 //        try {
@@ -126,8 +142,6 @@ public class ProductPage extends BasePage {
     }
 
 
-
-
     public void selectProduct() {
         ReusableMethods.scrollToElement(homePage.category);
         ReusableMethods.hover(homePage.category);
@@ -158,6 +172,7 @@ public class ProductPage extends BasePage {
         ReusableMethods.waitForPageToLoad(5);
         homePage.searchField.click();
         homePage.searchField.sendKeys(Constants.certainProductIdForPDP);
+        homePage.searchButton.click();
 
 //        try {
 //            homePage.informationPop_up.click();
@@ -169,7 +184,7 @@ public class ProductPage extends BasePage {
     public void searchAlternativeProduct() {
         //ReusableMethods.waitForPageToLoad(5);
         homePage.searchField.click();
-        homePage.searchField.sendKeys(Constants.alternativepruductForPDP);
+        homePage.searchField.sendKeys(Constants.alternativeproductForPDP);
         homePage.searchButton.click();
 //        try {
 //            homePage.informationPop_up.click();
@@ -179,16 +194,16 @@ public class ProductPage extends BasePage {
     }
 
             public void maxSearchCertainProduct () {
-
-            pdpPage.plusIconInPDP.click();
             ReusableMethods.waitFor(1);
-            pdpPage.plusIconInPDP.click();
+            plusButtonInCart.click();
             ReusableMethods.waitFor(1);
-            pdpPage.plusIconInPDP.click();
+            plusButtonInCart.click();
             ReusableMethods.waitFor(1);
-            pdpPage.plusIconInPDP.click();
+            plusButtonInCart.click();
             ReusableMethods.waitFor(1);
-            pdpPage.plusIconInPDP.click();
+            plusButtonInCart.click();
+            ReusableMethods.waitFor(1);
+            plusButtonInCart.click();
         }
 
 

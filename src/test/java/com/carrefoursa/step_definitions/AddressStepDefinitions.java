@@ -2,45 +2,43 @@ package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.AddressPage;
 import com.carrefoursa.pages.HomePage;
-import com.carrefoursa.pages.RegisterPage;
 import com.carrefoursa.utilities.ConfigReader;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 
-import java.util.ResourceBundle;
-
 public class AddressStepDefinitions {
-    AddressPage addressPage=new AddressPage();
-    HomePage homePage=new HomePage();
-    RegisterPage registerPage=new RegisterPage();
+    AddressPage addressPage = new AddressPage();
+    HomePage homePage = new HomePage();
+
 
     @Given("Kullanici hesabim buttonuna tiklar")
     public void hesabim_buttonu_tiklanir() {
-      homePage.myAccount.click();
+        homePage.myAccount.click();
     }
 
     @Given("Kullanici adresim buttonuna tiklar")
     public void adresim_buttonu_tiklanir() {
         addressPage.addressButton.click();
         ReusableMethods.waitFor(3);
+
     }
 
     @Given("Yeni adres olustur buttonuna tiklar")
     public void yeni_adres_buttonu_tiklanir() {
         addressPage.newAddress.click();
         ReusableMethods.waitFor(3);
+
     }
 
     @Given("Adres tipi girilir")
     public void adres_tipi_girilir() {
         addressPage.addresstype.sendKeys(ConfigReader.getProperty("address_type"));
 
-
     }
 
     @Given("Kullanici ismi girilir")
     public void kullanici_isimi_girilir() {
-    addressPage.firstname.sendKeys("NttData");
+        addressPage.firstname.sendKeys("NttData");
 
     }
 
@@ -82,7 +80,6 @@ public class AddressStepDefinitions {
     public void adres_girilir() {
         addressPage.address.sendKeys("Barbaros, Begonya Sk., 34746 Ataşehir/İstanbul");
 
-
     }
 
     @Given("Kullanici epostasi girilir")
@@ -112,7 +109,7 @@ public class AddressStepDefinitions {
 
     @Given("Kullanici duzenle buttonuna tiklar")
     public void duzenle_buttonu_tiklanir() {
-    addressPage.addresseditbutton.click();
+        addressPage.addresseditbutton.click();
 
     }
 
@@ -229,7 +226,6 @@ public class AddressStepDefinitions {
     public void companyNameErrors() {
         addressPage.taxNumberErrors.isDisplayed();
     }
-
 
 
 }

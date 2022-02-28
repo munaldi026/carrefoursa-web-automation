@@ -26,7 +26,7 @@ Feature: US_003_Basket_Tests
             And Ekledigi notu silmek icin sil butonuna tiklar
             And Sepetteki Not eklemek istiyorum linkine tiklar
             Then Notun silinmis oldugunu kontrol eder
-
+      @basket-1
       Scenario:  TC_304 Sepete Temassiz Teslimat
 
             Given Siparis ozetinde Temassiz Teslimat checkbox ini tiklar
@@ -39,7 +39,7 @@ Feature: US_003_Basket_Tests
             And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
             When Kullanici odemede Siparisi tamamla butonuna tiklar
             Then Temassiz teslimat oldugunu kontrol eder
-
+      @basket-2
       Scenario:  TC_305 Sepette Poset Secimi
 
             Given Siparis ozetinde Poset ile teslim edilmesini istiyorum secimini tiklar
@@ -52,7 +52,7 @@ Feature: US_003_Basket_Tests
             And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
             When Kullanici odemede Siparisi tamamla butonuna tiklar
             Then Siparis ozetinde poset eklenmis oldugunu kontrol eder
-
+      @basket-3
       Scenario:  TC_306 Sepette Bez Poset Secimi
 
             Given Siparis ozetinde Bez Poset ile teslim edilmesini istiyorum secimini tiklar

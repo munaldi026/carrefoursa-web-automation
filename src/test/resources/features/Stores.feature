@@ -12,3 +12,15 @@ Feature: US_016_Our_Stores_Test
         And Hizmet Turunu Seciniz bolumunde ilgili checkbox'i secer
         When Sonuclari Goster butonuna tiklanir
         Then Secilen en yakin magazanin goruntulendigini kontrol eder
+
+        Scenario:11
+          Given Kullanici login olmus durumdadir
+          And Ana Sayfadaki Hesabim linkine tiklar
+          And Hesaplarim linklerini kontrol eder
+
+
+        Scenario:12
+          Given Kullanici login olmus durumdadir
+          And Sayfa sonuna gider
+          Then Footer Linklerini kontrol eder
+

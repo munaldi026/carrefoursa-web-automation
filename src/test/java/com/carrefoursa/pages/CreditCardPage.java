@@ -129,7 +129,7 @@ public class CreditCardPage extends BasePage {
             month.selectByVisibleText(Constants.creditCardExpiryMonth);
             Select year = new Select(creditCardExpiryYear);
             year.selectByVisibleText(Constants.creditCardExpiryYear);
-            creditCardCVVField.sendKeys(Constants.creditCardCVV, Keys.TAB);
+            creditCardCVVField.sendKeys(Constants.creditCardCVV);
         }
 
     }

@@ -1,6 +1,7 @@
 package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.OrderPage;
+import com.carrefoursa.pages.ProductPage;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,11 +12,12 @@ import org.junit.Assert;
 public class AdditionalOrderStepDefinitions {
 
     OrderPage orderPage=new OrderPage();
+    ProductPage productPage=new ProductPage();
 
     @And("Sepette urun adedini maximum sayida artirir")
     public void sepetteUrunAdediniMaximumSayidaArtirir() {
 
-        orderPage.plusButtonInCart.click();
+        productPage.plusButtonInCart.click();
     }
 
     @Given("Siparis Onayi sayfasindaki Siparisime ek yapmak istiyorum butonuna tiklar")

@@ -1,21 +1,27 @@
 package com.carrefoursa.step_definitions;
 
+import com.carrefoursa.pages.AccountPage;
 import com.carrefoursa.pages.CorporatePage;
 import com.carrefoursa.pages.HomePage;
 import com.carrefoursa.pages.LoginPage;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class StoresStepDefinitions {
 
     CorporatePage corporatePage=new CorporatePage();
     HomePage homePage=new HomePage();
     LoginPage loginPage=new LoginPage();
+    AccountPage accountPage=new AccountPage();
 
     @Given("Kullanici sisteme giris yapar")
     public void kullaniciSistemeGirisYapar() {
@@ -85,6 +91,28 @@ public class StoresStepDefinitions {
         String mallsListText = corporatePage.mallsList.getText();
         System.out.println("mallsListText = " + mallsListText);
 
+    }
+
+
+    @And("Hesaplarim linklerini kontrol eder")
+    public void hesaplarimLinkleriniKontrolEder() {
+        accountPage.getMyAccountList();
+    }
+
+    @And("Ana Sayfadaki Hesabim linkine tiklar")
+    public void anaSayfadakiHesabimLinkineTiklar() {
+        ReusableMethods.clickFunction(homePage.myAccount);
+    }
+
+    @Then("Footer Linklerini kontrol eder")
+    public void footerLinkleriniKontrolEder() {
+        accountPage.getFooterLinkList();
+        //ReusableMethods.getElementsText(accountPage.footerLinkLists);
+    }
+
+    @And("Sayfa sonuna gider")
+    public void sayfaSonunaGider() {
+        ReusableMethods.scrollToElement(accountPage.bottomWebElement);
     }
 
 

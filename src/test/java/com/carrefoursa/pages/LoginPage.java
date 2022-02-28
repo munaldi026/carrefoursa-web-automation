@@ -44,7 +44,6 @@ public class LoginPage extends BasePage {
     public WebElement HataliOtpMesaji;
     @FindBy(className = "d-block")
     public WebElement welcome;
-
     @FindBy(css = ".forgotten-password[id='validEmail']")
     public WebElement confirmationmessage;
 

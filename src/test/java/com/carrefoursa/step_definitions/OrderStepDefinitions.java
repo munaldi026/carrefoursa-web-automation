@@ -39,7 +39,7 @@ public class OrderStepDefinitions {
     @Given("Kullanici sepette Siparisi tamamla butonuna tiklar")
     public void kullanici_sepette_siparisi_tamamla_butonuna_tiklar() {
 
-        orderPage.continueOrderButton.click();
+        ReusableMethods.clickContinueButton();
 
     }
 
@@ -58,9 +58,9 @@ public class OrderStepDefinitions {
     @And("Adres secimi sayfasinda Devam Et butonuna tiklar")
     public void adresSecimiSayfasindaDevamEtButonunaTiklar() {
 
-
-        orderPage.deliveryAddressSubmitButton.click();
-
+        //orderPage.deliveryAddressSubmitButton.click();
+        ReusableMethods.clickContinueButton();
+        ReusableMethods.waitFor(1);
     }
 
     @Given("Gelen sayfada teslimat zamanini secer")
@@ -72,7 +72,9 @@ public class OrderStepDefinitions {
 
     @And("Teslimat zamani sayfasinda Devam Et butonuna tiklar")
     public void teslimatZamaniSayfasindaDevamEtButonunaTiklar() {
-        orderPage.deliverySlotSubmitButton.click();
+        //Driver.getDriver().navigate().refresh();
+        ReusableMethods.clickContinueButton();
+        //orderPage.deliverySlotSubmitButton.click();
 
     }
 
@@ -85,8 +87,8 @@ public class OrderStepDefinitions {
     @When("Kullanici odemede Siparisi tamamla butonuna tiklar")
     public void kullaniciOdemedeSiparisiTamamlaButonunaTiklar() {
         ReusableMethods.waitFor(1);
-        orderPage.onlinePaySubmitButton.click();
-
+        //orderPage.onlinePaySubmitButton.click();
+        ReusableMethods.clickContinueButton();
     }
 
     @Then("Kullanici siparisin tamamlandigini kontrol eder")

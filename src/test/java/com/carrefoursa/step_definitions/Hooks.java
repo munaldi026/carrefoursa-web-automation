@@ -17,8 +17,6 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Hooks {
-    LoginPage loginPage=new LoginPage();
-    HomePage homePage=new HomePage();
 
     @Before
     public void setUp(){
@@ -26,7 +24,7 @@ public class Hooks {
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Driver.getDriver().get(ConfigReader.getProperty("url_preProd"));
         Driver.getDriver().manage().deleteAllCookies();
-        ReusableMethods.closeCerez();
+        //ReusableMethods.closeCerez();
 
 
     }
