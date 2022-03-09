@@ -1,7 +1,6 @@
 package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.*;
-import com.carrefoursa.utilities.ConfigReader;
 import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
@@ -10,14 +9,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
+
 
 public class PDPStepDefinitions {
         LoginPage loginPage = new LoginPage();
         PDPPage pdpPage = new PDPPage();
         HomePage homePage = new HomePage();
         AccountPage accountPage = new AccountPage();
-        OrderPage orderPage=new OrderPage();
         PLPPage plpPage=new PLPPage();
         BasketPage basketPage=new BasketPage();
         ProductPage productPage=new ProductPage();
@@ -82,10 +80,9 @@ public class PDPStepDefinitions {
         @Then("Sectigi urunun sepete eklendigini kontrol eder")
         public void sectigi_urunun_sepete_eklendigini_kontrol_eder() {
 
-            selectedProductText = Constants.certainProductIdForPDP;
-            System.out.println("selectedProductText = " + selectedProductText);
-            String productInBasketText = pdpPage.productInBasket.getText();
-            System.out.println("productInBasketText = " + productInBasketText);
+
+            Constants.searchOrderProductName=pdpPage.productInBasket.getText();
+            System.out.println("Constants.searchOrderProductName = " + Constants.searchOrderProductName);
             Assert.assertTrue(pdpPage.productInBasket.isDisplayed());
         }
         @Then("Sectigi urunun mini sepete eklendigini kontrol eder")

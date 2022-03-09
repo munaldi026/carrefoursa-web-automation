@@ -3,8 +3,6 @@ package com.carrefoursa.pages;
 import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -154,8 +152,8 @@ public class ProductPage extends BasePage {
         }
     }
 
-    public void searchProduct(String productName) {
-        ReusableMethods.waitForPageToLoad(5);
+    public void searchProduct() {
+        ReusableMethods.waitForPageToLoad(1);
         homePage.searchField.click();
         homePage.searchField.sendKeys(Constants.searchOrderProductName);
         homePage.searchButton.click();

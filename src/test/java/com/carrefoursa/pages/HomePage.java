@@ -17,7 +17,7 @@ public class HomePage extends BasePage{
 
     @FindBy(css = "img[src='https://reimg-carrefour.mncdn.com/staticimage/carrefoursacom-logo.svg']")
     public WebElement homePageButton;
-    @FindBy(id = "js-site-search-input")
+    @FindBy(css = "#js-site-search-input")
     public WebElement searchField;
     @FindBy(css = ".js-search-validate")
     public WebElement searchButton;
@@ -42,7 +42,7 @@ public class HomePage extends BasePage{
     public static List<WebElement> list_banners;
 
     @FindBy(className = "ui-menu-item")
-    public static List<WebElement> searhboxProductlist;
+    public List<WebElement> searhboxProductlist;
 
 
     public void checkLinks(){

@@ -1,6 +1,5 @@
 package com.carrefoursa.pages;
 
-import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import org.junit.Assert;
@@ -160,7 +159,7 @@ public class BasketPage extends BasePage {
             }
             System.out.println("listOfProducts.size() = " + listOfProducts.size());
             if (emptyCartValue.getText().contains("0,00 TL")){
-                productPage.searchProduct(Constants.certainProductIdForPDP);
+                productPage.searchProduct();
                 plpPage.addToBasketButton();
             }
             else if (!emptyCartValue.getText().contains("0,00 TL")){
@@ -169,7 +168,7 @@ public class BasketPage extends BasePage {
                 ReusableMethods.waitFor(2);
                 miniCartRemoveAllLink.click();
                 emptyCartComfirmButton.click();
-                productPage.searchProduct(Constants.certainProductIdForPDP);
+                productPage.searchProduct();
                 plpPage.addToBasketButton();
             }
         } catch (Exception e) {

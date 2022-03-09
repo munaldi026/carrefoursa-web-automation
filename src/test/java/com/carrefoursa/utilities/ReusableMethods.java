@@ -191,6 +191,7 @@ public class ReusableMethods {
     }
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        element.click();
 
         try {
             Thread.sleep(500);

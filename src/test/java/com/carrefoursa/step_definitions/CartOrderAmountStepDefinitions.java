@@ -3,7 +3,6 @@ package com.carrefoursa.step_definitions;
 import com.carrefoursa.pages.OrderPage;
 import com.carrefoursa.pages.ProductPage;
 import com.carrefoursa.utilities.Constants;
-import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -31,7 +30,7 @@ public class CartOrderAmountStepDefinitions {
     }
     @Given("Kullanici tutari {int} TL ya da uzeri olan bir urun arartir")
     public void kullanici_tutari_tl_ya_da_uzeri_olan_bir_urun_arartir(Integer int1) {
-        productPage.searchProduct(Constants.searchProduct);
+        productPage.searchProduct();
     }
     @Then("Sepet tutarinin Minimum Siparis Tutarina ulasmis oldugunu kontrol eder")
     public void sepet_tutarinin_minimum_siparis_tutarina_ulasmis_oldugunu_kontrol_eder() {

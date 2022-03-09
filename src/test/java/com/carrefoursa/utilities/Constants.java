@@ -34,6 +34,7 @@ public class Constants {
     public static String grantorName="Ahmet Yilmaz";
     public static String grantorNameEmpty="";
     public static String orderNoteText="Bu note, CarrefourSA adina yapilan automation testi icin yazilmistir.";
+    public static String noProductInStock="Koli Bandı 45*40 cm";
 
 
 

@@ -26,7 +26,7 @@ Feature: US_003_Basket_Tests
             And Ekledigi notu silmek icin sil butonuna tiklar
             And Sepetteki Not eklemek istiyorum linkine tiklar
             Then Notun silinmis oldugunu kontrol eder
-      @basket-1
+
       Scenario:  TC_304 Sepete Temassiz Teslimat
 
             Given Siparis ozetinde Temassiz Teslimat checkbox ini tiklar
