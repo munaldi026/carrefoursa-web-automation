@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_002_Login_Tests
 
       Background:
@@ -44,7 +44,7 @@ Feature: US_002_Login_Tests
         And Kullanıcı giris yapamiyorum buttonuna tiklar
         And Dogrulama kodu icin bir email adresi girilir
         And Dogrulama baglantisi gonder buttonu tiklanir
-        Then Ekranda dogrulam mesaji gonderildi mesajı gorulur
+        Then Ekranda dogrulama mesaji gonderildi mesajı gorulur
 
       Scenario: TC_208 LogOut
         And Cep Telefonu Numaraniz bolumune gecerli bir numara girer

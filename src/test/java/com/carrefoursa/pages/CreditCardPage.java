@@ -4,13 +4,13 @@ import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class CreditCardPage extends BasePage {
 
@@ -26,7 +26,7 @@ public class CreditCardPage extends BasePage {
     @FindBy(css = ".name")
     public static List<WebElement> MiniCartList;
 
-    @FindBy(className = "pr-name")
+    @FindBy(xpath = "//li[@class='product-item product-item']")
     public static List<WebElement> cartList;
 
     @FindBy(css = ".remove-cart-item-link")
@@ -80,17 +80,20 @@ public class CreditCardPage extends BasePage {
     public void verifyCartList() {
         List<String> listOfProducts = new ArrayList<>();
         for (WebElement productlist : cartList) {
-            listOfProducts.add(productlist.getText());
-        }
-
+            listOfProducts.add(productlist.getText());        }
         String expectedProductName = null;
         expectedProductName = Constants.searchOrderProductName;
         System.out.println("expectedProductName = " + expectedProductName);
+
         System.out.println("listOfProducts.size() = " + listOfProducts.size());
         System.out.println("listOfProducts = " + listOfProducts);
-        Assert.assertTrue(listOfProducts.contains(expectedProductName));
-        System.out.println("Product is added to cart");
+        Assert.assertTrue(listOfProducts.toString().contains(expectedProductName));
+
+        System.out.println("True product is added to cart successfully");
     }
+
+
+
 
     public List<String> getMiniCartList() {
         List<String> listOfProducts = new ArrayList<>();

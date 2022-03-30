@@ -1,6 +1,9 @@
 package com.carrefoursa.pages;
 
+import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
+import com.carrefoursa.utilities.ReusableMethods;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +14,8 @@ import java.util.List;
 public class PDPPage extends BasePage {
 
     HomePage homePage = new HomePage();
+    AccountPage accountPage=new AccountPage();
+    String selectedProductText = null;
 
     @FindBy(xpath = "//a[@id='sm-16432698024011057-63']//span[@class='wrapper-menu-line']//span[1]")
     public WebElement subMenuWashingUP;
@@ -76,6 +81,9 @@ public class PDPPage extends BasePage {
     @FindBy(css = "a[class='name']")
     public WebElement sacrificialInMiniCart;
 
+    @FindBy(css = ".product_click")
+    public List<WebElement> shoppingList;
+
 
     public List<String> getFlagList(){
         List<String>flagList=new ArrayList<>();
@@ -111,6 +119,24 @@ public class PDPPage extends BasePage {
         int code =Integer.parseInt(productCode);
         return code;
 
+    }
+    public List<String> getShoppingList(){
+        List<String>newShoppingList=new ArrayList<>();
+        for (WebElement element:shoppingList
+        ) {
+            newShoppingList.add(element.getText());
+        }
+        System.out.println("newShoppingList.size() = " + newShoppingList.size());
+        System.out.println("newShoppingList = " + newShoppingList);
+        return newShoppingList;
+    }
+
+    public void verifyAddProductInShoppingList(){
+        ReusableMethods.clickFunction(homePage.myAccount);
+        ReusableMethods.clickFunction(accountPage.ShoppingListIcon);
+        Driver.getDriver().navigate().refresh();
+        selectedProductText = Constants.certainProductIdForPDP;
+        Assert.assertTrue(getShoppingList().toString().contains(selectedProductText));
     }
 
         }

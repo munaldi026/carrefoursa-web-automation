@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_008_MiniCart_Tests
 
       Background:

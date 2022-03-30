@@ -1,4 +1,4 @@
-@search
+@regression
 Feature: US_004_Search_Tests
 
       Background:

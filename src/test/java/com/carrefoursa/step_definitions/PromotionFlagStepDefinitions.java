@@ -8,7 +8,6 @@ import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.interactions.Actions;
 
 public class PromotionFlagStepDefinitions {

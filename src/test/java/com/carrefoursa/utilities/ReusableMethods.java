@@ -18,7 +18,7 @@ public class ReusableMethods {
 
     public static WebElement clickFunction(WebElement clickElement) {
 
-        waitForClickablility(clickElement,3);
+        waitForClickablility(clickElement, 3);
 
         //wait.until(ExpectedConditions.elementToBeClickable(clickElement));
 
@@ -37,6 +37,7 @@ public class ReusableMethods {
         }
         //Driver.getDriver().switchTo().window(origin);
     }
+
     //========Hover Over=====//
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
@@ -189,6 +190,7 @@ public class ReusableMethods {
         }
 
     }
+
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
         element.click();
@@ -200,14 +202,59 @@ public class ReusableMethods {
         }
 
     }
-    public static void HoverAndClick(WebDriver driver,WebElement elementToHover,WebElement elementToClick) {
+
+    public static void HoverAndClick(WebDriver driver, WebElement elementToHover, WebElement elementToClick) {
         Actions action = new Actions(driver);
         action.moveToElement(elementToHover).click(elementToClick).build().perform();
     }
-    static OrderPage orderPage=new OrderPage();
 
-    public static void clickContinueButton(){
+    static OrderPage orderPage = new OrderPage();
+
+
+    public static void clickContinueButton() {
         orderPage.continueButton.click();
     }
+
+    public static String generatePhoneNumber1() {
+        Random rand = new Random();
+        int num1, num2, num3;
+        num1 = rand.nextInt(900) + 100;
+        num2 = rand.nextInt(643) + 100;
+        num3 = rand.nextInt(9000) + 1000;
+
+        String phoneNumber = ("80" + (Integer.toString(num2)) + (Integer.toString(num3)));
+        System.out.println(phoneNumber);
+        //806041653
+        return phoneNumber;
     }
 
+    public static boolean retryingFindClick() {
+        boolean result = false;
+        int attempts = 0;
+        while (attempts < 2) {
+            try {
+                Driver.getDriver().findElement(By.xpath("//input[@id='js-site-search-input']")).click();
+                result = true;
+                break;
+            } catch (Exception e) {
+            }
+            attempts++;
+        }
+        return result;
+    }
+
+
+    public static String getSaltString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+    }
+
+}

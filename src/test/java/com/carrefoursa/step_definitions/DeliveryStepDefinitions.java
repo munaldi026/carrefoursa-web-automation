@@ -58,7 +58,7 @@ public class DeliveryStepDefinitions {
     @Then("Cikan pop-up uzerinde Bolgenizin Teslimat saatleri seceneklerinin goruldugunu kontrol eder")
     public void cikan_pop_up_uzerinde_bolgenizin_teslimat_saatleri_seceneklerinin_goruldugunu_kontrol_eder() {
         String deliveryTimeOptions= deliveryPage.slotTableText.getText();
-        System.out.println("deliveryTimeOptions = " + deliveryTimeOptions);
+        System.out.println("DELIVERY SLOT OPTIONS = " + deliveryTimeOptions);
         Assert.assertTrue(deliveryPage.slotTableText.isDisplayed());
 
     }

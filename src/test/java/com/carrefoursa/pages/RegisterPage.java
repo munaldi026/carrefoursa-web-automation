@@ -8,11 +8,11 @@ public class RegisterPage extends BasePage {
     @FindBy(className = "js-register-popup")
     public WebElement registerButton;
 
-    @FindBy(css = ".form-control[id='register_phoneNumber']")
-    public WebElement registerPhoneNumber;
-
     @FindBy(css = ".form-control[id='email']")
     public WebElement registerEmail;
+
+    @FindBy(css = "#register_phoneNumber")
+    public WebElement registerPhoneNumberBox;
 
     @FindBy(css = ".generalAgreement[id='generalAgreement']")
     public WebElement generalCheckbox;
@@ -56,6 +56,8 @@ public class RegisterPage extends BasePage {
 
     @FindBy(xpath = "(//button[@id='confirmOTPBtn'])[2]")
     public WebElement registerOtpConfirmButton;
+
+
 
 
 }

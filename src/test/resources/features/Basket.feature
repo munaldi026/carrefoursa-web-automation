@@ -1,4 +1,4 @@
-@basket
+@regression
 Feature: US_003_Basket_Tests
 
       Background:
@@ -11,7 +11,7 @@ Feature: US_003_Basket_Tests
 
             Then Sepete eklemis oldugu urunun dogru urun oldugunu kontrol eder
 
-      Scenario:  TC_302 Sepete Urunu Sil
+      Scenario:  TC_302 Sepette Urunu Sil
 
             When Sepetteki Urunu Sil butonuna tiklar
             Then Sectigi urunun sepetten kaldirildigini kontrol eder

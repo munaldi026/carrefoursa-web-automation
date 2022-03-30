@@ -4,15 +4,12 @@ import com.carrefoursa.pages.BasketPage;
 import com.carrefoursa.pages.CreditCardPage;
 import com.carrefoursa.pages.HomePage;
 import com.carrefoursa.pages.OrderPage;
-import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 
 public class PaymentStepDefinitions {
 
@@ -68,10 +65,10 @@ public class PaymentStepDefinitions {
         String creditCartMsgText = creditCardPage.verifyCreditCartMsg.getText();
         System.out.println("creditCartMsgText = " + creditCartMsgText);
         Assert.assertTrue(creditCardPage.verifyCreditCartMsg.isDisplayed());
-        ReusableMethods.waitFor(3);
-        Driver.getDriver().navigate().back();
-        Driver.getDriver().navigate().refresh();
-        homePage.homePageButton.click();
+//        ReusableMethods.waitFor(3);
+//        Driver.getDriver().navigate().back();
+//        Driver.getDriver().navigate().refresh();
+//        homePage.homePageButton.click();
     }
 
 

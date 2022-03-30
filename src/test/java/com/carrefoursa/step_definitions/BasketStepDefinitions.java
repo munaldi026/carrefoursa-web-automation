@@ -2,15 +2,11 @@ package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.*;
 import com.carrefoursa.utilities.Constants;
-import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebElement;
-
-import javax.swing.*;
 
 public class BasketStepDefinitions {
 
@@ -30,16 +26,17 @@ public class BasketStepDefinitions {
     public void kullanici_ana_sayfadaki_sepetim_butonuna_hover_yapar() {
 
         ReusableMethods.hover(homePage.myBasket);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
+
     }    @When("Mini sepetteki Urunu Sil butonuna tiklar")
     public void miniSepettekiUrunuSilButonunaTiklar() {
         basketPage.miniCartRemoveLink.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
     @When("Sepetteki Urunu Sil butonuna tiklar")
     public void sepetteki_urunu_sil_butonuna_tiklar() {
        basketPage.removeProductButtonInBasket.click();
-       ReusableMethods.waitFor(3);
+       ReusableMethods.waitFor(1);
     }
     @Then("Sectigi urunun sepetten kaldirildigini kontrol eder")
     public void sectigi_urunun_sepetten_kaldirildigini_kontrol_eder() {
@@ -65,6 +62,7 @@ public class BasketStepDefinitions {
         ReusableMethods.waitForClickablility(basketPage.notPop_up,3);
         basketPage.customerNoteTextField.click();
         basketPage.customerNoteTextField.sendKeys(Constants.customerNote);
+        System.out.println("CUSTOMER NOTE :"+Constants.customerNote);
     }
     @Given("Kaydet butonuna tiklar")
     public void kaydet_butonuna_tiklar() {
@@ -86,7 +84,7 @@ public class BasketStepDefinitions {
     @Then("Notun silinmis oldugunu kontrol eder")
     public void notunSilinmisOldugunuKontrolEder() {
         String noMessageYet = basketPage.noMsgTextField.getText();
-        System.out.println("NoMessageYet = " + noMessageYet);
+        System.out.println("Customer note is deleted and NoMessageYet = " + noMessageYet);
     }
 
     @Then("Sepette bulunan urunleri kontrol eder")
@@ -97,6 +95,8 @@ public class BasketStepDefinitions {
     @Then("Sepete eklemis oldugu urunun dogru urun oldugunu kontrol eder")
     public void sepeteEklemisOlduguUrununDogruUrunOldugunuKontrolEder() {
         creditCardPage.verifyCartList();
+
+
     }
     @Given("Siparis ozetinde Temassiz Teslimat checkbox ini tiklar")
     public void siparisOzetindeTemassizTeslimatCheckboxIniTiklar() {
@@ -129,5 +129,10 @@ public class BasketStepDefinitions {
     public void siparisOzetindeBezPosetEklenmisOldugunuKontrolEder() {
             basketPage.verifyClothBag();
 
+    }
+
+    @And("Kullanici sepeti bosaltir")
+    public void kullaniciSepetiBosaltir() {
+        basketPage.removeAllProduct();
     }
 }

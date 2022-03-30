@@ -1,9 +1,21 @@
 package com.carrefoursa.pages;
 
+import com.carrefoursa.utilities.Driver;
+import com.carrefoursa.utilities.ReusableMethods;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
+import java.util.Locale;
 
 public class OrderPage extends BasePage{
+
+
+    HomePage homePage=new HomePage();
+    AccountPage accountPage=new AccountPage();
+
     @FindBy(id="cancelOrder")
     public WebElement cancelOrderButton;
 
@@ -75,6 +87,38 @@ public class OrderPage extends BasePage{
 
     @FindBy(css = "div[class='cartSubTotal'] span[class='count']")
     public WebElement productPriceForOrderAmount;
+
+    @FindBy(css = "#monthOptions1")
+    public WebElement selectMonth;
+    @FindBy(css = "#yearOptions1")
+    public WebElement selectYear;
+    @FindBy(css = ".text-white")
+    public List<WebElement> orderDetailButtonList;
+    @FindBy(css = ".cons-cancelled")
+    public WebElement deleteOrderMsg;
+
+    @FindBy(xpath = "(//span[@class='info'])[1]")
+    public WebElement orderNo;
+
+
+    public String verifyDeleteOrder(){
+        Driver.getDriver().navigate().refresh();
+        homePage.myAccount.click();
+        accountPage.orderListIcon.click();
+        Select select=new Select(selectMonth);
+        select.selectByVisibleText("Mart");
+        Select select1=new Select(selectYear);
+        select1.selectByVisibleText("2022");
+        orderDetailButtonList.get(0).click();
+        String str=Driver.getDriver().getCurrentUrl();//https://wpp.birdamlabal.com/my-account/order/132557079
+        String str1=str.replaceAll("[^\\d]", "");
+        String deleteOrderText = deleteOrderMsg.getText();
+        System.out.println("DELETE ORDER MESSAGE = " + deleteOrderText.toUpperCase(Locale.ROOT));
+        System.out.println("DELETED ORDER NO = " + str1.toUpperCase(Locale.ROOT));
+        Assert.assertTrue(deleteOrderMsg.isDisplayed());
+        System.out.println("str1 = " + str1);
+        return str1;
+    }
 
 
 

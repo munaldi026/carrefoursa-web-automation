@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_022_Cart_Order_Amount_Tests
 
       Background:

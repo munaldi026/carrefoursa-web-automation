@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_027_DeliveryOptions_Tests
 
       Background:
@@ -12,13 +12,13 @@ Feature: US_027_DeliveryOptions_Tests
 
       Scenario: US_2701 Tercih Degisikligi
 
-      Given Ana sayfadaki Teslimat secenekleri linkine tiklar
+      Given Ana sayfadaki Teslimat Seceneginiz linkine tiklar
       And Cikan pop-up uzerinde Magazadan Alin tercihini yapar
       And Teslim alinacak magazayi secer
       When Bu sayfada Devam et butonu tiklanir
       Then Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.
 
-      @delivery
+
       Scenario: US_2702 Adres adiminda Magaza Degisimi
 
       Given Sepetim Sayfasindaki Siparisi Tamamla butonuna tiklar

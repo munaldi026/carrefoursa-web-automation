@@ -156,8 +156,10 @@ public class DeliveryPage extends BasePage {
         ) {
             addressList.add(each.getText());
         }
-        System.out.println("addressList = " + addressList);
+        System.out.println("List Of Store addresses = " + addressList);
+        System.out.println("Selected Store = = " + addressList.get(0));
         addressOfStores.get(0).click();
+
 
     }
 

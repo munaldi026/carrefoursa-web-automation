@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_001_Register_Tests
 
       Scenario: TC_001 PositiveRegister

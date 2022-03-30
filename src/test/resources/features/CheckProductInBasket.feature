@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_017_Check_Product_In_Basket_Tests
 
       Background:

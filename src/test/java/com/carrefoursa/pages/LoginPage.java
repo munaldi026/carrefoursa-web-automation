@@ -2,6 +2,7 @@ package com.carrefoursa.pages;
 
 import com.carrefoursa.utilities.ConfigReader;
 import com.carrefoursa.utilities.ReusableMethods;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,12 +18,12 @@ public class LoginPage extends BasePage {
     public WebElement verifyLogoutMsg;
 
     @FindBy(id = "login_personal_phoneNumber")
-    public WebElement phoneNumberTextBox;
+    public WebElement loginPhoneNumberBox;
 
-    @FindBy(id = "loginBtn")
+    @FindBy(css = "#loginBtn")
     public WebElement loginButton2;
 
-    @FindBy(id = "confirmationCode")
+    @FindBy(xpath= "//div[@id='confirm-login']//input[@id='confirmationCode']")
     public WebElement otpCodeTextBox;
 
     @FindBy(xpath = "(//button[@id='confirmOTPBtn'])[1]")
@@ -30,6 +31,11 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//span[@class='error-message']")
     public WebElement errorMsgText;
+
+    @FindBy(css = " .login-error-message.error-message")
+    public WebElement otpErrorMsgText;
+
+
     @FindBy(css = ".welcome-modal__container")
     public WebElement wellcomePop_up;
 
@@ -39,13 +45,13 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button[@class='close']")
     public WebElement wellcomePop_upClose;
     @FindBy(css = "span[class='error-message']")
-    public WebElement GecersizNumaraHataMesaji;
+    public WebElement gecersizNumaraHataMesaji;
     @FindBy(css = "div[class='login-error-message error-message']")
     public WebElement HataliOtpMesaji;
     @FindBy(className = "d-block")
     public WebElement welcome;
     @FindBy(css = ".forgotten-password[id='validEmail']")
-    public WebElement confirmationmessage;
+    public WebElement confirmationMessage;
 
     @FindBy(xpath = "//a[@class='js-password-forgotten']")
     public WebElement notLoginButton;
@@ -63,14 +69,36 @@ public class LoginPage extends BasePage {
 
     public void successLogin() {
         loginButton.click();
-        phoneNumberTextBox.sendKeys(ConfigReader.getProperty("phone_number"));
+        loginPhoneNumberBox.sendKeys(ConfigReader.getProperty("phone_number"));
         loginButton2.click();
         otpCodeTextBox.sendKeys(ConfigReader.getProperty("otp_code"));
         otpConfirmButton.click();
-        ReusableMethods.waitFor(5);
-//        wellcomePop_upClose.click();
-//        ReusableMethods.closeCerez();
+        ReusableMethods.waitFor(3);
 
+    }
+    public String verifySuccessLogin(){
+        String welcomeText = welcome.getText();
+        System.out.println("welcomeText = " + welcomeText);
+        Assert.assertTrue(welcome.isDisplayed());
+        return welcomeText;
+    }
+    public String verifyUnSuccessLogin(){
+        String invalidNumberMsg = gecersizNumaraHataMesaji.getText();
+        System.out.println("invalidNumberMsg = " + invalidNumberMsg);
+        Assert.assertTrue(gecersizNumaraHataMesaji.isDisplayed());
+        return invalidNumberMsg;
+    }
+    public String verifyUnSuccessLogin1(){
+        String errorNumberMsg = errorMsgText.getText();
+        System.out.println("errorNumberMsg = " + errorNumberMsg);
+        Assert.assertTrue(errorMsgText.isDisplayed());
+        return errorNumberMsg;
+    }
+    public String verifyUnSuccessLogin2(){
+        String confirmationMsg = confirmationMessage.getText();
+        System.out.println("confirmationMsg = " + confirmationMsg);
+        Assert.assertTrue(confirmationMessage.isDisplayed());
+        return confirmationMsg;
     }
 }
 

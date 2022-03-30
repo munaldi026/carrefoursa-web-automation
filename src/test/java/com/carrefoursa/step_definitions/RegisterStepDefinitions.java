@@ -3,8 +3,11 @@ package com.carrefoursa.step_definitions;
 import com.carrefoursa.pages.LoginPage;
 import com.carrefoursa.pages.RegisterPage;
 import com.carrefoursa.utilities.ConfigReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import com.carrefoursa.utilities.ReusableMethods;
+import io.cucumber.java.en.Then;
+import org.junit.Assert;
 
 public class RegisterStepDefinitions {
     RegisterPage registerPage=new RegisterPage();
@@ -21,9 +24,7 @@ public class RegisterStepDefinitions {
     public void cep_telefonu_numaraniz_kayitli_olmayan_bir_numara_girer() {
         int phonenumber=801111149;
         String phonenumber2=Integer.toString(phonenumber);
-        registerPage.registerPhoneNumber.sendKeys(phonenumber2);
-
-
+        registerPage.registerPhoneNumberBox.sendKeys(phonenumber2);
     }
 
     @Given("Email bolumune email girilir")
@@ -43,29 +44,29 @@ public class RegisterStepDefinitions {
     @Given("Iletişim izni checkbox tiklanir")
     public void iletisim_izni_checkbox_tiklanir() {
         registerPage.generalCheckbox.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
 
     }
 
     @Given("Uyelik beyani checkbox tiklanir")
     public void uyelik_beyani_checkbox_tiklanir() {
         registerPage.kvkkAgreementCheckbox.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
     @Given("Aydintlatma beyani checkbox tiklanır")
     public void aydintlatma_beyani_checkbox_tiklanir() {
         registerPage.clarificationtextCheckbox.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
     @Given("Kullanici uye olun buttonuna tiklar")
     public void kullanici_uye_ol_tiklanir() {
         registerPage.signUpButton.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(2);
     }
 
     @Given("Kullanici eksik numara hata mesajini gorur")
     public void kullanici_eksik_numara_hata_mesaji() {
-        loginPage.GecersizNumaraHataMesaji.isDisplayed();
+        loginPage.gecersizNumaraHataMesaji.isDisplayed();
         ReusableMethods.waitFor(3);
     }
 
@@ -73,21 +74,21 @@ public class RegisterStepDefinitions {
     public void kullanici_bulundugu_sehiri_girer() {
         registerPage.cityCode.click();
         registerPage.cityselectcode.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
 
     @Given("Kullanici bulundugu ilceyi girer")
     public void kullanici_bulundugu_ilceyi_girer() {
         registerPage.townCode.click();
         registerPage.townselectcode.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
 
     @Given("Kullanici bulundugu mahalleyi girer")
     public void kullanici_bulundugu_mahalleyi_girer() {
         registerPage.districtCode.click();
         registerPage.districtselectcode.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
 
     @Given("Kullanici devam buttonuna tiklar")
@@ -106,12 +107,12 @@ public class RegisterStepDefinitions {
 
     @Given("Cep Telefonu Numaraniz bolumune gecersiz bir numara girilir")
     public void cep_telefonu_numaraniz_bolumune_gecersiz_bir_numara() {
-        registerPage.registerPhoneNumber.sendKeys(ConfigReader.getProperty("register_invalid_phone_number"));
+        registerPage.registerPhoneNumberBox.sendKeys(ConfigReader.getProperty("register_invalid_phone_number"));
     }
 
     @Given("Gecersiz numara girildiginde cikan hata mesaji ekranda gorulur")
     public void Gecersiz_numara_girildiginde_cikan_hata_mesaji(){
-        loginPage.GecersizNumaraHataMesaji.isDisplayed();
+        loginPage.gecersizNumaraHataMesaji.isDisplayed();
     }
 
     @Given("Kullanici sms bolumune gecersiz otp girilir")
@@ -126,7 +127,8 @@ public class RegisterStepDefinitions {
 
     @Given("Lutfen telefon numarasi giriniz yazisi gorulur")
     public void lutfen_telefon_numarasi_giriniz(){
-        loginPage.errorMsgText.isDisplayed();
+        //loginPage.errorMsgText.isDisplayed();
+        loginPage.verifyUnSuccessLogin1();
     }
 
     @Given("Hatali bir email adresi girilir")
@@ -150,4 +152,102 @@ public class RegisterStepDefinitions {
         registerPage.registerOtpConfirmButton.click();
     }
 
-}
+    @And("Cep Telefonu Numaraniz bolumune bir numara girer{string}")
+    public void cepTelefonuNumaranizBolumuneBirNumaraGirer(String phoneNumber) {
+
+        if (phoneNumber.equals("empty")) {
+            phoneNumber = "";
+        }
+        loginPage.loginPhoneNumberBox.sendKeys(phoneNumber);
+    }
+
+    @And("Email bolumune email girilir{string}")
+    public void emailBolumuneEmailGirilir(String email) {
+        if (email.equals("empty")) {
+            email = "";
+        }
+        registerPage.registerEmail.sendKeys(email);
+    }
+
+    @Then("kullanici hata mesaji alir {string}")
+    public void kullaniciHataMesajiAlir(String expectedErrorMsg) {
+
+        if (expectedErrorMsg.contains("Lütfen cep telefonu numaranızı")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.errorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+
+        } else if (expectedErrorMsg.contains("Lütfen e-posta")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.errorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+
+        } else if (expectedErrorMsg.contains("Girdiğiniz cep telefonu")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.errorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+
+        } else if (expectedErrorMsg.contains("Bu e-posta adresi")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.errorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+
+        }else if (expectedErrorMsg.contains("Geçerli bir telefon numarası")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.errorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+
+        }else if (expectedErrorMsg.contains("cep telefonu numarasını kontrol ederek")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.errorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+
+        }else if (expectedErrorMsg.contains("Girdiğiniz kod hatalıdır")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.otpErrorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+
+        }else if (expectedErrorMsg.contains("Kodu eksik girdiniz")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.otpErrorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+        }
+
+
+        }
+
+    @And("Cep Telefonu Numaraniz bolumune bir numara girer")
+    public void cepTelefonuNumaranizBolumuneBirNumaraGirer() {
+        ReusableMethods.waitFor(1);
+        registerPage.registerPhoneNumberBox.click();
+        registerPage.registerPhoneNumberBox.sendKeys(ReusableMethods.generatePhoneNumber1());
+    }
+
+    @And("Email bolumune bir email girilir")
+    public void emailBolumuneBirEmailGirilir() {
+        ReusableMethods.waitFor(3);
+        registerPage.registerEmail.click();
+        registerPage.registerEmail.sendKeys(ReusableMethods.getSaltString()+"@load-csa.com");
+    }
+
+    @And("Register Cep Telefonu Numaraniz bolumune bir numara girer{string}")
+    public void registerCepTelefonuNumaranizBolumuneBirNumaraGirer(String phoneNumber) {
+        if (phoneNumber.equals("empty")) {
+            phoneNumber = "";
+        }
+        registerPage.registerPhoneNumberBox.sendKeys(phoneNumber);
+    }
+
+    }
+
+
+
+

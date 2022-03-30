@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_009_Order_Tests
 
       Background:
@@ -19,7 +19,6 @@ Feature: US_009_Order_Tests
        When Kullanici odemede Siparisi tamamla butonuna tiklar
        Then Kullanici siparisin tamamlandigini kontrol eder
 
-
       Scenario: TC_902 Delete Order
 
         Given Kullanici Hesabim butonuna tiklar
@@ -27,7 +26,6 @@ Feature: US_009_Order_Tests
         And Siparislerim sayfasindaki Siparisi iptal Et butonuna tiklar
         When Siparis iptali ile ilgili cikan Pop-up uzerinde Evet butonuna tiklar
         Then Kullanici siparisin iptal edildigini kontrol eder
-
 
       Scenario: TC_903 Delete Order-1
 

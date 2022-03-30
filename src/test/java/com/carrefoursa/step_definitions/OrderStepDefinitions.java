@@ -1,8 +1,6 @@
 package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.*;
-import com.carrefoursa.utilities.Constants;
-import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,13 +8,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Locale;
+
 public class OrderStepDefinitions {
     HomePage homePage=new HomePage();
     AccountPage accountPage=new AccountPage();
     OrderPage orderPage=new OrderPage();
     ProductPage productPage=new ProductPage();
     PLPPage plpPage=new PLPPage();
-
+    String orderNoText;
 
     @Given("Kullanici herhangi bir urunu aratir")
     public void kullaniciHerhangiBirUrunuAratir() {
@@ -28,7 +28,6 @@ public class OrderStepDefinitions {
     public void plp_sayfasindaki_sepete_ekle_butonuna_tiklar() {
 
         plpPage.addToBasketButton();
-
     }
 
     @Given("Ana Sayfadaki Sepetim butonuna tiklar")
@@ -39,7 +38,7 @@ public class OrderStepDefinitions {
     @Given("Kullanici sepette Siparisi tamamla butonuna tiklar")
     public void kullanici_sepette_siparisi_tamamla_butonuna_tiklar() {
 
-        ReusableMethods.clickContinueButton();
+        orderPage.continueButton.click();
 
     }
 
@@ -58,8 +57,7 @@ public class OrderStepDefinitions {
     @And("Adres secimi sayfasinda Devam Et butonuna tiklar")
     public void adresSecimiSayfasindaDevamEtButonunaTiklar() {
 
-        //orderPage.deliveryAddressSubmitButton.click();
-        ReusableMethods.clickContinueButton();
+        orderPage.continueButton.click();
         ReusableMethods.waitFor(1);
     }
 
@@ -73,7 +71,7 @@ public class OrderStepDefinitions {
     @And("Teslimat zamani sayfasinda Devam Et butonuna tiklar")
     public void teslimatZamaniSayfasindaDevamEtButonunaTiklar() {
         //Driver.getDriver().navigate().refresh();
-        ReusableMethods.clickContinueButton();
+        orderPage.continueButton.click();
         //orderPage.deliverySlotSubmitButton.click();
 
     }
@@ -88,16 +86,20 @@ public class OrderStepDefinitions {
     public void kullaniciOdemedeSiparisiTamamlaButonunaTiklar() {
         ReusableMethods.waitFor(1);
         //orderPage.onlinePaySubmitButton.click();
-        ReusableMethods.clickContinueButton();
+        orderPage.continueButton.click();
     }
 
     @Then("Kullanici siparisin tamamlandigini kontrol eder")
     public void kullanici_siparisin_tamamlandigini_kontrol_eder() {
 
+
         String verifyOrderMsg = orderPage.cancelOrderMsg.getText();
-        System.out.println("verifyOrderMsg = " + verifyOrderMsg);
+        System.out.println("COMPLETE ORDER MESSAGE = " + verifyOrderMsg.toUpperCase(Locale.ROOT));
+        orderNoText = orderPage.orderNo.getText();
+        System.out.println("COMPLETED ORDER NO = " + orderNoText.toUpperCase(Locale.ROOT));
         orderPage.cancelOrderMsg.isDisplayed();
-        //homePage.homePageButton.click();
+
+
 
     }
 
@@ -122,20 +124,22 @@ public class OrderStepDefinitions {
     @And("Kullanici Siparis Onay sayfasindaki Siparisimi iptal Etmek istiyorum butonuna tiklar")
     public void kullaniciSiparisOnaySayfasindakiSiparisimiiptalEtmekistiyorumButonunaTiklar() {
         orderPage.cancelOrderButton.click();
+
     }
 
     @Given("Siparis iptali ile ilgili cikan Pop-up uzerinde Evet butonuna tiklar")
     public void siparis_iptali_ile_ilgili_cikan_pop_up_uzerinde_evet_butonuna_tiklar() {
         orderPage.orderCancelConfirmButton.click();
-
+        ReusableMethods.waitFor(5);
     }
 
     @Then("Kullanici siparisin iptal edildigini kontrol eder")
     public void kullanici_siparisin_iptal_edildigini_kontrol_eder() {
 
-        String noOrderMessage = orderPage.consCancelledMsg.getText();
-        System.out.println("noOrderMessage = " + noOrderMessage);
-        orderPage.consCancelledMsg.isDisplayed();
+
+
+        orderPage.verifyDeleteOrder();
+        System.out.println("orderNoText = " + orderNoText);
 
     }
 
