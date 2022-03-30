@@ -2,6 +2,7 @@ package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.*;
 import com.carrefoursa.utilities.Constants;
+import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -52,9 +53,10 @@ public class PDPSelectAlternativeProductStepDefinitions {
 
     @Then("Sepetteki urunu silerek Anasayfaya doner")
     public void sepetteki_urunu_silerek_anasayfaya_doner() {
+
+        ReusableMethods.waitFor(1);
         basketPage.getremoveProductButtonInBasket();
-        String miniCartEmptyMsg = basketPage.miniCartEmptyMsg.getText();
-        System.out.println("miniCartEmptyMsg = " + miniCartEmptyMsg);
+        ReusableMethods.waitFor(1);
         basketPage.goBackHomePageFromBasketButton.click();
 
 

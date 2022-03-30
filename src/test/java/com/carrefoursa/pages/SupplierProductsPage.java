@@ -35,6 +35,9 @@ public class SupplierProductsPage extends BasePage{
     @FindBy(className = "pr-name")
     public static List<WebElement>cartList;
 
+    @FindBy(xpath = "//div[@class='modal-body']/p")
+    public WebElement soldAloneProductAlertMsg;
+
       public void verifyCartProductSameList(){
 
           List<String>expectedList=new ArrayList<>();

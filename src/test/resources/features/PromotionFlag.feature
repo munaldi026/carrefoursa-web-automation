@@ -1,4 +1,4 @@
-@miniSmoke
+@regression
 Feature: US_023_Promotion_Flag_Tests
 
 

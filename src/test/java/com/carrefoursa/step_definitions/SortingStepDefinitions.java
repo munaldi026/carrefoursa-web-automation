@@ -3,10 +3,8 @@ package com.carrefoursa.step_definitions;
 import com.carrefoursa.pages.HomePage;
 import com.carrefoursa.pages.PLPPage;
 import com.carrefoursa.pages.SortingPage;
-import com.carrefoursa.utilities.ConfigReader;
 import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.ReusableMethods;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,7 +19,7 @@ public class SortingStepDefinitions {
 
     @Given("Kullanici Ana Sayfadaki Arama kutusuna tiklar")
     public void kullanici_ana_sayfadaki_arama_kutusuna_tiklar() {
-        homePage.searchField.click();
+        ReusableMethods.retryingFindClick();
     }
     @Given("Aramak istedigi urunun adini yazar")
     public void aramak_istedigi_urunun_adini_yazar() {
@@ -65,6 +63,5 @@ public class SortingStepDefinitions {
             e.printStackTrace();
         }
     }
-
 
 }

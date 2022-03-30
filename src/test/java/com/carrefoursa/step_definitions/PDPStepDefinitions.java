@@ -40,15 +40,11 @@ public class PDPStepDefinitions {
         public void pdpSayfasindakiAlisverisListemeEkleLinkineTiklar () {
             pdpPage.addShoppingListLink.click();
         }
+
         @Then("Kullanici sectigi urunun Alisveris listesine eklendigini kontrol eder")
         public void kullaniciSectigiUrununAlisverisListesineEklendiginiKontrolEder () {
-            selectedProductText = Constants.certainProductIdForPDP;
-            System.out.println("selectedProductText = " + selectedProductText);
-            ReusableMethods.clickFunction(homePage.myAccount);
-            ReusableMethods.clickFunction(accountPage.ShoppingListIcon);
-            String actualProductName = accountPage.productInShoppingList.getText();
-            System.out.println("actualUrunIsmi = " + actualProductName);
-            Assert.assertTrue(selectedProductText.contains(actualProductName));
+        pdpPage.verifyAddProductInShoppingList();
+
         }
         @And("Alisveris Listesindeki eklenmis olan urune tiklayarak PDP sayfasina doner")
         public void alisverisListesindekiEklenmisOlanUruneTiklayarakPDPSayfasinaDoner() {
@@ -73,18 +69,21 @@ public class PDPStepDefinitions {
         @Then("Kullanici Ana Sayfadaki Sepetim butonuna tiklar")
 
         public void kullanici_ana_sayfadaki_sepetim_butonuna_tiklar() {
+
             Driver.getDriver().navigate().refresh();
             homePage.myBasket.click();
+            ReusableMethods.waitFor(3);
+
         }
 
         @Then("Sectigi urunun sepete eklendigini kontrol eder")
         public void sectigi_urunun_sepete_eklendigini_kontrol_eder() {
 
-
             Constants.searchOrderProductName=pdpPage.productInBasket.getText();
             System.out.println("Constants.searchOrderProductName = " + Constants.searchOrderProductName);
             Assert.assertTrue(pdpPage.productInBasket.isDisplayed());
         }
+
         @Then("Sectigi urunun mini sepete eklendigini kontrol eder")
         public void sectigiUrununMiniSepeteEklendiginiKontrolEder() {
             selectedProductText = Constants.searchOrderProductName;

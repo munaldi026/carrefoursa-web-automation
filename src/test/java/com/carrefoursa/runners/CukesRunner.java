@@ -1,5 +1,6 @@
 package com.carrefoursa.runners;
 
+
 import io.cucumber.junit.Cucumber;
 
 import io.cucumber.junit.CucumberOptions;
@@ -10,11 +11,15 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json",
                 "html:target/default-html-reports",
         "pretty","html:target/site/cucumber-pretty"},
-        features = "src/test/resources/features",
         glue = "com/carrefoursa/step_definitions",
-        dryRun =false,
-        tags = "@delivery"
+        features = "src/test/resources/features",
+        tags = "@smkBasket",
+        dryRun =false
+        //tags = "@smkBasket1 or @smkBasket",
+
+
 )
-class CukesRunner {
+public class CukesRunner {
+
 
 }

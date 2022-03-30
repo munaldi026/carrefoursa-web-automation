@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_025_Sacrificial_Tests
 
     Background:

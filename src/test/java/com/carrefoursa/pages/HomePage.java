@@ -13,13 +13,13 @@ import java.util.List;
 
 public class HomePage extends BasePage{
 
-    OrderPage orderPage=new OrderPage();
+
 
     @FindBy(css = "img[src='https://reimg-carrefour.mncdn.com/staticimage/carrefoursacom-logo.svg']")
     public WebElement homePageButton;
-    @FindBy(css = "#js-site-search-input")
+    @FindBy(xpath = "//input[@id='js-site-search-input']")
     public WebElement searchField;
-    @FindBy(css = ".js-search-validate")
+    @FindBy(xpath = "//button[@class='btn btn-link js-search-validate']")
     public WebElement searchButton;
     @FindBy(className = "js-minicart-total-price")
     public WebElement myBasket;

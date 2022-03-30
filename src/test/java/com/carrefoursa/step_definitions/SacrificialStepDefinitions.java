@@ -2,14 +2,12 @@ package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.*;
 import com.carrefoursa.utilities.Constants;
-import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Locale;

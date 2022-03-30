@@ -52,7 +52,7 @@ public class BasketPage extends BasePage {
     @FindBy(css = ".js-empty-cart-link")
     public WebElement miniCartRemoveAllLink;
 
-    @FindBy(xpath = "//a[@class='btn btn-default js-empty-cart-confirm-link empty-cart-confirm-btn']")
+    @FindBy(css = ".empty-cart-confirm-btn")
     public WebElement emptyCartComfirmButton;
 
     @FindBy(css = "#js-qty-selector-plus_0")
@@ -82,7 +82,7 @@ public class BasketPage extends BasePage {
     @FindBy(css = ".checkmark")
     public WebElement touchlessDeliveryCheckmark;
 
-    @FindBy(css = "div[class='col-xs-12 col-sm-4 col-md-3 col-md-offset-1 part'] div[class='row m-0'] div")
+    @FindBy(xpath = "//div[contains(text(),'BU SİPARİŞ TEMASSIZ TESLİMATTIR. LÜTFEN KAPIYA ASI')]")
     public WebElement verifyTouchlessDeliveryText;
 
     @FindBy(css = "label[for='NORMAL'] span[class='radiomark']")
@@ -97,7 +97,8 @@ public class BasketPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Online Alışveriş Çantası')]")
     public WebElement verifyClothBag;
 
-
+    @FindBy(css = ".quantity")
+    public WebElement firstCountityInCart;
 
 
     public void verifyClothBag(){
@@ -108,7 +109,7 @@ public class BasketPage extends BasePage {
 
     public void verifyNormalBag(){
         String verifyNormalBagText = verifyNormalBag.getText();
-        System.out.println("verifyNormalBagMsg= " + verifyNormalBagText);
+        System.out.println("(Shopping bag is added successfully)verifyNormalBagMsg= " + verifyNormalBagText);
         Assert.assertTrue(verifyNormalBag.isDisplayed());
     }
 
@@ -123,25 +124,38 @@ public class BasketPage extends BasePage {
     }
 
     public void removeAllCart (){
-        homePage.homePageButton.click();
+        //homePage.homePageButton.click();
         ReusableMethods.waitFor(1);
         ReusableMethods.hover(homePage.myBasket);
         ReusableMethods.waitFor(2);
         miniCartRemoveAllLink.click();
         emptyCartComfirmButton.click();
+        Driver.getDriver().navigate().refresh();
+    }
+    public void removeAllProduct(){
+        ReusableMethods.waitFor(1);
+        ReusableMethods.hover(homePage.myBasket);
+        if(miniCartList.size()>0){
+           miniCartRemoveAllLink.click();
+           emptyCartComfirmButton.click();
+        }
     }
 
     public void verifyIncreaseQuantyInMiniCart() {
 
         String quantity = Driver.getDriver().findElement(By.id("quantity_0")).getAttribute("value");
+        System.out.println("Increased Actual quantity = " + quantity);
         String expected = "2";
+        System.out.println("expected quantity = " + expected);
         Assert.assertEquals(expected, quantity);
     }
 
     public void verifydecreaseQuantyInMiniCart() {
-
+        ReusableMethods.waitFor(1);
         String quantity = Driver.getDriver().findElement(By.id("quantity_0")).getAttribute("value");
+        System.out.println("Decreased Actual quantity = " + quantity);
         String expected = "1";
+        System.out.println("expected quantity = " + expected);
         Assert.assertEquals(expected, quantity);
     }
 

@@ -1,4 +1,4 @@
-
+@regression
 Feature:US_005_Address_Tests
 
       Background:
@@ -20,7 +20,7 @@ Feature:US_005_Address_Tests
           And Kullanici epostasi girilir
           And Kullanici telefon numarasi girilir
           And Bu adresi kaydet buttonuna basılır
-          Then Adresin basarili sekilde kayıtedildiği gorulur
+          Then Adresin basarili sekilde kaydedildigi gorulur
 
           Scenario: TC_502 Adres Güncelleme
 
@@ -29,7 +29,7 @@ Feature:US_005_Address_Tests
             And Adresi guncelle buttonu tiklanir
             Then Adresi ismi basarili bir sekilde degistigi gorulur
 
-          Scenario: TC_503 Adres Silme
+          Scenario: TC_503_individual_adres_silme
 
             And Kullanici sil buttonuna tiklar
             And Popup uzerinde evet tiklanir
@@ -102,7 +102,7 @@ Feature:US_005_Address_Tests
     And Kullanici epostasi girilir
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır
-    Then Adresin basarili sekilde kayıtedildiği gorulur
+    Then Adresin basarili sekilde kaydedildigi gorulur
 
   Scenario: TC_509 Bireysel Adres İlce Alani Bos Birakilir
 
@@ -196,7 +196,7 @@ Feature:US_005_Address_Tests
     And Kullanici epostasi girilir
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır
-    Then Adresin basarili sekilde kayıtedildiği gorulur
+    Then Adresin basarili sekilde kaydedildigi gorulur
 
   Scenario: TC_515 Kurumsal Adres Guncelleme
 

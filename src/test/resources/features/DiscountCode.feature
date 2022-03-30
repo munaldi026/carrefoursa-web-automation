@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_018_DiscountCode_Tests
 
       Background:

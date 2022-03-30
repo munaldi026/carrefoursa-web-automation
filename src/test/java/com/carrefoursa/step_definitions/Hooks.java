@@ -1,13 +1,10 @@
 package com.carrefoursa.step_definitions;
 
 
-import com.carrefoursa.pages.HomePage;
-import com.carrefoursa.pages.LoginPage;
 import com.carrefoursa.utilities.ConfigReader;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
@@ -24,8 +21,7 @@ public class Hooks {
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Driver.getDriver().get(ConfigReader.getProperty("url_preProd"));
         Driver.getDriver().manage().deleteAllCookies();
-        //ReusableMethods.closeCerez();
-
+        ReusableMethods.closeCerez();
 
     }
 
@@ -38,7 +34,7 @@ public class Hooks {
         }
 
 
-       //Driver.close();
+     Driver.close();
 
     }
 

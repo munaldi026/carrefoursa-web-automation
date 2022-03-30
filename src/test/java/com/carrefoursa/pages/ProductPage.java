@@ -1,11 +1,15 @@
 package com.carrefoursa.pages;
 
-import com.carrefoursa.utilities.Constants;
-import com.carrefoursa.utilities.Driver;
-import com.carrefoursa.utilities.ReusableMethods;
+import com.carrefoursa.utilities.*;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductPage extends BasePage {
     HomePage homePage = new HomePage();
@@ -30,7 +34,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[@class='js-payment-tabs-head undefined'][contains(text(),'Garanti & İade')]")
     public WebElement guaranteeLink;
 
-    @FindBy(partialLinkText = "İade Süreçlerimiz")
+    @FindBy(xpath = "//a[contains(text(),'İade Süreçlerimiz')]")
     public WebElement returnProcessButton;
 
     @FindBy(xpath = "(//a[@title='Market Alışverişlerinde'])[1]")
@@ -39,31 +43,9 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "(//a[@title='İnternet Alışverişlerinde'])[1]")
     public WebElement internetProcessLink;
 
-    @FindBy(css = "#tabreview")
-    public WebElement reviews;
 
-    @FindBy(css = ".js-no-review")
-    public WebElement reviewButton;
 
-    @FindBy(xpath = "//input[@name='headline']")
-    public WebElement reviewHeadlineTextBox;
-
-    @FindBy(xpath = "//textarea[@name='comment']")
-    public WebElement commentTextAreaBox;
-
-    @FindBy(css = "span:nth-child(6)")
-    public WebElement starsOfComment;
-
-    @FindBy(css = "#alias")
-    public WebElement nameTextAreaBox;
-
-    @FindBy(xpath = "//button[@class='btn btn-primary btn-lg btn-block']")
-    public WebElement reviewSubmitButton;
-
-    @FindBy(xpath = "//div[@class='alert alert-info alert-dismissable']")
-    public WebElement verifyComment;
-
-    @FindBy(xpath = "//div[@id='alternativeProductOptions_0']//span[@class='radiomark']")
+    @FindBy(css = ".substituteProductElement")
     public WebElement radioButtonInBasket;
 
 
@@ -82,8 +64,34 @@ public class ProductPage extends BasePage {
     @FindBy(css = "//b[contains(text(),'Carrefour Bulaşık Makinesi Tableti 50 li')]")
     public WebElement searchFieldFirsItem;
 
-    @FindBy(xpath = "//span[@class='glyphicon glyphicon-plus']")
+    @FindBy(xpath = "//button[@class='btn btn-primary vuejs-qty-selector-plus']//span[@class='glyphicon glyphicon-plus']")
     public WebElement plusButtonInCart;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary js-qty-selector-plus']")
+    public WebElement plusButtonInPDP;
+
+    @FindBy(xpath = "//table[@class='installment-item__table table']")
+    public List<WebElement> installmentTableList;
+
+
+
+    public String getInstallmentTableList(){
+        List<String>newInstallmentTableList=new ArrayList<>();
+        for (WebElement element:installmentTableList
+        ) {
+            newInstallmentTableList.add(element.getText());
+        }
+        System.out.println("newInstallmentTableList.size() = " + newInstallmentTableList.size());
+        System.out.println("newInstallmentTableList = " + newInstallmentTableList);
+        String installmentTable = newInstallmentTableList.get(0);
+        System.out.println("installmentTable = " + installmentTable);
+
+        return installmentTable;
+
+    }
+
+
+
 
 
     public int getPriceFromBasket() {
@@ -95,9 +103,13 @@ public class ProductPage extends BasePage {
         return price;
     }
     public void searchSupplierProductSame1(String productName) {
-        homePage.searchField.click();
+
+        ReusableMethods.retryingFindClick();
+        ReusableMethods.waitForClickablility(homePage.searchButton,3);
         homePage.searchField.sendKeys(Constants.soldAloneProductSame1);
+        ReusableMethods.waitFor(1);
         homePage.searchButton.click();
+        ReusableMethods.waitFor(1);
 
 //        try {
 //            homePage.informationPop_up.click();
@@ -106,9 +118,11 @@ public class ProductPage extends BasePage {
 //        }
     }
     public void searchSacrificialName() {
-        homePage.searchField.click();
+        ReusableMethods.retryingFindClick();
+        ReusableMethods.waitForClickablility(homePage.searchButton,3);
         homePage.searchField.sendKeys(Constants.sacrificialName);
         homePage.searchButton.click();
+        ReusableMethods.waitFor(1);
 
 //        try {
 //            homePage.informationPop_up.click();
@@ -117,9 +131,11 @@ public class ProductPage extends BasePage {
 //        }
     }
     public void searchSupplierProductSame2(String productName) {
-        homePage.searchField.click();
+        ReusableMethods.waitForClickablility(homePage.searchButton,3);
+        ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.soldAloneProductSame2);
         homePage.searchButton.click();
+        ReusableMethods.waitFor(1);
 
 //        try {
 //            homePage.informationPop_up.click();
@@ -128,9 +144,11 @@ public class ProductPage extends BasePage {
 //        }
     }
     public void soldAloneProductDifferent(String productName) {
-        homePage.searchField.click();
+        ReusableMethods.waitForClickablility(homePage.searchButton,3);
+        ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.soldAloneProductDifferent);
         homePage.searchButton.click();
+        ReusableMethods.waitFor(1);
 
 //        try {
 //            homePage.informationPop_up.click();
@@ -153,8 +171,8 @@ public class ProductPage extends BasePage {
     }
 
     public void searchProduct() {
-        ReusableMethods.waitForPageToLoad(1);
-        homePage.searchField.click();
+        ReusableMethods.waitForPageToLoad(2);
+        ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.searchOrderProductName);
         homePage.searchButton.click();
 
@@ -168,7 +186,7 @@ public class ProductPage extends BasePage {
 
     public void searchCertainProduct(String productName) {
         ReusableMethods.waitForPageToLoad(5);
-        homePage.searchField.click();
+        ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.certainProductIdForPDP);
         homePage.searchButton.click();
 
@@ -180,8 +198,9 @@ public class ProductPage extends BasePage {
     }
 
     public void searchAlternativeProduct() {
-        //ReusableMethods.waitForPageToLoad(5);
-        homePage.searchField.click();
+
+        ReusableMethods.waitForPageToLoad(5);
+        ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.alternativeproductForPDP);
         homePage.searchButton.click();
 //        try {
@@ -193,16 +212,29 @@ public class ProductPage extends BasePage {
 
             public void maxSearchCertainProduct () {
             ReusableMethods.waitFor(1);
-            plusButtonInCart.click();
+            plusButtonInPDP.click();
             ReusableMethods.waitFor(1);
-            plusButtonInCart.click();
+            plusButtonInPDP.click();
             ReusableMethods.waitFor(1);
-            plusButtonInCart.click();
+            plusButtonInPDP.click();
             ReusableMethods.waitFor(1);
-            plusButtonInCart.click();
-            ReusableMethods.waitFor(1);
-            plusButtonInCart.click();
+            plusButtonInPDP.click();
         }
+
+
+    public void searchInstallmentProduct() {
+
+        ReusableMethods.waitFor(1);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys(SmkConstants.searchInstallmentProduct);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+    }
 
 
     }

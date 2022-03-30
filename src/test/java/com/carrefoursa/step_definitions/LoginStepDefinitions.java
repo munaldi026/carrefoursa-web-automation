@@ -3,21 +3,20 @@ package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.HomePage;
 import com.carrefoursa.pages.LoginPage;
+import com.carrefoursa.pages.RegisterPage;
 import com.carrefoursa.utilities.ConfigReader;
-import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 
 public class LoginStepDefinitions {
 
     LoginPage loginPage=new LoginPage();
     HomePage homePage=new HomePage();
+    RegisterPage registerPage=new RegisterPage();
 
     @Given("Kullanici carrefoursa.com anasayfasina gider.")
     public void kullanici_carrefoursa_com_anasayfasina_gider() {
@@ -30,7 +29,7 @@ public class LoginStepDefinitions {
     @Given("Cep Telefonu Numaraniz bolumune gecerli bir numara girer")
     public void cep_telefonu_numaraniz_bolumune_gecerli_bir_numara_girer() {
 
-        loginPage.phoneNumberTextBox.sendKeys(ConfigReader.getProperty("phone_number"));
+        loginPage.loginPhoneNumberBox.sendKeys(ConfigReader.getProperty("phone_number"));
     }
     @Given("Giris Yapin butonuna tiklar")
     public void giris_yapin_butonuna_tiklar() {
@@ -48,16 +47,18 @@ public class LoginStepDefinitions {
     }
     @Then("Basarili bir giris yaptigini control eder")
     public void basariliBirGirisYaptiginiControlEder() {
-       loginPage.welcome.isDisplayed();
+       //loginPage.welcome.isDisplayed();
+        loginPage.verifySuccessLogin();
 
     }
     @Given("Cep Telefonu Numaraniz bolumune gecersiz bir numara girer")
     public void cep_telefonu_numaraniz_bolumune_gecersiz_bir_numara_girer() {
-        loginPage.phoneNumberTextBox.sendKeys(ConfigReader.getProperty("invalid_phone_number"));
+        loginPage.loginPhoneNumberBox.sendKeys(ConfigReader.getProperty("invalid_phone_number"));
     }
     @Given("Gecersiz numara girildiginde cikan hata mesaji gorulur")
     public void Gecersiz_numara_girildiginde_cikan_hata_mesaji_gorulur(){
-        loginPage.GecersizNumaraHataMesaji.isDisplayed();
+       // loginPage.gecersizNumaraHataMesaji.isDisplayed();
+        loginPage.verifyUnSuccessLogin();
     }
     @Given("SMS Onay Kodu bolumune gecersiz bir Otp kodu girer")
     public void SMS_Onay_Kodu_bolumune_gecersiz_bir_Otp_kodu_girer() {
@@ -94,9 +95,10 @@ public class LoginStepDefinitions {
         loginPage.verificationLink.click();
     }
 
-    @Given("Ekranda dogrulam mesaji gonderildi mesajı gorulur")
+    @Given("Ekranda dogrulama mesaji gonderildi mesajı gorulur")
     public void dogrulamaMesajiGorulur(){
-        loginPage.confirmationmessage.isDisplayed();
+        //loginPage.confirmationMessage.isDisplayed();
+        loginPage.verifyUnSuccessLogin2();
     }
 
     @Given("Giris yap sayfasi kapatılır")
@@ -117,5 +119,34 @@ public class LoginStepDefinitions {
         System.out.println("logoutMessage = " + logoutMessage);
         loginPage.verifyLogoutMsg.isDisplayed();
     }
-}
+
+    @And("SMS Onay Kodu bolumune bir Otp kodu girer{string}")
+    public void smsOnayKoduBolumuneBirOtpKoduGirer(String otpCode) {
+
+        if (otpCode.equals("empty")) {
+            otpCode = "";
+        }
+        loginPage.otpCodeTextBox.sendKeys(otpCode);
+
+        if(otpCode.equals("wrongCode")){
+            otpCode="123458";
+        }
+        loginPage.otpCodeTextBox.sendKeys(otpCode);
+    }
+
+    @And("Cep Numaraniz bolumune bir numara girer{string}")
+    public void cepNumaranizBolumuneBirNumaraGirer(String phoneNumber) {
+        if (phoneNumber.equals("empty")) {
+            phoneNumber = "";
+        }
+        loginPage.loginPhoneNumberBox.sendKeys(phoneNumber);
+
+//        if (phoneNumber.equals("wrongNumber")) {
+//            phoneNumber = "8000005";
+//        }
+//        registerPage.registerPhoneNumberBox.sendKeys(phoneNumber);
+    }
+    }
+
+
 

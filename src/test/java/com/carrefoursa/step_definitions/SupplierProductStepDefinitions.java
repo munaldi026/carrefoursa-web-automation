@@ -9,11 +9,8 @@ import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class SupplierProductStepDefinitions {
 
@@ -78,8 +75,13 @@ public class SupplierProductStepDefinitions {
         String productInCartSecondSupplierText = supplierProductsPage.productInCartSecondSupplier.getText();
         System.out.println("productInCartSecondSupplierText = " + productInCartSecondSupplierText);
         Assert.assertTrue(supplierProductsPage.productInCartSecondSupplier.isDisplayed());
+        ReusableMethods.waitFor(3);
+        basketPage.removeProductButtonInBasket.click();
         System.out.println("Farkli iki tedarikciden ilki tercih edildigi icin ilk urunun sepette kalmaktadir");
     }
 
 
-}
+
+
+    }
+

@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_010_PDP_Tests
 
       Background:

@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_015_Product_Explanations_Tests
 
       Background:
@@ -12,7 +12,7 @@ Feature: US_015_Product_Explanations_Tests
 
 
         Scenario: TC_1502 Urunlere Yorum Gonderilmesi Testi
-          Given PDP sayfasindaki Yorum yazin linkine tiklar
+          Given PDP sayfasindaki Degerlendir linkine tiklar
           And Cikan Yorum yaz formunu doldurur
           When Kullanici Yorumu gonder butonuna tiklar
           Then Yapilan yorumun gonderildigini kontrol eder

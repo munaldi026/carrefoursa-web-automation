@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_016_Our_Stores_Test
 
       Scenario: TC_1601 Magazalarimiz
@@ -13,10 +13,18 @@ Feature: US_016_Our_Stores_Test
         When Sonuclari Goster butonuna tiklanir
         Then Secilen en yakin magazanin goruntulendigini kontrol eder
 
-        Scenario:11
-          Given Kullanici login olmus durumdadir
-          And Ana Sayfadaki Hesabim linkine tiklar
-          And Hesaplarim linklerini kontrol eder
+      Scenario: TC_2807 Siparis Detayi-Magaza Bilgileri
+
+        Given Kullanici Hesabim butonuna tiklar
+        And Hesabim sayfasindaki Siparislerim butonuna tiklar
+        When Siparislerim sayfasindaki Siparis Detayi butonuna tiklar
+        Then Siparis Detayi sayfasinda secilen magazaya ait bilgilerin bulundugunu kontrol eder
+
+
+       Scenario:11
+         Given Kullanici login olmus durumdadir
+         And Ana Sayfadaki Hesabim linkine tiklar
+         And Hesaplarim linklerini kontrol eder
 
 
         Scenario:12

@@ -1,4 +1,4 @@
-
+@regression
 Feature: US_011_PLP_Tests
 
       Background:

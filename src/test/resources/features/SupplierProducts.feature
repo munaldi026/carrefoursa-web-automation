@@ -1,4 +1,4 @@
-@miniSmoke
+@regression
 Feature: US_020_Supplier_Products_Tests
 
       Background:

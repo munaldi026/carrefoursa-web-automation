@@ -21,29 +21,31 @@ public class FilterStepDefinitions {
         }
         @Then("Sadece stokta olan urunlerin listelendigini kontrol eder")
         public void sadece_stokta_olan_urunlerin_listelendigini_kontrol_eder() {
-            filterPage.discountCheckbox.isSelected();
-            ReusableMethods.waitFor(3);
+            filterPage.instockCheckbox.isSelected();
+            ReusableMethods.waitFor(1);
 
         }
-        @Then("Urun listelemede Indirimli checkbox ina tiklar")
-        public void urun_listelemede_indirimli_checkbox_ina_tiklar() {
-            filterPage.discountCheckbox.click();
-            ReusableMethods.waitFor(2);
+    @And("Urun listelemede Firsatlar checkbox ina tiklar")
+    public void urunListelemedeFirsatlarCheckboxInaTiklar() {
+            filterPage.opportunitiesCheckbox.click();
+            ReusableMethods.waitFor(1);
 
         }
-        @Then("Sadece Indirmli urunlerin listelendigini kontrol eder")
-        public void sadece_indirmli_urunlerin_listelendigini_kontrol_eder() {
-            filterPage.discountCheckbox.isSelected();
+    @Then("Sadece Firsatlar urunlerinin listelendigini kontrol eder")
+    public void sadeceFirsatlarUrunlerininListelendiginiKontrolEder() {
+            filterPage.opportunitiesCheckbox.isSelected();
 
         }
         @Then("Urun listelemede Marka checkbox ina tiklar")
         public void urun_listelemede_marka_checkbox_ina_tiklar() {
             filterPage.activia.click();
-            ReusableMethods.waitFor(5);
+            ReusableMethods.waitFor(3);
         }
         @Then("Sadece secili markali urunlerin listelendigini kontrol eder")
         public void sadece_secili_markali_urunlerin_listelendigini_kontrol_eder() {
-            filterPage.activiaisdisplay.isDisplayed();
+            String displayText = filterPage.activiaIsDisplay.getText();
+            System.out.println("FILTERED BRAND = " + displayText);
+            Assert.assertTrue(filterPage.activiaIsDisplay.isDisplayed());
         }
 
         @Given("Urun listelemede Stokta Var ve indirimli secimlerinin disinda herhangi bir secim yapar")
@@ -62,4 +64,7 @@ public class FilterStepDefinitions {
             Assert.assertTrue(!filterPage.activiaLink.isSelected());
             System.out.println("Selected filter option is removed");
         }
-}
+
+    }
+
+
