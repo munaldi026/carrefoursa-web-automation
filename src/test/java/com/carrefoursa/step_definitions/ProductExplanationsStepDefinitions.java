@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 
 public class ProductExplanationsStepDefinitions {
 
@@ -48,26 +49,22 @@ public class ProductExplanationsStepDefinitions {
 //        }
     @When("PDP sayfasindaki Taksit Bilgileri linkine tiklar")
     public void pdp_sayfasindaki_taksit_bilgileri_linkine_tiklar() {
-            ReusableMethods.scrollToElement(productPage.installmentLink);
+        ReusableMethods.waitFor(1);
+        productPage.installmentLink.click();
         }
     @Then("Kullanici PDP sayfasinda,sectigi urunle ilgili Taksit bilgilerinin geldigini kontrol eder")
     public void kullanici_pdp_sayfasinda_sectigi_urunle_ilgili_taksit_bilgilerinin_geldigini_kontrol_eder() {
 
         productPage.getInstallmentTableList();
-
-
-//            String installmentText = productPage.verifyInstallment.getText();
-//            System.out.println("installmentText = " + installmentText);
-//            Assert.assertTrue(productPage.verifyInstallment.isDisplayed());
         }
     @Given("PDP sayfasindaki Garanti&Iade linkine tiklar")
     public void pdp_sayfasindaki_garanti_iade_linkine_tiklar() {
             productPage.guaranteeLink.click();
         }
     @Given("Iade sureclerimiz butonuna tiklar")
-
     public void iade_sureclerimiz_butonuna_tiklar() {
-            productPage.returnProcessButton.click();
+        ReusableMethods.waitForClickablility(productPage.returnProcessButton,3).click();
+        //productPage.returnProcessButton.click();
         }
     @When("Acilan sayfada Market Alisverislerinde linkine tiklar")
     public void acilan_sayfada_market_alisverislerinde_linkine_tiklar() {
@@ -100,7 +97,7 @@ public class ProductExplanationsStepDefinitions {
     public void kullaniciTaksitOnerenBirUrunuAratir() {
         productPage.searchInstallmentProduct();
         //productPage.retryingFindClick();
-        ReusableMethods.retryingFindClick();
+        //ReusableMethods.retryingFindClick();
 
     }
 

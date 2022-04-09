@@ -1,4 +1,4 @@
-@regression
+@reg
 Feature: US_012_Corporate_Tests
 
       Background:

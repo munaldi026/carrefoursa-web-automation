@@ -1,15 +1,22 @@
 package com.carrefoursa.utilities;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
@@ -19,7 +26,7 @@ public class Driver {
     }
 
     public static WebDriver getDriver() {
-
+        //if this thread doesn't have a web driver yet - create it and add to pool
         if (driverPool.get() == null) {
             System.out.println("TRYING TO CREATE DRIVER");
             // this line will tell which browser should open based on the value from properties file
@@ -29,6 +36,10 @@ public class Driver {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
+                    break;
+                case "chrome_headless":
+                    WebDriverManager.chromedriver().setup();
+                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
@@ -60,8 +71,29 @@ public class Driver {
                     driverPool.set(new SafariDriver());
                     break;
 
-                }
+                case "remote_chrome":
+                    try {
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName(BrowserType.CHROME);
+                        desiredCapabilities.setCapability("platform", Platform.ANY);
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), desiredCapabilities));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "remote_firefox":
+                    try {
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName(BrowserType.FIREFOX);
+                        desiredCapabilities.setCapability("platform", Platform.ANY);
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), desiredCapabilities));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
         }
+
 
         return driverPool.get();
     }

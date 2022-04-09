@@ -1,19 +1,21 @@
 package com.carrefoursa.pages;
 
-import com.carrefoursa.utilities.*;
+import com.carrefoursa.utilities.Constants;
+import com.carrefoursa.utilities.Driver;
+import com.carrefoursa.utilities.ReusableMethods;
+import com.carrefoursa.utilities.SmkConstants;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductPage extends BasePage {
     HomePage homePage = new HomePage();
     PDPPage pdpPage = new PDPPage();
+    OrderPage orderPage=new OrderPage();
     Actions actions=new Actions(Driver.getDriver());
 
     @FindBy(xpath = "//span[contains(@class,'black-color')][contains(text(),'Gıda, Şekerleme')]")
@@ -34,7 +36,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[@class='js-payment-tabs-head undefined'][contains(text(),'Garanti & İade')]")
     public WebElement guaranteeLink;
 
-    @FindBy(xpath = "//a[contains(text(),'İade Süreçlerimiz')]")
+    @FindBy(css = "a[class='btn btn-primary']")
     public WebElement returnProcessButton;
 
     @FindBy(xpath = "(//a[@title='Market Alışverişlerinde'])[1]")
@@ -45,7 +47,7 @@ public class ProductPage extends BasePage {
 
 
 
-    @FindBy(css = ".substituteProductElement")
+    @FindBy(css = "div[id='alternativeProductOptions_0'] span[class='radiomark']")
     public WebElement radioButtonInBasket;
 
 
@@ -72,6 +74,11 @@ public class ProductPage extends BasePage {
 
     @FindBy(xpath = "//table[@class='installment-item__table table']")
     public List<WebElement> installmentTableList;
+
+
+
+
+
 
 
 
@@ -171,7 +178,7 @@ public class ProductPage extends BasePage {
     }
 
     public void searchProduct() {
-        ReusableMethods.waitForPageToLoad(2);
+
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.searchOrderProductName);
         homePage.searchButton.click();
@@ -234,6 +241,30 @@ public class ProductPage extends BasePage {
 //        } catch (Exception e) {
 //            System.out.println("Bilgilendirme Pop-up yok");
 //        }
+    }
+    public void verifyMinimumAmountPlus(){
+        String priceTotalAmount="60,00 TL";
+        System.out.println("priceTotalAmount = " + priceTotalAmount);
+        String strPrice =priceTotalAmount.replace(",00 TL","").trim();
+        int endPrice=Integer.parseInt(strPrice);
+        System.out.println("endPrice = " + endPrice);
+        String price = orderPage.productPriceForOrderAmount.getText();
+        System.out.println("price = " + price);
+        String strPrice1 =price.replace(",","").replace("TL","").substring(0,2).trim();
+        int endPrice1=Integer.parseInt(strPrice1);
+        System.out.println("Default Total Price = " + endPrice);
+        System.out.println("Current Total Price = " + endPrice1);
+        Assert.assertTrue(endPrice<endPrice1);
+
+           }
+    public void verifyMinimumAmount(){
+        String priceTotalAmount="60,00 TL";
+        System.out.println("priceTotalAmount = " + priceTotalAmount);
+        String price = orderPage.productPriceForOrderAmount.getText();
+        System.out.println("price = " + price);
+        String totalAmountMsgText = orderPage.orderTotalAmountMsg.getText();
+        System.out.println("totalAmountMsgText = " + totalAmountMsgText);
+        Assert.assertTrue(orderPage.orderTotalAmountMsg.isDisplayed());
     }
 
 

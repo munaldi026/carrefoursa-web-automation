@@ -1,6 +1,7 @@
 package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.DeliveryPage;
+import com.carrefoursa.pages.OrderPage;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
@@ -11,6 +12,7 @@ import io.cucumber.java.en.When;
 public class DeliveryOptionsStepDefinitions {
 
     DeliveryPage deliveryPage=new DeliveryPage();
+    OrderPage orderPage=new OrderPage();
 
     @Given("Ana sayfadaki Teslimat Seceneginiz linkine tiklar")
     public void ana_sayfadaki_teslimat_seceneginiz_linkine_tiklar() {
@@ -51,6 +53,6 @@ public class DeliveryOptionsStepDefinitions {
 
     @Given("Sepetim Sayfasindaki Siparisi Tamamla butonuna tiklar")
     public void sepetimSayfasindakiSiparisiTamamlaButonunaTiklar() {
-        ReusableMethods.clickContinueButton();
+        orderPage.continueButton.click();
     }
 }

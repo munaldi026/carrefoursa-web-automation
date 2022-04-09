@@ -1,5 +1,6 @@
 package com.carrefoursa.utilities;
 
+
 import com.carrefoursa.pages.OrderPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -14,6 +15,8 @@ import java.util.function.Function;
 import static java.lang.Thread.sleep;
 
 public class ReusableMethods {
+
+
 
 
     public static WebElement clickFunction(WebElement clickElement) {
@@ -191,9 +194,10 @@ public class ReusableMethods {
 
     }
 
+
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
-        element.click();
+
 
         try {
             Thread.sleep(500);
@@ -203,15 +207,17 @@ public class ReusableMethods {
 
     }
 
+
     public static void HoverAndClick(WebDriver driver, WebElement elementToHover, WebElement elementToClick) {
         Actions action = new Actions(driver);
         action.moveToElement(elementToHover).click(elementToClick).build().perform();
     }
 
-    static OrderPage orderPage = new OrderPage();
+
 
 
     public static void clickContinueButton() {
+        OrderPage orderPage=new OrderPage();
         orderPage.continueButton.click();
     }
 

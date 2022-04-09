@@ -1,4 +1,4 @@
-@smoke2
+@smo
 Feature: US_16 PDP Select Alternative Product Test
 
   Background:

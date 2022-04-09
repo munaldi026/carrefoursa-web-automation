@@ -2,19 +2,17 @@
 Feature: US_023_Promotion_Flag_Tests
 
 
-      Background:
-          Given Kullanici login olmus durumdadir
-          When Kullanici Ana Sayfadaki hamburger menu iconuna hover yapar
-          Then Katalog urunleri ,Firsatlar linkine tiklar
-
-          Scenario:
-              Given urune tiklar
-              And PDP sayfasinda Sepete Ekle butonuna tiklar
-              And Ana Sayfadaki Sepetim butonuna tiklar
+#      Background:
+#          Given Kullanici login olmus durumdadir
+#          When Kullanici Ana Sayfadaki Katalog urunleri ,Firsatlar linkine tiklar
+#          Then Gelen sayfada Firsatlar tumunu goster linkine tiklar
 
 
           Scenario: TC_2301 Promotion Flag-True
 
+              Given Kullanici login olmus durumdadir
+              When Kullanici Ana Sayfadaki Katalog urunleri ,Firsatlar linkine tiklar
+              Then Gelen sayfada Firsatlar tumunu goster linkine tiklar
           Given PromotionFlag linki altindaki true linkine tiklar
           And Promotion flag tasiyan urunlerin listelendigini kontrol eder
           When Filitreleri temizle kisminda yapmis oldugu secimin yanindaki x'a  tiklar

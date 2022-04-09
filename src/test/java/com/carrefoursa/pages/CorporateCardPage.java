@@ -1,19 +1,22 @@
 package com.carrefoursa.pages;
 
+import com.carrefoursa.utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Locale;
+
 public class CorporateCardPage extends BasePage{
 
 
-       @FindBy(xpath = "//span[normalize-space()='Kurumsal Kart']")
+       @FindBy(xpath = "//span[.='Kurumsal Kart']")
        public WebElement corporateCartLink;
 
-       @FindBy(css = "input[placeholder='Kart Numaranız']")
+       @FindBy(xpath = "//input[@name='cardNumber']")
        public WebElement corporateCardNumberField;
 
-       @FindBy(css = "input[placeholder='Puan Tutarı']")
+       @FindBy(xpath = "//input[@placeholder='Puan Tutarı']")
        public WebElement corporateCardPointField;
 
        @FindBy(xpath = "//button[@class='btn btn-default form-control js-use-corporate-check']")
@@ -37,5 +40,28 @@ public class CorporateCardPage extends BasePage{
        @FindBy(css = "div[class='form-group response-area response-error'] span")
        public WebElement totalOrderCountMsg;
 
+       @FindBy(xpath = "//a[@href='/cart']")
+       public WebElement turnBackToBasket;
 
-}
+       public void moreThanTotalAmount(){
+              String priceInBasketText = priceInBasket.getText();
+              System.out.println("PRICE IN BASKET TEXT = " + priceInBasketText.toUpperCase(Locale.ROOT));
+
+              String priceInBasket=priceInBasketText.replace(" TL","").replace(",","");
+              System.out.println("PRICE IN BASKET NEW TEXT = " + priceInBasket.toUpperCase(Locale.ROOT));
+              int price=Integer.parseInt(priceInBasket);
+              System.out.println("PRICE = " + price);
+
+              int actualPrice = price+100;
+              String actualPrice1;
+              actualPrice1=Integer.toString(actualPrice);
+              System.out.println("LAST PRICE TO SEND = " + actualPrice1);
+
+              corporateCardPointField.sendKeys(actualPrice1);
+
+              ReusableMethods.waitFor(1);
+       }
+       }
+
+
+

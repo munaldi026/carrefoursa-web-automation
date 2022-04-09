@@ -40,6 +40,7 @@ public class AccountPage extends BasePage{
 
     }
 
+
     public List<String> getFooterLinkList(){
         List<String>FooterLinkList=new ArrayList<>();
 

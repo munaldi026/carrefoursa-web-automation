@@ -1,4 +1,4 @@
-@regression
+@reg
 Feature: US_021_Additional_Order_Tests
 
       Background:

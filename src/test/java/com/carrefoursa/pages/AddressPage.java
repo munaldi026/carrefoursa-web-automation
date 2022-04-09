@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressPage extends BasePage{
+
     @FindBy(xpath = "(//*[contains(text(),'Adreslerim')])[2]")
     public WebElement addressButton;
 
@@ -99,8 +100,13 @@ public class AddressPage extends BasePage{
     @FindBy(id = "mobilePhoneNumber.errors")
     public WebElement phoneNumberError;
 
+    @FindBy(id = "addressCustomerTypeConsumer")
+    public WebElement individual;
+
     @FindBy(id = "addressCustomerTypeEnterprise")
     public WebElement corporate;
+
+
 
     @FindBy(css = ".form-control[id='address.companyName']")
     public WebElement companyname;

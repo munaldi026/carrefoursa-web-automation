@@ -1,4 +1,4 @@
-@regression
+@reg
 Feature: US_24_PDP_Select_Alternative_Product_Test
 
       Background:

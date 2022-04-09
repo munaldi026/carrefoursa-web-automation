@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class DiscountCodePage extends BasePage{
 
-    @FindBy(css = "div[class='check-payment-area check-usable'] span[class='headerText']")
+    @FindBy(xpath = "//span[normalize-space()='Kampanya Kodu']")
     public WebElement discountCodeButton;
 
     @FindBy(css = "#assecoVoucherInput")

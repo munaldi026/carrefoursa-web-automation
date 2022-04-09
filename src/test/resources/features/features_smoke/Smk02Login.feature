@@ -27,7 +27,7 @@ Feature: US_02 Login Tests
     And Kullanıcı cikis yap buttonuna tiklar
     Then Kullanıcı cikis yaptigini gorur
 
-  Scenario Outline: TC_2004_2005_2006_kullanıcı_yanlıs_telefon_numarasi_ile_giris_yapamaz: <phone_number>
+  Scenario Outline: TC_2004_2005_kullanıcı_yanlıs_telefon_numarasi_ile_giris_yapamaz: <phone_number>
 
     And Cep Numaraniz bolumune bir numara girer"<phoneNumber>"
     And Giris Yapin butonuna tiklar
@@ -37,9 +37,9 @@ Feature: US_02 Login Tests
       | phoneNumber | message                                                                          |
       | empty       | Lütfen cep telefonu numaranızı giriniz.                                          |
       | 50007474    | Geçerli bir telefon numarası girmelisiniz.                                       |
-      | 500074740   | Lütfen girdiğiniz cep telefonu numarasını kontrol ederek tekrar deneyiniz.                                       |
 
-  Scenario Outline: TC_2007_2008_kullanıcı_yanlıs_otp_koduyla_giris_yapamaz: <otpCode>
+
+  Scenario Outline: TC_2006_2007_kullanıcı_yanlıs_otp_koduyla_giris_yapamaz: <otpCode>
     And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
     And Giris Yapin butonuna tiklar
     And SMS Onay Kodu bolumune bir Otp kodu girer"<otpCode>"
@@ -51,3 +51,5 @@ Feature: US_02 Login Tests
       | otpCode   | message                                                                          |
       | 123458    | Girdiğiniz kod hatalıdır, lütfen kontrol ederek tekrar deneyiniz.                |
       | empty     | Kodu eksik girdiniz. Lütfen size SMS ile gönderdiğimiz 6 haneli kodu giriniz.    |
+
+

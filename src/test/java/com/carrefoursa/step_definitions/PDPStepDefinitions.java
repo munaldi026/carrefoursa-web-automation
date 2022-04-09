@@ -19,6 +19,7 @@ public class PDPStepDefinitions {
         PLPPage plpPage=new PLPPage();
         BasketPage basketPage=new BasketPage();
         ProductPage productPage=new ProductPage();
+        CreditCardPage creditCardPage=new CreditCardPage();
         String selectedProductText = null;
 
         @Given("Kullanici login olmus durumdadir")
@@ -73,7 +74,6 @@ public class PDPStepDefinitions {
             Driver.getDriver().navigate().refresh();
             homePage.myBasket.click();
             ReusableMethods.waitFor(3);
-
         }
 
         @Then("Sectigi urunun sepete eklendigini kontrol eder")
@@ -86,12 +86,7 @@ public class PDPStepDefinitions {
 
         @Then("Sectigi urunun mini sepete eklendigini kontrol eder")
         public void sectigiUrununMiniSepeteEklendiginiKontrolEder() {
-            selectedProductText = Constants.searchOrderProductName;
-            System.out.println("selectedProductText = " + selectedProductText);
-            String productInBasketText = basketPage.productNameInMiniCart.getText();
-            System.out.println("productInBasketText = " + productInBasketText);
-            Assert.assertTrue(basketPage.productNameInMiniCart.isDisplayed());
-
+            creditCardPage.verifyMiniCartList();
         }
 
         @And("PDP urun adedini maximum oranda artirir")
@@ -105,7 +100,6 @@ public class PDPStepDefinitions {
             String pdPmaximumProductMsgText = basketPage.PDPmaximumProductMsg.getText();
             System.out.println("pdPmaximumProductMsgText = " + pdPmaximumProductMsgText);
             Assert.assertTrue(basketPage.PDPmaximumProductMsg.isDisplayed());
-
 
         }
 

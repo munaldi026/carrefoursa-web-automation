@@ -202,12 +202,6 @@ public class RegisterStepDefinitions {
             System.out.println("actualErrorMsg = " + actualErrorMsg);
             Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
 
-        }else if (expectedErrorMsg.contains("cep telefonu numarasını kontrol ederek")) {
-            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
-            String actualErrorMsg = loginPage.errorMsgText.getText();
-            System.out.println("actualErrorMsg = " + actualErrorMsg);
-            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
-
         }else if (expectedErrorMsg.contains("Girdiğiniz kod hatalıdır")) {
             System.out.println("expectedErrorMsg = " + expectedErrorMsg);
             String actualErrorMsg = loginPage.otpErrorMsgText.getText();
@@ -215,6 +209,12 @@ public class RegisterStepDefinitions {
             Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
 
         }else if (expectedErrorMsg.contains("Kodu eksik girdiniz")) {
+            System.out.println("expectedErrorMsg = " + expectedErrorMsg);
+            String actualErrorMsg = loginPage.otpErrorMsgText.getText();
+            System.out.println("actualErrorMsg = " + actualErrorMsg);
+            Assert.assertTrue("Error mesaj gösterimi: FAIL", actualErrorMsg.contains(expectedErrorMsg));
+        }
+        else if (expectedErrorMsg.contains("Hesabınız bloke olmuştur.")) {
             System.out.println("expectedErrorMsg = " + expectedErrorMsg);
             String actualErrorMsg = loginPage.otpErrorMsgText.getText();
             System.out.println("actualErrorMsg = " + actualErrorMsg);
@@ -246,7 +246,8 @@ public class RegisterStepDefinitions {
         registerPage.registerPhoneNumberBox.sendKeys(phoneNumber);
     }
 
-    }
+
+}
 
 
 

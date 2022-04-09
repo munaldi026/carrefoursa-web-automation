@@ -1,14 +1,11 @@
 package com.carrefoursa.pages;
 
-import com.carrefoursa.utilities.Driver;
-import com.carrefoursa.utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BasePage{
@@ -21,17 +18,17 @@ public class HomePage extends BasePage{
     public WebElement searchField;
     @FindBy(xpath = "//button[@class='btn btn-link js-search-validate']")
     public WebElement searchButton;
-    @FindBy(className = "js-minicart-total-price")
+    @FindBy(css = ".my-cart-text.d-sm-none")
     public WebElement myBasket;
     @FindBy(css = ".main-cat-link")
     public WebElement category;
     @FindBy(className = "d-block")
     public WebElement myAccount;
-    @FindBy(partialLinkText = "Kurumsal")
+    @FindBy(css = "li[class='yCmsComponent'] a[title='Kurumsal']")
     public WebElement corporateLink;
     @FindBy(partialLinkText = "En Yakın CarrefourSA")
     public WebElement locationsLink;
-    @FindBy(css = ".call-center.head-row.pull-right")
+    @FindBy(xpath = "//div[@class='call-center head-row pull-right']")
     public WebElement callCenterLink;
     @FindBy(id = "selectStoreCanvasAlternativeText")
     public WebElement selectionRegionLink;
