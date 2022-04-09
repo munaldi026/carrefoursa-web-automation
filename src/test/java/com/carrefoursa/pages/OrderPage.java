@@ -100,6 +100,9 @@ public class OrderPage extends BasePage{
     @FindBy(xpath = "(//span[@class='info'])[1]")
     public WebElement orderNo;
 
+    @FindBy(css = "a[href='/my-account/order/132558247']")
+    public WebElement oldOrderDetailButtonForStore;
+
 
     public String verifyDeleteOrder(){
         Driver.getDriver().navigate().refresh();
@@ -118,6 +121,17 @@ public class OrderPage extends BasePage{
         Assert.assertTrue(deleteOrderMsg.isDisplayed());
         System.out.println("str1 = " + str1);
         return str1;
+    }
+
+    public void goToOldOrder(){
+        Driver.getDriver().navigate().refresh();
+        homePage.myAccount.click();
+        accountPage.orderListIcon.click();
+        Select select=new Select(selectMonth);
+        select.selectByVisibleText("Nisan");
+        Select select1=new Select(selectYear);
+        select1.selectByVisibleText("2022");
+        oldOrderDetailButtonForStore.click();
     }
 
 

@@ -32,7 +32,7 @@ public class PDPPage extends BasePage {
     @FindBy(xpath = "//span[@class='black-color font-bold'][normalize-space()='Katalog Ürünleri']")
     public WebElement subMenuCatalogProducts;
 
-    @FindBy(xpath = "//a[normalize-space()='true']")
+    @FindBy(xpath = "//a[contains(text(),'Algida')]")
     public WebElement promotionFlagTrue;
 
     @FindBy(xpath = "//a[normalize-space()='false']")
@@ -41,11 +41,8 @@ public class PDPPage extends BasePage {
     @FindBy(xpath = "//span[@class='facet-val']")
     public WebElement verifyFalseFlag;
 
-
     @FindBy(className = "camp-badge")
     public static List<WebElement>flags;
-
-
 
     @FindBy(xpath = "(//div[@class='hover-box'])[1]")
     public WebElement selectedProduct;
@@ -81,8 +78,19 @@ public class PDPPage extends BasePage {
     @FindBy(css = "a[class='name']")
     public WebElement sacrificialInMiniCart;
 
+    @FindBy(css = "li[class='yCmsComponent'] a[title='Katalog Ürünleri, Fırsatlar']")
+    public WebElement opportunitiesLink;
+
+    @FindBy(xpath = "//h2[contains(text(),'Fırsatlar')]")
+    public WebElement opportunitiesAllLink;
+
+
+
     @FindBy(css = ".product_click")
     public List<WebElement> shoppingList;
+
+
+
 
 
     public List<String> getFlagList(){

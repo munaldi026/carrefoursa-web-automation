@@ -1,9 +1,10 @@
-@regression
+@reg
 Feature: US_022_Cart_Order_Amount_Tests
 
       Background:
 
       Given Kullanici login olmus durumdadir
+      Then Kullanici sepeti bosaltir
 
       Scenario: TC_2201 Sepette Minumum Siparis Tutari
 
@@ -18,3 +19,4 @@ Feature: US_022_Cart_Order_Amount_Tests
       And PLP sayfasindaki Sepete ekle butonuna tiklar
       When Kullanici Ana Sayfadaki Sepetim butonuna tiklar
       Then Sepet tutarinin Minimum Siparis Tutarina ulasmis oldugunu kontrol eder
+

@@ -1,6 +1,7 @@
 package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.DeliveryPage;
+import com.carrefoursa.pages.OrderPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,6 +12,7 @@ import org.junit.Assert;
 public class DeliveryStepDefinitions {
 
     DeliveryPage deliveryPage=new DeliveryPage();
+    OrderPage orderPage=new OrderPage();
 
     @When("Secilen magaza icin haritada gor linkine tiklar")
     public void secilen_magaza_icin_haritada_gor_linkine_tiklar() {
@@ -120,5 +122,10 @@ public class DeliveryStepDefinitions {
         String infoStoreOnOrderDetailsPage = deliveryPage.infoStoreOnOrderDetailsPage.getText();
         System.out.println("infoStoreOnOrderDetailsPage = " + infoStoreOnOrderDetailsPage);
         Assert.assertTrue(deliveryPage.infoStoreOnOrderDetailsPage.isDisplayed());
+    }
+
+    @Given("Kullanici magazadan al tercihli bir siparise gider")
+    public void kullaniciMagazadanAlTercihliBirSipariseGider() {
+        orderPage.goToOldOrder();
     }
 }

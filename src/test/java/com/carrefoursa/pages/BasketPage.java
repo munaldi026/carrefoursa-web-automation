@@ -103,7 +103,7 @@ public class BasketPage extends BasePage {
 
     public void verifyClothBag(){
         String verifyClothBagText = verifyClothBag.getText();
-        System.out.println("verifyClothBagMsg= " + verifyClothBagText);
+        System.out.println("(Cloth bag is added successfully)verifyClothBagMsg= " + verifyClothBagText);
         Assert.assertTrue(verifyClothBag.isDisplayed());
     }
 

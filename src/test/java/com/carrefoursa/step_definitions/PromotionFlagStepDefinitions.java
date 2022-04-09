@@ -7,6 +7,7 @@ import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
@@ -35,10 +36,12 @@ public class PromotionFlagStepDefinitions {
     }
     @Given("PromotionFlag linki altindaki true linkine tiklar")
     public void promotion_flag_linki_altindaki_true_linkine_tiklar() {
-        ReusableMethods.waitFor(3);
-
-        actions.moveToElement(pdpPage.promotionFlagTrue);
+        ReusableMethods.waitFor(1);
+     //   ReusableMethods.scrollToElement(pdpPage.promotionFlagTrue);
+     actions.moveToElement(pdpPage.promotionFlagTrue);
         pdpPage.promotionFlagTrue.click();
+
+
     }
     @Given("Promotion flag tasiyan urunlerin listelendigini kontrol eder")
     public void promotion_flag_tasiyan_urunlerin_listelendigini_kontrol_eder() {
@@ -62,5 +65,22 @@ public class PromotionFlagStepDefinitions {
     @Given("urune tiklar")
     public void uruneTiklar() {
         Driver.getDriver().findElement(By.cssSelector("img[title='Dana Tas Kebabı kg']")).click();
+    }
+
+    @When("Kullanici Ana Sayfadaki Katalog urunleri ,Firsatlar linkine tiklar")
+    public void kullaniciAnaSayfadakiKatalogUrunleriFirsatlarLinkineTiklar() {
+        ReusableMethods.waitFor(1);
+        pdpPage.opportunitiesLink.click();
+
+
+    }
+
+    @Then("Gelen sayfada Firsatlar tumunu goster linkine tiklar")
+    public void gelenSayfadaFirsatlarTumunuGosterLinkineTiklar() {
+        ReusableMethods.waitFor(1);
+        pdpPage.opportunitiesAllLink.click();
+        ReusableMethods.waitFor(1);
+
+
     }
 }

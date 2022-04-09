@@ -1,17 +1,17 @@
 package com.carrefoursa.pages;
+
 import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.ReusableMethods;
-import io.cucumber.messages.internal.com.google.common.collect.Range;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class SearchPage extends BasePage {
     HomePage homePage=new HomePage();
+    NewAddressPage newAddressPage=new NewAddressPage();
 
     @FindBy(xpath = "//span[contains(text(),'Carrefour Eski Kaşar')]//b[contains(text(),'Peynir')]")
     public WebElement searchDisplay;
@@ -44,7 +44,10 @@ public class SearchPage extends BasePage {
         String searchProduct =Constants.searchProduct1;
         System.out.println("SearchProduct = " + searchProduct);
         System.out.println("First Item    = " + itemList.get(0));
+
+
         Assert.assertTrue(itemList.get(0).contains("Peynir"));
+
 
         return itemList;
 

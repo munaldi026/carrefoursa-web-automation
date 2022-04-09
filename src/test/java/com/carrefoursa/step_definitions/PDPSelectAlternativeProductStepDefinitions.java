@@ -1,6 +1,9 @@
 package com.carrefoursa.step_definitions;
 
-import com.carrefoursa.pages.*;
+import com.carrefoursa.pages.BasketPage;
+import com.carrefoursa.pages.HomePage;
+import com.carrefoursa.pages.PDPPage;
+import com.carrefoursa.pages.ProductPage;
 import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
@@ -20,13 +23,11 @@ public class PDPSelectAlternativeProductStepDefinitions {
     public void kullanici_alternatif_seciminin_yapilabilecegi_uygun_bir_urun_aratir() {
 
         productPage.searchAlternativeProduct();
-
     }
 
     @Given("Sepette  Alternatif urununu sececegim secimini tiklar")
     public void sepette_alternatif_urununu_sececegim_secimini_tiklar() {
-
-
+        ReusableMethods.waitFor(1);
         productPage.radioButtonInBasket.click();
     }
 

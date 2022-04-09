@@ -26,7 +26,7 @@ Feature: US_004_Search_Tests
         And Kullanici Ara Buttonuna Tiklar
         Then Kullanici Populer Basligini Gorur
 
-      @miniSmoke
+
       Scenario: TC_404 Arama-Bos
 
         Given Kullanici Ana Sayfadaki Arama kutusuna tiklar
@@ -34,10 +34,10 @@ Feature: US_004_Search_Tests
         When Kullanici Ara Buttonuna Tiklar
         Then Arama yapilamayacagini kontrol eder
 
-      @miniSmoke
+
       Scenario: TC_405 Arama-Tek Harf
 
         Given Kullanici Ana Sayfadaki Arama kutusuna tiklar
-        And Arama kutusuna sadece tek bir harf yazar
+        And Kullanici Arama Kismina Aranacak Tek Bir Harf Girer
         When Kullanici Ara Buttonuna Tiklar
         Then Arama yapilamayacagini kontrol eder

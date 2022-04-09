@@ -1,4 +1,4 @@
-@regression
+@reg
 Feature: US_007_Sorting_Tests
 
       Background:

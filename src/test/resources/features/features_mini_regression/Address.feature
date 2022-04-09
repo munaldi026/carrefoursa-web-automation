@@ -1,4 +1,4 @@
-@regression
+@reg
 Feature:US_005_Address_Tests
 
       Background:
@@ -6,7 +6,8 @@ Feature:US_005_Address_Tests
         When Kullanici hesabim buttonuna tiklar
         And Kullanici adresim buttonuna tiklar
 
-        Scenario: TC_501 Adres Ekleme
+
+  Scenario: TC_501 Adres Ekleme
 
           And Yeni adres olustur buttonuna tiklar
           And Adres tipi girilir

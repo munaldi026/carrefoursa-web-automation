@@ -1,25 +1,32 @@
 package com.carrefoursa.utilities;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
+
+/**
+ * reads the properties file configuration.properties
+ */
 public class ConfigReader {
+
     private static Properties properties;
+
     static {
-        String path="configuration.properties";
+
         try {
-            FileInputStream fileInputStream=new FileInputStream(path);
-            properties=new Properties();
-            properties.load(fileInputStream);
-            fileInputStream.close();
-        } catch (FileNotFoundException e) {
+            String path = "configuration.properties";
+            FileInputStream input = new FileInputStream(path);
+            properties = new Properties();
+            properties.load(input);
+
+            input.close();
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+
         }
     }
-    public static String getProperty(String key){
-        return properties.getProperty(key);
+
+    public static String getProperty(String keyName) {
+        return properties.getProperty(keyName);
     }
+
 }

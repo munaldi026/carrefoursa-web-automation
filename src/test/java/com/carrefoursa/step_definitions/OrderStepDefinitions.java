@@ -32,6 +32,7 @@ public class OrderStepDefinitions {
 
     @Given("Ana Sayfadaki Sepetim butonuna tiklar")
     public void ana_sayfadaki_sepetim_butonuna_tiklar() {
+        ReusableMethods.waitFor(1);
         homePage.myBasket.click();
     }
 
@@ -135,8 +136,6 @@ public class OrderStepDefinitions {
 
     @Then("Kullanici siparisin iptal edildigini kontrol eder")
     public void kullanici_siparisin_iptal_edildigini_kontrol_eder() {
-
-
 
         orderPage.verifyDeleteOrder();
         System.out.println("orderNoText = " + orderNoText);

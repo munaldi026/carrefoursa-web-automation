@@ -7,11 +7,11 @@ Feature: US_13 About Products Tests
     When Kullanici arattigi urunune tiklar
 
 
-  Scenario: TC_130001_urun_aciklamalari
+  Scenario: TC_13001_urun_aciklamalari
     Then Kullanici sectigi urunun, urun aciklamalarinin gorunur oldugunu kontrol eder
 
 
-  Scenario: TC_130002_urun_taksit_bilgileri
+  Scenario: TC_13002_urun_taksit_bilgileri
     And PDP sayfasindaki Taksit Bilgileri linkine tiklar
     Then Kullanici PDP sayfasinda,sectigi urunle ilgili Taksit bilgilerinin geldigini kontrol eder
 

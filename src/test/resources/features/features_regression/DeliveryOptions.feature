@@ -1,4 +1,4 @@
-@regression
+@reg
 Feature: US_027_DeliveryOptions_Tests
 
       Background:

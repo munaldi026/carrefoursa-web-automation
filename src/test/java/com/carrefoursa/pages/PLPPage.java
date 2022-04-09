@@ -1,6 +1,7 @@
 package com.carrefoursa.pages;
 
 import com.carrefoursa.utilities.Driver;
+import com.carrefoursa.utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -61,6 +62,7 @@ public class PLPPage extends BasePage{
     public void addToBasketButton(){
         List<WebElement>buttons=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
         buttons.get(0).click();
+        ReusableMethods.waitFor(1);
     }
     public void addToSartificialButton(){
         //List<WebElement>products=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));

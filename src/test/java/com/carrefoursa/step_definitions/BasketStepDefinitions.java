@@ -30,7 +30,9 @@ public class BasketStepDefinitions {
 
     }    @When("Mini sepetteki Urunu Sil butonuna tiklar")
     public void miniSepettekiUrunuSilButonunaTiklar() {
-        basketPage.miniCartRemoveLink.click();
+
+        creditCardPage.verifyMiniCartList();
+        creditCardPage.getRemoveItemListMiniCart().get(0).click();
         ReusableMethods.waitFor(1);
     }
     @When("Sepetteki Urunu Sil butonuna tiklar")
@@ -40,7 +42,7 @@ public class BasketStepDefinitions {
     }
     @Then("Sectigi urunun sepetten kaldirildigini kontrol eder")
     public void sectigi_urunun_sepetten_kaldirildigini_kontrol_eder() {
-
+        ReusableMethods.waitFor(1);
         String miniCartEmptyMsg = basketPage.miniCartEmptyMsg.getText();
         System.out.println("miniCartEmptyMsg = " + miniCartEmptyMsg);
         basketPage.miniCartEmptyMsg.isDisplayed();
@@ -89,6 +91,7 @@ public class BasketStepDefinitions {
 
     @Then("Sepette bulunan urunleri kontrol eder")
     public void sepetteBulunanUrunleriKontrolEder() {
+        ReusableMethods.waitFor(1);
         creditCardPage.getMiniCartList();
     }
 
@@ -134,5 +137,11 @@ public class BasketStepDefinitions {
     @And("Kullanici sepeti bosaltir")
     public void kullaniciSepetiBosaltir() {
         basketPage.removeAllProduct();
+    }
+
+    @Then("Urunun mini sepetten silindigini kontrol eder")
+    public void urununMiniSepettenSilindiginiKontrolEder() {
+        creditCardPage.verifyRemoveMiniCartList();
+
     }
 }

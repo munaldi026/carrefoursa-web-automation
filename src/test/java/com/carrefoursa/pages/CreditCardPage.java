@@ -14,9 +14,8 @@ import java.util.Locale;
 
 public class CreditCardPage extends BasePage {
 
-    PDPPage pdpPage = new PDPPage();
-
-
+    @FindBy(xpath = "//li[@class='product-item product-item']")
+    public static List<WebElement> cartList;
     @FindBy(css = "img[title='Carrefour Ayçiçek Yağı 5 lt']")
     public WebElement selectedProduct;
 
@@ -24,50 +23,37 @@ public class CreditCardPage extends BasePage {
     public WebElement productInBasket;
 
     @FindBy(css = ".name")
-    public static List<WebElement> MiniCartList;
+    public List<WebElement> miniCartList;
 
-    @FindBy(xpath = "//li[@class='product-item product-item']")
-    public static List<WebElement> cartList;
-
+    @FindBy(xpath = "//a[@class='name']")
+    public List<WebElement> miniCartList1;
     @FindBy(css = ".remove-cart-item-link")
-    public static List<WebElement> removeItemListMiniCart;
-
-
+    public List<WebElement> removeItemListMiniCart;
     @FindBy(css = "#masterpass")
     public WebElement payByCreditCard;
-
     @FindBy(css = "#cash_at_delivery")
     public WebElement payByCashAtDelivery;
-
     @FindBy(css = "div[class='pay-with-cash'] span[class='description']")
     public WebElement verifyByCashAtDelivery;
-
     @FindBy(css = ".other.form-control.rtaPan")
     public WebElement creditCardNumberField;
-
     @FindBy(css = "input[name='cardHolderName']")
     public WebElement creditCardHolderNameField;
-
     @FindBy(css = "select[name='expiryMonth']")
     public WebElement creditCardExpiryMonth;
-
     @FindBy(css = "select[name='expiryYear']")
     public WebElement creditCardExpiryYear;
-
     @FindBy(css = "input[placeholder='000']")
     public WebElement creditCardCVVField;
-
     @FindBy(css = "#mpSaveCard")
     public WebElement mpSaveCardCheckBox;
-
     @FindBy(xpath = "//label[@for='mpFormEnable']//span[@class='radiomark']")
     public WebElement creditCardRadioButton;
-
     @FindBy(css = "#accountAliasName2")
     public WebElement creditCardNameField;
-
     @FindBy(css = ".message")
     public WebElement verifyCreditCartMsg;
+    PDPPage pdpPage = new PDPPage();
 
     public String verifyPayByCashAtDelivery() {
         String deliveryText = verifyByCashAtDelivery.getText();
@@ -93,11 +79,9 @@ public class CreditCardPage extends BasePage {
     }
 
 
-
-
     public List<String> getMiniCartList() {
         List<String> listOfProducts = new ArrayList<>();
-        for (WebElement productlist : MiniCartList) {
+        for (WebElement productlist : miniCartList) {
             listOfProducts.add(productlist.getText());
         }
         System.out.println("Before removing all products");
@@ -109,21 +93,44 @@ public class CreditCardPage extends BasePage {
         return listOfProducts;
     }
 
-
-    public List<WebElement> getRemoveItemListMiniCart() {
-        List<WebElement> listOfRemoveLinks = new ArrayList<>();
-        for (WebElement removeItemList : removeItemListMiniCart) {
-            listOfRemoveLinks.add(removeItemList);
-       }
-//        System.out.println("Before removing all products");
-//        System.out.println("pdpPage.getProductCodeFromPLP() = " + pdpPage.getProductCodeFromPLP());
-//        System.out.println("pdpPage.getIntProductCodeFromPLP() = " + pdpPage.getIntProductCodeFromPLP());
-//        System.out.println("listOfProducts.size() = " + listOfRemoveLinks.size());
-//        System.out.println("listOfProducts = " + listOfRemoveLinks);
-            return listOfRemoveLinks;
-
+    public List<String> verifyMiniCartList() {
+        List<String> listOfProducts = new ArrayList<>();
+        for (WebElement productlist : miniCartList1) {
+            listOfProducts.add(productlist.getText());
+        }
+            System.out.println("listOfProducts.size() = " + listOfProducts.size());
+            String expectedProductName = null;
+            expectedProductName = Constants.searchOrderProductName;
+            System.out.println("expectedProductName = " + expectedProductName);
+        System.out.println("listOfProducts = " + listOfProducts);
+        Assert.assertTrue(listOfProducts.toString().contains(expectedProductName));
+            System.out.println("True product is added to Minicart successfully");
+            return listOfProducts;
         }
 
+    public void verifyRemoveMiniCartList() {
+        List<String> listOfProducts = new ArrayList<>();
+        for (WebElement productlist : miniCartList1) {
+            listOfProducts.add(productlist.getText());
+        }
+        System.out.println("listOfProducts.size() = " + listOfProducts.size());
+        String deletedProductName = null;
+        deletedProductName = Constants.searchOrderProductName;
+        System.out.println("deletedProductName = " + deletedProductName);
+        System.out.println("listOfProducts = " + listOfProducts);
+
+        Assert.assertFalse(listOfProducts.toString().contains(deletedProductName));
+        System.out.println("True product is deleted from Minicart successfully");
+
+    }
+
+        public List<WebElement> getRemoveItemListMiniCart () {
+            List<WebElement> listOfRemoveLinks = new ArrayList<>();
+            for (WebElement removeItemList : removeItemListMiniCart) {
+                listOfRemoveLinks.add(removeItemList);
+            }
+            return listOfRemoveLinks;
+        }
 
         public void fillCreditCardInformations () {
             creditCardNumberField.sendKeys(Constants.creditCardNumber);
