@@ -33,6 +33,10 @@ public class DeliveryPage extends BasePage {
     @FindBy(css = ".pickupChoice__pickup ")
     public WebElement pickupFromStore;
 
+
+    @FindBy(id = "selectDeliveryChoice")
+    public WebElement verifySelection;
+
     @FindBy(css = ".pickupChoice__cargo ")
     public WebElement pickupFromCargo;
 
@@ -217,6 +221,10 @@ public class DeliveryPage extends BasePage {
         homePage.searchField.click();
         homePage.searchField.sendKeys(Constants.noProductInStock);
         homePage.searchButton.click();
+
+    }
+
+    public void changeDeliveryOptions(){
 
     }
 }

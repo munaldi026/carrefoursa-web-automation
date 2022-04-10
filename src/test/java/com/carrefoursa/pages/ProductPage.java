@@ -36,7 +36,7 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[@class='js-payment-tabs-head undefined'][contains(text(),'Garanti & İade')]")
     public WebElement guaranteeLink;
 
-    @FindBy(css = "a[class='btn btn-primary']")
+    @FindBy(xpath = "//a[contains(text(),'İade Süreçlerimiz')]")
     public WebElement returnProcessButton;
 
     @FindBy(xpath = "(//a[@title='Market Alışverişlerinde'])[1]")
@@ -47,7 +47,7 @@ public class ProductPage extends BasePage {
 
 
 
-    @FindBy(css = "div[id='alternativeProductOptions_0'] span[class='radiomark']")
+    @FindBy(css = ".substituteProductElement")
     public WebElement radioButtonInBasket;
 
 
@@ -77,11 +77,6 @@ public class ProductPage extends BasePage {
 
 
 
-
-
-
-
-
     public String getInstallmentTableList(){
         List<String>newInstallmentTableList=new ArrayList<>();
         for (WebElement element:installmentTableList
@@ -98,9 +93,6 @@ public class ProductPage extends BasePage {
     }
 
 
-
-
-
     public int getPriceFromBasket() {
         String priceInBasketText = priceInBasket.getText();
         System.out.println("priceInBasketText = " + priceInBasketText);
@@ -109,14 +101,19 @@ public class ProductPage extends BasePage {
         int price = Integer.parseInt(priceInBasketText1);
         return price;
     }
+
+
     public void searchSupplierProductSame1(String productName) {
 
+        //ReusableMethods.retryingFindClick();
+        Driver.getDriver().navigate().refresh();
+        //ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
-        ReusableMethods.waitForClickablility(homePage.searchButton,3);
+       // ReusableMethods.waitForClickablility(homePage.searchButton,3);
         homePage.searchField.sendKeys(Constants.soldAloneProductSame1);
         ReusableMethods.waitFor(1);
         homePage.searchButton.click();
-        ReusableMethods.waitFor(1);
+        //ReusableMethods.waitFor(1);
 
 //        try {
 //            homePage.informationPop_up.click();
@@ -124,6 +121,9 @@ public class ProductPage extends BasePage {
 //            System.out.println("Bilgilendirme Pop-up yok");
 //        }
     }
+
+
+
     public void searchSacrificialName() {
         ReusableMethods.retryingFindClick();
         ReusableMethods.waitForClickablility(homePage.searchButton,3);
@@ -179,6 +179,8 @@ public class ProductPage extends BasePage {
 
     public void searchProduct() {
 
+        //Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.searchOrderProductName);
         homePage.searchButton.click();
@@ -192,6 +194,9 @@ public class ProductPage extends BasePage {
     }
 
     public void searchCertainProduct(String productName) {
+
+
+        Driver.getDriver().navigate().refresh();
         ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.certainProductIdForPDP);
@@ -231,7 +236,9 @@ public class ProductPage extends BasePage {
 
     public void searchInstallmentProduct() {
 
-        ReusableMethods.waitFor(1);
+
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(SmkConstants.searchInstallmentProduct);
         homePage.searchButton.click();
@@ -256,7 +263,7 @@ public class ProductPage extends BasePage {
         System.out.println("Current Total Price = " + endPrice1);
         Assert.assertTrue(endPrice<endPrice1);
 
-           }
+    }
     public void verifyMinimumAmount(){
         String priceTotalAmount="60,00 TL";
         System.out.println("priceTotalAmount = " + priceTotalAmount);
@@ -266,6 +273,5 @@ public class ProductPage extends BasePage {
         System.out.println("totalAmountMsgText = " + totalAmountMsgText);
         Assert.assertTrue(orderPage.orderTotalAmountMsg.isDisplayed());
     }
-
 
     }

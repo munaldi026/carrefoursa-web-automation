@@ -8,6 +8,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+
+import java.util.Locale;
 
 public class DeliveryOptionsStepDefinitions {
 
@@ -16,8 +19,9 @@ public class DeliveryOptionsStepDefinitions {
 
     @Given("Ana sayfadaki Teslimat Seceneginiz linkine tiklar")
     public void ana_sayfadaki_teslimat_seceneginiz_linkine_tiklar() {
-        ReusableMethods.waitForPageToLoad(5);
         Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForPageToLoad(5);
         deliveryPage.deliveryOptionsLink.click();
     }
     @Given("Cikan pop-up uzerinde Magazadan Alin tercihini yapar")
@@ -39,6 +43,8 @@ public class DeliveryOptionsStepDefinitions {
 
         deliveryPage.getPickupChoiseMsg();
         Driver.getDriver().navigate().refresh();
+        String selectionText = deliveryPage.verifySelection.getText();
+        System.out.println("DELIVERY SELECTION  = " + selectionText.toUpperCase(Locale.ROOT));
         ReusableMethods.waitFor(3);
     }
     @And("Adres secimi sayfasinda  Magazadan Al tercihini yapar")
@@ -54,5 +60,18 @@ public class DeliveryOptionsStepDefinitions {
     @Given("Sepetim Sayfasindaki Siparisi Tamamla butonuna tiklar")
     public void sepetimSayfasindakiSiparisiTamamlaButonunaTiklar() {
         orderPage.continueButton.click();
+    }
+
+    @And("Cikan pop-up uzerinde Size Getirelim tercihini yapar")
+    public void cikanPopUpUzerindeSizeGetirelimTercihiniYapar() {
+        deliveryPage.pickupFromCargo.click();
+    }
+
+    @When("Secimin gerceklestigi kontrol edilir")
+    public void seciminGerceklestigiKontrolEdilir() {
+        Driver.getDriver().navigate().refresh();
+        String selectionText = deliveryPage.verifySelection.getText();
+        System.out.println("DELIVERY SELECTION  = " + selectionText.toUpperCase(Locale.ROOT));
+        Assert.assertTrue(deliveryPage.verifySelection.isDisplayed());
     }
 }

@@ -1,4 +1,4 @@
-@smoke
+
 Feature: US_11 Payment Test
 
   Scenario: TC_11001_payment_by_credit_card

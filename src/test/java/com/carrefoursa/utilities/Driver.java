@@ -18,6 +18,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import java.net.URL;
+
 public class Driver {
 
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();

@@ -82,6 +82,8 @@ public class PDPStepDefinitions {
             Constants.searchOrderProductName=pdpPage.productInBasket.getText();
             System.out.println("Constants.searchOrderProductName = " + Constants.searchOrderProductName);
             Assert.assertTrue(pdpPage.productInBasket.isDisplayed());
+            ReusableMethods.waitFor(1);
+            basketPage.removeProductButtonInBasket.click();
         }
 
         @Then("Sectigi urunun mini sepete eklendigini kontrol eder")
@@ -100,6 +102,7 @@ public class PDPStepDefinitions {
             String pdPmaximumProductMsgText = basketPage.PDPmaximumProductMsg.getText();
             System.out.println("pdPmaximumProductMsgText = " + pdPmaximumProductMsgText);
             Assert.assertTrue(basketPage.PDPmaximumProductMsg.isDisplayed());
+
 
         }
 

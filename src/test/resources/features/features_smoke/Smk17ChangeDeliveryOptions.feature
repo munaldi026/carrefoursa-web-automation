@@ -1,9 +1,12 @@
 @smoke
-Feature: US_12 Change Delivery Options Test
+Feature: US_12 Change Delivery Options Tests
+
+  Background:
+    Given Kullanici login olmus durumdadir
 
   Scenario: US_12001_teslimat_tercih_degisikligi_magazadan_alin
 
-    Given Kullanici login olmus durumdadir
+
     And Kullanici herhangi bir urunu aratir
     And PLP sayfasindaki Sepete ekle butonuna tiklar
     And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
@@ -14,4 +17,11 @@ Feature: US_12 Change Delivery Options Test
     When Bu sayfada Devam et butonu tiklanir
     Then Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.
 
+
+  Scenario: US_12002_teslimat_tercih_degisikligi_size_getirelim
+
+    And Ana sayfadaki Teslimat Seceneginiz linkine tiklar
+    And Cikan pop-up uzerinde Size Getirelim tercihini yapar
+    When Bu sayfada Devam et butonu tiklanir
+    When Secimin gerceklestigi kontrol edilir
 

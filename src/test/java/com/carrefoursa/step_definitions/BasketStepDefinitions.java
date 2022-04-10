@@ -16,6 +16,7 @@ public class BasketStepDefinitions {
     BasketPage basketPage=new BasketPage();
     CreditCardPage creditCardPage=new CreditCardPage();
     PDPPage pdpPage=new PDPPage();
+    OrderPage orderPage=new OrderPage();
 
     @Given("Kullanici herhangi bir urunu secer")
     public void kullanici_herhangi_bir_urunu_secer() {
@@ -110,6 +111,9 @@ public class BasketStepDefinitions {
     @Then("Temassiz teslimat oldugunu kontrol eder")
     public void temassizTeslimatOldugunuKontrolEder() {
         basketPage.verifyTouchlessDelivery();
+        ReusableMethods.waitFor(1);
+        orderPage.deleteOrder();
+
     }
 
     @Given("Siparis ozetinde Poset ile teslim edilmesini istiyorum secimini tiklar")
@@ -121,6 +125,8 @@ public class BasketStepDefinitions {
     @Then("Siparis ozetinde poset eklenmis oldugunu kontrol eder")
     public void siparisOzetindePosetEklenmisOldugunuKontrolEder() {
             basketPage.verifyNormalBag();
+            ReusableMethods.waitFor(1);
+            orderPage.deleteOrder();
     }
 
     @Given("Siparis ozetinde Bez Poset ile teslim edilmesini istiyorum secimini tiklar")

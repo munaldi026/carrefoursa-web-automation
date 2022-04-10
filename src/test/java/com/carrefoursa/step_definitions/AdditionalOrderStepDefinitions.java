@@ -9,6 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Locale;
+
 public class AdditionalOrderStepDefinitions {
 
     OrderPage orderPage=new OrderPage();
@@ -28,7 +30,7 @@ public class AdditionalOrderStepDefinitions {
     @And("Ek siparis icin verify yapar")
     public void ekSiparisIcinVerifyYapar() {
         String additionalOrderMsgText = orderPage.verifyAdditionalOrderMsg.getText();
-        System.out.println("Order Number = " + additionalOrderMsgText);
+        System.out.println("VERIFIED ORDER NUMBER = " + additionalOrderMsgText.toUpperCase(Locale.ROOT));
         Assert.assertTrue(orderPage.verifyAdditionalOrderMsg.isDisplayed());
     }
 
@@ -39,16 +41,18 @@ public class AdditionalOrderStepDefinitions {
     }
     @Then("Siparis olusturulma suresini beklemeden ek siparis yapilamayacagini kontrol eder")
     public void siparisOlusturulmaSuresiniBeklemedenEkSiparisYapilamayacaginiKontrolEder() {
-
+        ReusableMethods.waitFor(1);
         String waitToAddingMsgText = orderPage.waitToAddingMsg.getText();
         System.out.println("waitToAddingMsgText = " + waitToAddingMsgText);
         Assert.assertTrue(orderPage.waitToAddingMsg.isDisplayed());    }
 
     @Then("Daha once maksimum miktar siparis yaptigi icin ek siparis yapilamayacagini kontrol eder")
     public void dahaOnceMaksimumMiktarSiparisYaptigiIcinEkSiparisYapilamayacaginiKontrolEder() {
+        ReusableMethods.waitFor(1);
         String warningTextMsgText = orderPage.warningTextMsg.getText();
         System.out.println("warningTextMsgText = " + warningTextMsgText);
         Assert.assertTrue(orderPage.warningTextMsg.isDisplayed());
+
 
     }
 
@@ -58,4 +62,6 @@ public class AdditionalOrderStepDefinitions {
         orderPage.additionalOrderButton.click();
 
     }
+
+
 }

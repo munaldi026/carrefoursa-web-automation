@@ -2,13 +2,14 @@ package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.ProductPage;
 import com.carrefoursa.pages.RatingProductsPage;
-import com.carrefoursa.utilities.*;
+import com.carrefoursa.utilities.Driver;
+import com.carrefoursa.utilities.ReusableMethods;
+import com.carrefoursa.utilities.SmkConstants;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.interactions.Actions;
 
 public class ProductExplanationsStepDefinitions {
 
@@ -54,7 +55,7 @@ public class ProductExplanationsStepDefinitions {
         }
     @Then("Kullanici PDP sayfasinda,sectigi urunle ilgili Taksit bilgilerinin geldigini kontrol eder")
     public void kullanici_pdp_sayfasinda_sectigi_urunle_ilgili_taksit_bilgilerinin_geldigini_kontrol_eder() {
-
+        ReusableMethods.waitFor(1);
         productPage.getInstallmentTableList();
         }
     @Given("PDP sayfasindaki Garanti&Iade linkine tiklar")

@@ -2,6 +2,7 @@ package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.DeliveryPage;
 import com.carrefoursa.pages.OrderPage;
+import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -54,6 +55,7 @@ public class DeliveryStepDefinitions {
     }
     @Given("Ana sayfadaki Teslimat saatleri linkine tiklar")
     public void ana_sayfadaki_teslimat_saatleri_linkine_tiklar() {
+        ReusableMethods.waitForVisibility(deliveryPage.deliveryTimeLink,5);
         deliveryPage.deliveryTimeLink.click();
 
     }

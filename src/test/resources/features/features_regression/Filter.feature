@@ -1,4 +1,4 @@
-@regression
+@reg
 Feature: US_006_Filter_Tests
 
   Background:

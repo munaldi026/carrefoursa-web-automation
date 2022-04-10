@@ -14,7 +14,7 @@ public class HomePage extends BasePage{
 
     @FindBy(css = "img[src='https://reimg-carrefour.mncdn.com/staticimage/carrefoursacom-logo.svg']")
     public WebElement homePageButton;
-    @FindBy(xpath = "//input[@id='js-site-search-input']")
+    @FindBy(id = "js-site-search-input")
     public WebElement searchField;
     @FindBy(xpath = "//button[@class='btn btn-link js-search-validate']")
     public WebElement searchButton;

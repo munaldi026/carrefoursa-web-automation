@@ -14,7 +14,7 @@ Feature: US_17 Supplier Products Tests
     Given Tek basina satilan ve ayni tedarikciye ait baska bir urun adi yazar
     And PLP sayfasindaki Sepete ekle butonuna tiklar
     And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-    When Her iki urununde sepete eklendigini konrtol eder
+    When Her iki urununde sepete eklendigini kontrol eder
 
 
 

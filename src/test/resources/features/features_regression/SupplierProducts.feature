@@ -1,4 +1,4 @@
-@reg
+@reg10
 Feature: US_020_Supplier_Products_Tests
 
   Background:

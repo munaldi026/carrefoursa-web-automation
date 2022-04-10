@@ -115,7 +115,7 @@ public class BasketPage extends BasePage {
 
     public void verifyTouchlessDelivery(){
         String deliveryText = verifyTouchlessDeliveryText.getText();
-        System.out.println("touchlessDeliveryMsg = " + deliveryText);
+        System.out.println("TOUCHLESS DELIVERY MESSAGE: " + deliveryText);
         Assert.assertTrue(verifyTouchlessDeliveryText.isDisplayed());
     }
 

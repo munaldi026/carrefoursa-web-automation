@@ -13,6 +13,7 @@ public class SearchPage extends BasePage {
     HomePage homePage=new HomePage();
     NewAddressPage newAddressPage=new NewAddressPage();
 
+
     @FindBy(xpath = "//span[contains(text(),'Carrefour Eski Kaşar')]//b[contains(text(),'Peynir')]")
     public WebElement searchDisplay;
 

@@ -1,4 +1,4 @@
-@smoke00
+@smoke
 Feature: US_06 Basket Tests
 
   Background:

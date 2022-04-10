@@ -10,7 +10,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 public class SupplierProductStepDefinitions {
 
@@ -32,8 +31,8 @@ public class SupplierProductStepDefinitions {
         System.out.println("soldAloneProductSame2 = " + soldAloneProductSame2);
         productPage.searchSupplierProductSame2(Constants.soldAloneProductSame2);
     }
-    @Then("Her iki urununde sepete eklendigini konrtol eder")
-    public void her_iki_urununde_sepete_eklendigini_konrtol_eder() {
+    @Then("Her iki urununde sepete eklendigini kontrol eder")
+    public void her_iki_urununde_sepete_eklendigini_kontrol_eder() {
         supplierProductsPage.verifyCartProductSameList();
     }
     @Then("Sepeti tamamen bosaltarak Anasayfaya doner")
@@ -68,6 +67,8 @@ public class SupplierProductStepDefinitions {
         System.out.println("productInCartSecondSupplierText = " + productInCartSecondSupplierText);
         Assert.assertTrue(supplierProductsPage.productInCartSecondSupplier.isDisplayed());
         System.out.println("ilk urun silinerek yerine ikinci urun eklenmektedir");
+        basketPage.getremoveProductButtonInBasket();
+
     }
 
     @Then("Farkli iki tedarikciden ilki tercih edildigi icin ilk urunun sepetten silinmedigini kontrol eder")
@@ -82,6 +83,5 @@ public class SupplierProductStepDefinitions {
 
 
 
-
-    }
+}
 

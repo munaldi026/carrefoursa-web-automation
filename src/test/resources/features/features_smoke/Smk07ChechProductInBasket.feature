@@ -4,7 +4,7 @@ Feature: US_07 Check Product In Basket Tests
   Background:
 
     Given Kullanici login olmus durumdadir
-    And Kullanici sepeti bosaltir
+    #And Kullanici sepeti bosaltir
     And Kullanici herhangi bir urunu aratir
     Then PLP sayfasindaki Sepete ekle butonuna tiklar
 

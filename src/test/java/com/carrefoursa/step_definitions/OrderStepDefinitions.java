@@ -6,7 +6,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
 import java.util.Locale;
 
@@ -32,7 +31,6 @@ public class OrderStepDefinitions {
 
     @Given("Ana Sayfadaki Sepetim butonuna tiklar")
     public void ana_sayfadaki_sepetim_butonuna_tiklar() {
-        ReusableMethods.waitFor(1);
         homePage.myBasket.click();
     }
 
@@ -94,11 +92,11 @@ public class OrderStepDefinitions {
     public void kullanici_siparisin_tamamlandigini_kontrol_eder() {
 
 
-        String verifyOrderMsg = orderPage.cancelOrderMsg.getText();
+        String verifyOrderMsg = orderPage.completeOrderMsg.getText();
         System.out.println("COMPLETE ORDER MESSAGE = " + verifyOrderMsg.toUpperCase(Locale.ROOT));
         orderNoText = orderPage.orderNo.getText();
         System.out.println("COMPLETED ORDER NO = " + orderNoText.toUpperCase(Locale.ROOT));
-        orderPage.cancelOrderMsg.isDisplayed();
+        orderPage.completeOrderMsg.isDisplayed();
 
 
 
@@ -136,6 +134,8 @@ public class OrderStepDefinitions {
 
     @Then("Kullanici siparisin iptal edildigini kontrol eder")
     public void kullanici_siparisin_iptal_edildigini_kontrol_eder() {
+
+
 
         orderPage.verifyDeleteOrder();
         System.out.println("orderNoText = " + orderNoText);

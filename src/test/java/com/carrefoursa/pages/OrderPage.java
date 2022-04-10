@@ -16,6 +16,7 @@ public class OrderPage extends BasePage{
     HomePage homePage=new HomePage();
     AccountPage accountPage=new AccountPage();
 
+
     @FindBy(id="cancelOrder")
     public WebElement cancelOrderButton;
 
@@ -62,7 +63,7 @@ public class OrderPage extends BasePage{
     public WebElement termsCheckBox;
 
     @FindBy(className = "headline")
-    public WebElement cancelOrderMsg;
+    public WebElement completeOrderMsg;
 
     @FindBy(xpath = "//span[contains(text(),'Onay bekleyen siparişiniz bulunmamaktadır.')]")
     public WebElement consCancelledMsg;
@@ -104,12 +105,16 @@ public class OrderPage extends BasePage{
     public WebElement oldOrderDetailButtonForStore;
 
 
+    @FindBy(xpath = "(//a[@class='btn btn-default btn-block closeColorBox'])[6]")
+    public WebElement verifyAdditionalOrderButton;
+
+
     public String verifyDeleteOrder(){
         Driver.getDriver().navigate().refresh();
         homePage.myAccount.click();
         accountPage.orderListIcon.click();
         Select select=new Select(selectMonth);
-        select.selectByVisibleText("Mart");
+        select.selectByVisibleText("Nisan");
         Select select1=new Select(selectYear);
         select1.selectByVisibleText("2022");
         orderDetailButtonList.get(0).click();
@@ -134,6 +139,12 @@ public class OrderPage extends BasePage{
         oldOrderDetailButtonForStore.click();
     }
 
+    public void deleteOrder(){
+        cancelOrderButton.click();
+        orderCancelConfirmButton.click();
+        ReusableMethods.waitFor(2);
+
+    }
 
 
 
