@@ -1,4 +1,4 @@
-@reg10
+@regr
 Feature: US_020_Supplier_Products_Tests
 
   Background:
@@ -14,7 +14,7 @@ Feature: US_020_Supplier_Products_Tests
     Given Tek basina satilan ve ayni tedarikciye ait baska bir urun adi yazar
     And PLP sayfasindaki Sepete ekle butonuna tiklar
     And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-    When Her iki urununde sepete eklendigini konrtol eder
+    When Her iki urununde sepete eklendigini kontrol eder
 
   Scenario: TC_2002_different_supplier-go_on
 

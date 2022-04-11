@@ -1,4 +1,4 @@
-@reg
+
 Feature: US_013_Payment_Tests
 
     Background:
