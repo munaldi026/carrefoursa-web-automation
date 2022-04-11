@@ -1,4 +1,4 @@
-@regression14
+@reg
 Feature: US_014_CorporateCard_Tests
 
       Background:

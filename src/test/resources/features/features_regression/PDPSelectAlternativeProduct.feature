@@ -1,5 +1,5 @@
 @reg
-Feature: US_24_PDP_Select_Alternative_Product_Test
+Feature: US_024_PDP_Select_Alternative_Product_Test
 
       Background:
             Given Kullanici login olmus durumdadir

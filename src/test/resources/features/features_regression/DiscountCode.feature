@@ -1,4 +1,4 @@
-@regression111111
+@reg
 Feature: US_018_DiscountCode_Tests
 
       Background:
