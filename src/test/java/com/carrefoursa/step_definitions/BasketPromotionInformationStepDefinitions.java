@@ -10,9 +10,12 @@ import org.junit.Assert;
 
 public class BasketPromotionInformationStepDefinitions {
         BasketPromotionInformationPage basketPromotionInformationPage=new BasketPromotionInformationPage();
+        ReusableMethods reusableMethods=new ReusableMethods();
 
-    @And("^Kullanıcı 2 al 1 öde ürününü aratır$")
+
+    @And("Kullanıcı 2 al 1 öde ürününü aratır")
     public void kullanciUrunAratir()  {
+        basketPromotionInformationPage.searchFieldBasketPromotionInformation.click();
         basketPromotionInformationPage.searchFieldBasketPromotionInformation.sendKeys(ConfigReader.getProperty("promotional_product"));
         ReusableMethods.waitFor(2);
         basketPromotionInformationPage.searchButtonBasketPromotionInformation.click();
@@ -29,8 +32,41 @@ public class BasketPromotionInformationStepDefinitions {
     }
 
     @And("^Sepetim Sayfasında Alt kısmında Sarı uyarı yazısı görülür$")
-    public void sepetim_sayfasnda_alt_ksmnda_sar_uyar_yazs_grlr(){
+    public void sepetim_sayfasnda_alt_kisimnda_sari_uyari_yazsi_gorulur(){
         basketPromotionInformationPage.yellowwarning.isDisplayed();
     }
+
+    @And("^Urun Sayisi iki Yapilir$")
+    public void urun_sayisi_iki_yapilir() {
+        basketPromotionInformationPage.plusIconInPDPBasketPromotionInformation.click();
+        ReusableMethods.waitFor(2);
+
+    }
+
+    @Then("^Sari Uyari Yazisi Kaybolur$")
+    public void sari_uyari_yazisi_kaybolur(){
+        reusableMethods.verifyelementNotDisplayed(basketPromotionInformationPage.yellowwarning);
+
+    }
+
+    @Then("^Sepet Limiti Karsilanmadigi Gorulur$")
+    public void sepet_limiti_karsilanmadigi_gorulur(){
+        basketPromotionInformationPage.orderTotalAmountMsgasketPromotionInformation.isDisplayed();
+    }
+
+    @Then("^Uygun Urun Tiklanir$")
+    public void uygunUrunTiklanir(){
+        basketPromotionInformationPage.searchFirstItemBasketPromotionInformation.click();
+    }
+
+    @Then("^Urunun 2 al 1 ode yazısı gorulur$")
+    public void ikiAlBirOdeYazisi(){
+        basketPromotionInformationPage.searchFirstItemdetail.isDisplayed();
+    }
+
+
+
+
+
 
 }

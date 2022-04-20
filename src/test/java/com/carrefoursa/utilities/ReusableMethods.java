@@ -249,6 +249,26 @@ public class ReusableMethods {
         return result;
     }
 
+public boolean verifyelementNotDisplayed(WebElement element){
+        try {
+            return (!element.isDisplayed());
+
+        }catch (Exception e){
+            return false;
+        }
+}
+
+    public static void scrollDown(WebDriver driver)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,350)", "");
+    }
+
+    public static void scrollUp(WebDriver driver)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-350)", "");
+    }
 
     public static String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
