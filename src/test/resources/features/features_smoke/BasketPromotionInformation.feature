@@ -31,3 +31,8 @@ Feature:Basket Promotion Information Page
     Then Sepetim Sayfasında Alt kısmında Sarı uyarı yazısı görülür
     And Urun Sayisi iki Yapilir
     Then Sari Uyari Yazisi Kaybolur
+
+  Scenario: TC_3004 Promosyon Ürün 2 al 1 öde yazısı Görülür
+    And Kullanıcı 2 al 1 öde ürününü aratır
+    And Uygun Urun Tiklanir
+    Then Urunun 2 al 1 ode yazısı gorulur
