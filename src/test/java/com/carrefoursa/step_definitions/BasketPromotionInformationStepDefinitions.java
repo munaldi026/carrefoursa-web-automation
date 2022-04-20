@@ -64,6 +64,19 @@ public class BasketPromotionInformationStepDefinitions {
         basketPromotionInformationPage.searchFirstItemdetail.isDisplayed();
     }
 
+    @And("^Kullanıci promosyonlu urun aratır$")
+    public void kullanci_promosyonlu_urun_aratr(){
+        basketPromotionInformationPage.searchFieldBasketPromotionInformation.click();
+        basketPromotionInformationPage.searchFieldBasketPromotionInformation.sendKeys(ConfigReader.getProperty("promotional_product"));
+        ReusableMethods.waitFor(2);
+        basketPromotionInformationPage.searchButtonBasketPromotionInformation.click();
+    }
+
+    @And("^Alt Kisimda Promosyon yazisini gorur$")
+    public void alt_kisimda_promosyon_yazisini_gorur(){
+        basketPromotionInformationPage.searchFirstItemdetail.isDisplayed();
+    }
+
 
 
 

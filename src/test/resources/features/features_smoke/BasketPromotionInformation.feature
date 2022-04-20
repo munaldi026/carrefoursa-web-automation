@@ -18,14 +18,14 @@ Feature:Basket Promotion Information Page
     Then Sari Uyari Yazisi Kaybolur
 
   Scenario: TC_3002 Promosyon Ürün Alınır Sepete Limiti Karşılanmaz
-    And Kullanıcı 2 al 1 öde ürününü aratır
+    And Kullanıci promosyonlu urun aratır
     And Sepete 1 ürün eklenir
     And Sepetim Tiklanir
     Then Sepet Limiti Karsilanmadigi Gorulur
 
 
   Scenario: TC_3003 Promosyon Ürün Alınır Sepete Limiti Karşılanır
-    And Kullanıcı 2 al 1 öde ürününü aratır
+    And Kullanıci promosyonlu urun aratır
     And Sepete 1 ürün eklenir
     And Sepetim Tiklanir
     Then Sepetim Sayfasında Alt kısmında Sarı uyarı yazısı görülür
@@ -36,3 +36,8 @@ Feature:Basket Promotion Information Page
     And Kullanıcı 2 al 1 öde ürününü aratır
     And Uygun Urun Tiklanir
     Then Urunun 2 al 1 ode yazısı gorulur
+
+  Scenario: TC_3004 Promosyon Ürün Detayına Gidilir
+    And Kullanıci promosyonlu urun aratır
+    And Uygun Urun Tiklanir
+    Then Alt Kisimda Promosyon yazisini gorur
