@@ -16,7 +16,7 @@ Feature: US_001_Register_Tests
         And Kullanici devam buttonuna tiklar
         Then Kullanici hosgeldiniz pop-up gorur
 
-      Scenario: TC_102 NegativeRegister
+      Scenario: TC_102 NegativeRegister Eksik Numara ile Giris
         And Kullanici uye ol buttonuna tiklar
         And Cep Telefonu Numaraniz bolumune gecersiz bir numara girilir
         And Email bolumune email girilir
