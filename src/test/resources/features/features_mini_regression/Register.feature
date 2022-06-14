@@ -37,7 +37,7 @@ Feature: US_001_Register_Tests
         And Kullanici sms bolumune gecersiz otp girilir
         Then Kullanici gecersiz SMS onay hata mesaji gorulur
 
-      Scenario: TC_104 NegativeRegister
+      Scenario: TC_104 NegativeRegister Cep Telefonu Alani Bos Birakilir
         And Kullanici uye ol buttonuna tiklar
         And Email bolumune email girilir
         And Iletişim izni checkbox tiklanir
