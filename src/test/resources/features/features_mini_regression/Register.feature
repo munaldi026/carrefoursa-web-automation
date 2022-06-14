@@ -26,7 +26,7 @@ Feature: US_001_Register_Tests
         And Kullanici uye olun buttonuna tiklar
         Then Gecersiz numara girildiginde cikan hata mesaji ekranda gorulur
 
-      Scenario: TC_103 NegativeRegister
+      Scenario: TC_103 NegativeRegister Gecersiz Otp Ile Giris
         And Kullanici uye ol buttonuna tiklar
         And Cep Telefonu Numaraniz bolumune kayitli olmayan bir numara girer
         And Email bolumune email girilir
