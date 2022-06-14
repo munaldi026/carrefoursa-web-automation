@@ -8,6 +8,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.Locale;
+
 public class BasketStepDefinitions {
 
 
@@ -17,6 +19,8 @@ public class BasketStepDefinitions {
     CreditCardPage creditCardPage=new CreditCardPage();
     PDPPage pdpPage=new PDPPage();
     OrderPage orderPage=new OrderPage();
+    String deletedProductName=null;
+
 
     @Given("Kullanici herhangi bir urunu secer")
     public void kullanici_herhangi_bir_urunu_secer() {
@@ -33,6 +37,7 @@ public class BasketStepDefinitions {
     public void miniSepettekiUrunuSilButonunaTiklar() {
 
         creditCardPage.verifyMiniCartList();
+        deletedProductName = creditCardPage.getRemoveItemListMiniCart().get(0).getText();
         creditCardPage.getRemoveItemListMiniCart().get(0).click();
         ReusableMethods.waitFor(1);
     }
@@ -45,7 +50,7 @@ public class BasketStepDefinitions {
     public void sectigi_urunun_sepetten_kaldirildigini_kontrol_eder() {
         ReusableMethods.waitFor(1);
         String miniCartEmptyMsg = basketPage.miniCartEmptyMsg.getText();
-        System.out.println("miniCartEmptyMsg = " + miniCartEmptyMsg);
+        System.out.println("MINI CART EMPTY MESSAGE = " + miniCartEmptyMsg.toUpperCase(Locale.ROOT));
         basketPage.miniCartEmptyMsg.isDisplayed();
     }
     @When("Sepetteki Sepeti Bosalt butonuna tiklar")
@@ -55,6 +60,7 @@ public class BasketStepDefinitions {
     @Then("Cikan Popup uzerindeki Evet butonuna tiklar")
     public void cikan_popup_uzerindeki_evet_butonuna_tiklar() {
         basketPage.emptyCartComfirmButton.click();
+        ReusableMethods.waitFor(1);
     }
     @Given("Sepetteki Not eklemek istiyorum linkine tiklar")
     public void sepetteki_not_eklemek_istiyorum_linkine_tiklar() {
@@ -87,7 +93,7 @@ public class BasketStepDefinitions {
     @Then("Notun silinmis oldugunu kontrol eder")
     public void notunSilinmisOldugunuKontrolEder() {
         String noMessageYet = basketPage.noMsgTextField.getText();
-        System.out.println("Customer note is deleted and NoMessageYet = " + noMessageYet);
+        System.out.println("Customer note is deleted.Any message hasn't been written yet. = " + noMessageYet);
     }
 
     @Then("Sepette bulunan urunleri kontrol eder")
@@ -137,17 +143,28 @@ public class BasketStepDefinitions {
     @Then("Siparis ozetinde bez poset eklenmis oldugunu kontrol eder")
     public void siparisOzetindeBezPosetEklenmisOldugunuKontrolEder() {
             basketPage.verifyClothBag();
+            ReusableMethods.waitFor(1);
+            orderPage.deleteOrder();
 
     }
 
     @And("Kullanici sepeti bosaltir")
     public void kullaniciSepetiBosaltir() {
         basketPage.removeAllProduct();
+
     }
 
     @Then("Urunun mini sepetten silindigini kontrol eder")
     public void urununMiniSepettenSilindiginiKontrolEder() {
         creditCardPage.verifyRemoveMiniCartList();
+    }
+
+    @And("Kullanici sepeti tamamen bosaltir")
+    public void kullaniciSepetiTamamenBosaltir() {
+        homePage.homePageButton.click();
+        basketPage.removeMiniCart();
 
     }
-}
+
+    }
+

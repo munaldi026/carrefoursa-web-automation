@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class PLPPage extends BasePage{
+public class PLPPage extends BasePage {
     @FindBy(css = ".form-control.cat-sorting-option")
     public WebElement smartSortOptions;
     @FindBy(xpath = "(//button[@class='btn btn-default btn-block js-add-to-cart js-add-to-cart-product-item'])[1]")
@@ -53,18 +53,26 @@ public class PLPPage extends BasePage{
         return validationMessage;
     }
 
-    public void addToFirstProduct(){
-        List<WebElement>products=Driver.getDriver().findElements(By.xpath("//div[@class='hover-box']"));
+    public void addToFirstProduct() {
+        List<WebElement> products = Driver.getDriver().findElements(By.xpath("//div[@class='hover-box']"));
         products.get(0).click();
     }
-    public void addToBasketButton(){
-        List<WebElement>buttons=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
+
+    public void addToBasketButton() {
+        List<WebElement> buttons = Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
         buttons.get(0).click();
         ReusableMethods.waitFor(1);
     }
-    public void addToSartificialButton(){
-        //List<WebElement>products=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
-        products.get(2).click();
+
+    public void addToBasketButtonPromotion() {
+        List<WebElement> buttons = Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
+        buttons.get(1).click();
+        ReusableMethods.waitFor(1);
+    }
+        public void addToSartificialButton () {
+            //List<WebElement>products=Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
+            products.get(2).click();
+        }
+
     }
 
-}

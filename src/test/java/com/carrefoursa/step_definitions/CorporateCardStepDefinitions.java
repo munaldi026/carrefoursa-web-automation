@@ -31,7 +31,7 @@ public class CorporateCardStepDefinitions {
 
     @And("Puan Tutari kutucuguna sifir kurus degerini girer")
     public void puanTutariKutucugunaSifirKurusDegeriniGirer() {
-
+        ReusableMethods.waitFor(1);
         corporateCardPage.corporateCardPointField.sendKeys(Constants.corporateCardPoint);
 
     }
@@ -52,7 +52,8 @@ public class CorporateCardStepDefinitions {
     public void kullanButonunaTiklar() {
        ReusableMethods.scrollToElement(corporateCardPage.corporateCardUseButton);
        corporateCardPage.corporateCardUseButton.click();
-       ReusableMethods.waitFor(3);
+       ReusableMethods.waitFor(1);
+
     }
     @Then("Sistemin sepet toplam tutarini maximum deger olarak kabul ettigini kontrol eder")
     public void sistemin_sepet_toplam_tutarini_maximum_deger_olarak_kabul_ettigini_kontrol_eder() {
@@ -65,7 +66,9 @@ public class CorporateCardStepDefinitions {
 
     @And("Puan Tutari kutucuguna belirli bir miktar girer" )
     public void puanTutariKutucugunaBelirliBirMiktarGirer() {
+
         corporateCardPage.corporateCardPointField.sendKeys(Constants.corporateCardPoint3);
+
     }
 
     @Then("Girdigi miktarin basarili bir sekilde kullanildigini kontrol eder" )
@@ -74,10 +77,16 @@ public class CorporateCardStepDefinitions {
         String usingAmountInCardText = corporateCardPage.usingAmountInCard.getText();
         System.out.println("usingAmountInCardText = " + usingAmountInCardText);
         Assert.assertTrue(corporateCardPage.usingAmountInCard.isDisplayed());
+        corporateCardPage.releaseButton.click();
         ReusableMethods.waitFor(1);
 
 
     }
 
-
+    @And("Kart numarasi girmeden once puan tutarini geri al butonuna tiklar")
+    public void kartNumarasiGirmedenOncePuanTutariniGeriAlButonunaTiklar() {
+        ReusableMethods.waitFor(1);
+        corporateCardPage.releaseButton.click();
+       ReusableMethods.waitFor(1);
+    }
 }

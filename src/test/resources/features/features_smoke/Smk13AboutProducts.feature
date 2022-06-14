@@ -1,4 +1,4 @@
-@smoke
+
 Feature: US_13 About Products Tests
 
   Background:

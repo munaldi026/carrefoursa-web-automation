@@ -16,6 +16,8 @@ public class OrderStepDefinitions {
     ProductPage productPage=new ProductPage();
     PLPPage plpPage=new PLPPage();
     String orderNoText;
+    CreditCardPage creditCardPage=new CreditCardPage();
+    AddressPage addressPage=new AddressPage();
 
     @Given("Kullanici herhangi bir urunu aratir")
     public void kullaniciHerhangiBirUrunuAratir() {
@@ -55,9 +57,9 @@ public class OrderStepDefinitions {
 
     @And("Adres secimi sayfasinda Devam Et butonuna tiklar")
     public void adresSecimiSayfasindaDevamEtButonunaTiklar() {
-
-        orderPage.continueButton.click();
         ReusableMethods.waitFor(1);
+        orderPage.deliveryAddressSubmitButton.click();
+
     }
 
     @Given("Gelen sayfada teslimat zamanini secer")
@@ -70,8 +72,8 @@ public class OrderStepDefinitions {
     @And("Teslimat zamani sayfasinda Devam Et butonuna tiklar")
     public void teslimatZamaniSayfasindaDevamEtButonunaTiklar() {
         //Driver.getDriver().navigate().refresh();
-        orderPage.continueButton.click();
-        //orderPage.deliverySlotSubmitButton.click();
+        //orderPage.continueButton.click();
+        orderPage.deliverySlotSubmitButton.click();
 
     }
 
@@ -97,33 +99,26 @@ public class OrderStepDefinitions {
         orderNoText = orderPage.orderNo.getText();
         System.out.println("COMPLETED ORDER NO = " + orderNoText.toUpperCase(Locale.ROOT));
         orderPage.completeOrderMsg.isDisplayed();
-
-
-
     }
 
     @Given("Kullanici Hesabim butonuna tiklar")
     public void kullanici_hesabim_butonuna_tiklar() {
         homePage.myAccount.click();
-
     }
 
     @Given("Hesabim sayfasindaki Siparislerim butonuna tiklar")
     public void hesabim_sayfasindaki_siparislerim_butonuna_tiklar() {
         accountPage.orderListIcon.click();
-
     }
 
     @Given("Siparislerim sayfasindaki Siparisi iptal Et butonuna tiklar")
     public void siparislerim_sayfasindaki_siparisi_iptal_et_butonuna_tiklar() {
         orderPage.cancelOrderButton.click();
 
-
     }
     @And("Kullanici Siparis Onay sayfasindaki Siparisimi iptal Etmek istiyorum butonuna tiklar")
     public void kullaniciSiparisOnaySayfasindakiSiparisimiiptalEtmekistiyorumButonunaTiklar() {
         orderPage.cancelOrderButton.click();
-
     }
 
     @Given("Siparis iptali ile ilgili cikan Pop-up uzerinde Evet butonuna tiklar")
@@ -136,11 +131,74 @@ public class OrderStepDefinitions {
     public void kullanici_siparisin_iptal_edildigini_kontrol_eder() {
 
 
-
         orderPage.verifyDeleteOrder();
         System.out.println("orderNoText = " + orderNoText);
+    }
+
+
+    @And("Arama kutusuna bir urun yazar {string}")
+    public void aramaKutusunaBirUrunYazar(String productName) {
+
+        homePage.searchField.sendKeys(productName);
+        //homePage.searchButton.click();
 
     }
 
+    @And("Kullanici bu urunu aratir")
+    public void kullaniciBuUrunuAratir() {
+        homePage.searchButton.click();
     }
+
+    @And("Kullanici KG'li bir urunu aratir")
+    public void kullaniciKGLiBirUrunuAratir() {
+        productPage.searchKgProduct();
+
+    }
+
+    @And("Indirimli bir urun aratir")
+    public void indirimliBirUrunAratir() {
+productPage.searchDiscountProduct();
+    }
+
+    @And("Promosyonlu bir urun aratir")
+    public void promosyonluBirUrunAratir() {
+        productPage.searchPromotionProduct();
+
+    }
+
+    @And("PLP sayfasindaki Sepette ekle butonuna tiklar")
+    public void plpSayfasindakiSepetteEkleButonunaTiklar() {
+        plpPage.addToBasketButtonPromotion();
+
+    }
+
+    @And("Tum urunlerin sepete eklendigini kontrol eder")
+    public void tumUrunlerinSepeteEklendiginiKontrolEder() {
+        creditCardPage.verifyCartProductMultiList();
+
+    }
+
+    @Then("{string} icin arama yapar")
+    public void icinAramaYapar(String arananUrun) {
+        homePage.searchField.sendKeys(arananUrun);
+        homePage.searchButton.click();
+    }
+
+    @And("Kullanici herhangi bir global bolge urunu aratir")
+    public void kullaniciHerhangiBirGlobalBolgeUrunuAratir() {
+        productPage.searchProductForGlobal();
+    }
+
+    @And("Teslimat adresi ekler")
+    public void teslimatAdresiEkler() {
+        addressPage.addNewDeliveryAddress.click();
+        addressPage.fillNewDeliveryAddressForm();
+
+    }
+
+    @And("Teslimat bolgesi degistirir")
+    public void teslimatBolgesiDegistirir() {
+        addressPage.changeDeliveryArea.click();
+    }
+}
 

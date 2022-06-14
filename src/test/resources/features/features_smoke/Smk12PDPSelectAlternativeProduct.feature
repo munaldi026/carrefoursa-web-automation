@@ -1,12 +1,11 @@
-@smoke
-Feature: US_16 PDP Select Alternative Product Test
 
-  Background:
+Feature: US_12 PDP Select Alternative Product Test
+
+
+  Scenario: TC_12001_sepette_alternatif_urun_sec
+
     Given Kullanici login olmus durumdadir
-
-  Scenario: TC_16001_sepette_alternatif_urun_sec
-
-    Given Kullanici alternatif seciminin yapilabilecegi uygun bir urun aratir
+    And Kullanici alternatif seciminin yapilabilecegi uygun bir urun aratir
     And PLP sayfasindaki Sepete ekle butonuna tiklar
     And Ana Sayfadaki Sepetim butonuna tiklar
     And Sepette  Alternatif urununu sececegim secimini tiklar

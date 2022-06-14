@@ -1,6 +1,7 @@
 package com.carrefoursa.pages;
 
 import com.carrefoursa.utilities.Constants;
+import com.carrefoursa.utilities.SmkConstants;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,9 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreditCardPage extends BasePage {
+    PDPPage pdpPage = new PDPPage();
 
     @FindBy(xpath = "//li[@class='product-item product-item']")
     public static List<WebElement> cartList;
+
     @FindBy(css = "img[title='Carrefour Ayçiçek Yağı 5 lt']")
     public WebElement selectedProduct;
 
@@ -50,7 +53,17 @@ public class CreditCardPage extends BasePage {
     public WebElement creditCardNameField;
     @FindBy(css = ".message")
     public WebElement verifyCreditCartMsg;
-    PDPPage pdpPage = new PDPPage();
+
+    @FindBy(id = "lblRandomNum")
+    public WebElement securityCode;
+
+    @FindBy(css = "#txtPwd")
+    public WebElement securityPasswordBox;
+
+    @FindBy(css = "#submitBtn")
+    public WebElement securityCodeSubmitButton;
+
+
 
     public String verifyPayByCashAtDelivery() {
         String deliveryText = verifyByCashAtDelivery.getText();
@@ -60,20 +73,45 @@ public class CreditCardPage extends BasePage {
 
     }
 
+
+    public String getSecurityCodeFromPupup(){
+
+        String codeText = securityCode.getText();
+        System.out.println("SECURITY CODE = " + codeText);
+        return codeText;
+
+    }
+
     public void verifyCartList() {
         List<String> listOfProducts = new ArrayList<>();
         for (WebElement productlist : cartList) {
             listOfProducts.add(productlist.getText());        }
-        String expectedProductName = null;
-        expectedProductName = Constants.searchOrderProductName;
-        System.out.println("expectedProductName = " + expectedProductName);
 
-        System.out.println("listOfProducts.size() = " + listOfProducts.size());
+        String expectedProductName = null;
+        expectedProductName = listOfProducts.get(0);
+        System.out.println("expectedProductName = " + expectedProductName);
         System.out.println("listOfProducts = " + listOfProducts);
         Assert.assertTrue(listOfProducts.toString().contains(expectedProductName));
-
         System.out.println("True product is added to cart successfully");
     }
+    public void verifyCartProductMultiList(){
+
+        List<String>expectedList=new ArrayList<>();
+        expectedList.add("Dana Strogonof");
+        expectedList.add("İthal Norveç Somon Dilim kg");
+        expectedList.add("Johnson's Baby Şampuan 750 ml");
+
+        List<String>listOfProducts=new ArrayList<>();
+        for (WebElement productlist:cartList) {
+            listOfProducts.add(productlist.getText());
+        }
+        System.out.println("listOfProducts.size() = " + listOfProducts.size());
+        System.out.println("expectedList = " + expectedList);
+        System.out.println("listOfProducts = " + listOfProducts);
+
+
+    }
+
 
 
     public List<String> getMiniCartList() {
@@ -81,12 +119,12 @@ public class CreditCardPage extends BasePage {
         for (WebElement productlist : miniCartList) {
             listOfProducts.add(productlist.getText());
         }
-        System.out.println("Before removing all products");
-        System.out.println("pdpPage.getProductCodeFromPLP() = " + pdpPage.getProductCodeFromPLP());
-        System.out.println("pdpPage.getIntProductCodeFromPLP() = " + pdpPage.getIntProductCodeFromPLP());
+        System.out.println("BEFORE REMOVING ALL PRODUCTS");
+        //System.out.println("pdpPage.getProductCodeFromPLP() = " + pdpPage.getProductCodeFromPLP());
+        //System.out.println("pdpPage.getIntProductCodeFromPLP() = " + pdpPage.getIntProductCodeFromPLP());
         System.out.println("listOfProducts.size() = " + listOfProducts.size());
         System.out.println("listOfProducts = " + listOfProducts);
-        System.out.println("After removing all products");
+        System.out.println("AFTER REMOVING ALL PRODUCTS");
         return listOfProducts;
     }
 
@@ -97,11 +135,12 @@ public class CreditCardPage extends BasePage {
         }
             System.out.println("listOfProducts.size() = " + listOfProducts.size());
             String expectedProductName = null;
-            expectedProductName = Constants.searchOrderProductName;
+
+            expectedProductName = listOfProducts.get(0);
             System.out.println("expectedProductName = " + expectedProductName);
         System.out.println("listOfProducts = " + listOfProducts);
         Assert.assertTrue(listOfProducts.toString().contains(expectedProductName));
-            System.out.println("True product is added to Minicart successfully");
+            System.out.println("The Product is added to Minicart successfully");
             return listOfProducts;
         }
 
@@ -110,14 +149,15 @@ public class CreditCardPage extends BasePage {
         for (WebElement productlist : miniCartList1) {
             listOfProducts.add(productlist.getText());
         }
-        System.out.println("listOfProducts.size() = " + listOfProducts.size());
+
         String deletedProductName = null;
-        deletedProductName = Constants.searchOrderProductName;
+        System.out.println("True product is deleted from Minicart successfully");
+        deletedProductName = SmkConstants.miniCartProductName;
         System.out.println("deletedProductName = " + deletedProductName);
-        System.out.println("listOfProducts = " + listOfProducts);
+        System.out.println("listOfProducts.size() = " + listOfProducts.size());
 
         Assert.assertFalse(listOfProducts.toString().contains(deletedProductName));
-        System.out.println("True product is deleted from Minicart successfully");
+
 
     }
 

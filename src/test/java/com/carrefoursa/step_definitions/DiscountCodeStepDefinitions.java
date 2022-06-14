@@ -46,11 +46,12 @@ public class DiscountCodeStepDefinitions {
     public void indirim_yapildigini_verify_eder() {
 
         discountCodePage.discountCodeButton.click();
-        ReusableMethods.waitFor(2);
-        discountCodePage.releaseButton.click();
+        //ReusableMethods.waitFor(2);
+
         String succesMessageText = discountCodePage.succesMessage.getText();
-        System.out.println("succesMessageText = " + succesMessageText);
+        System.out.println("SUCCESS DISCOUNT MESSAGE = " + succesMessageText.toUpperCase(Locale.ROOT));
         Assert.assertTrue(discountCodePage.succesMessage.isDisplayed());
+        discountCodePage.releaseButton.click();
         Driver.getDriver().navigate().refresh();
 
 
@@ -66,6 +67,7 @@ public class DiscountCodeStepDefinitions {
         String invalidMessageText = discountCodePage.invalidMessage.getText();
         System.out.println("INVALID DISCOUNT MESSAGE = " + invalidMessageText.toUpperCase(Locale.ROOT));
         Assert.assertTrue(discountCodePage.invalidMessage.isDisplayed());
+        Driver.getDriver().navigate().refresh();
 
     }
 

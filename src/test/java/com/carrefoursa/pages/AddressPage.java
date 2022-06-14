@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AddressPage extends BasePage{
@@ -135,6 +134,11 @@ public class AddressPage extends BasePage{
     @FindBy(css = ".editAddressLink")
     public List<WebElement> editAddressList;
 
+    @FindBy(css = "#add-new-address")
+    public WebElement addNewDeliveryAddress;
+
+    @FindBy(partialLinkText = "Bölge Değiştir")
+    public WebElement changeDeliveryArea;
 
 
     public void getDeleteConfirmButtonList(){
@@ -199,6 +203,25 @@ deleteAddressList.get(0).click();
         phonenumber.sendKeys(SmkConstants.corporatePhone);
 
     }
+    public void fillNewDeliveryAddressForm(){
+        addresstype.clear();
+        addresstype.sendKeys(SmkConstants.newDeliveryAddressType);
+        firstname.clear();
+        firstname.sendKeys(SmkConstants.firstName);
+        lastname.clear();
+        lastname.sendKeys(SmkConstants.lastName);
+        addresscityCode.click();
+        addresstownCode.click();
+        addressdistrictCode.click();
+        address.clear();
+        address.sendKeys(SmkConstants.newDeliveryAddress);
+        email.clear();
+        email.sendKeys(SmkConstants.corporateEmail);
+        phonenumber.clear();
+        phonenumber.sendKeys(SmkConstants.corporatePhone);
+        addresssavebutton.click();
+
+    }
     public void getChangedFirstName(){
         System.out.println("expectedFirstName = " + SmkConstants.changedFirstName);
         String  actualFirstName = Driver.getDriver().findElement(By.id("address.firstName")).getAttribute("value");
@@ -206,6 +229,7 @@ deleteAddressList.get(0).click();
         Assert.assertEquals(SmkConstants.changedFirstName,actualFirstName);
 
     }
+
 
 
 }

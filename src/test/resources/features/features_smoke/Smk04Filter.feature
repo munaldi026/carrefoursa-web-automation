@@ -1,4 +1,4 @@
-@smoke
+@demo
 Feature: US_04 Filter Tests
 
   Background:

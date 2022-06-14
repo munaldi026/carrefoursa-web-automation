@@ -1,10 +1,10 @@
-@smoke
-Feature: US_12 Change Delivery Options Tests
+
+Feature: US_17 Change Delivery Options Tests
 
   Background:
     Given Kullanici login olmus durumdadir
 
-  Scenario: US_12001_teslimat_tercih_degisikligi_magazadan_alin
+  Scenario: US_17001_teslimat_tercih_degisikligi_magazadan_alin
 
 
     And Kullanici herhangi bir urunu aratir
@@ -17,8 +17,8 @@ Feature: US_12 Change Delivery Options Tests
     When Bu sayfada Devam et butonu tiklanir
     Then Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.
 
-
-  Scenario: US_12002_teslimat_tercih_degisikligi_size_getirelim
+  @demo
+  Scenario: US_17002_teslimat_tercih_degisikligi_size_getirelim
 
     And Ana sayfadaki Teslimat Seceneginiz linkine tiklar
     And Cikan pop-up uzerinde Size Getirelim tercihini yapar

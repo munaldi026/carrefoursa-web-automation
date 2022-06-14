@@ -60,3 +60,16 @@ Feature: US_003_Basket_Tests
             And Odeme sekli olarak Kapida Kredi Karti veya Nakit secenegini secer
             When Kullanici odemede Siparisi tamamla butonuna tiklar
             Then Siparis ozetinde bez poset eklenmis oldugunu kontrol eder
+
+      Scenario: TC_307_sepette_maximum_satinalma
+
+            And Sepette urun adedini maximum oranda artirir
+            When Maximum satinalma limitine ulastigini kontrol eder
+
+      Scenario:  TC_308_MC_sepeti_bosalt
+
+            And Kullanici alternatif seciminin yapilabilecegi uygun bir urun aratir
+            And PLP sayfasindaki Sepete ekle butonuna tiklar
+            And Kullanici sepeti tamamen bosaltir
+
+

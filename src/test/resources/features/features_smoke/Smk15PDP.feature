@@ -1,11 +1,10 @@
-@smoke
+
 Feature: US_15 PDP Tests
 
   Background:
     Given Kullanici login olmus durumdadir
     And Kullanici belirli bir urunu aratir
     When Kullanici arattigi urunune tiklar
-
 
   Scenario: TC_15001_alisveris_listesine_ekle ve_cikar
 
@@ -19,12 +18,13 @@ Feature: US_15 PDP Tests
 
     And PDP sayfasindaki Sepete ekle butonuna tiklar
     And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-    Then Sectigi urunun sepete eklendigini kontrol eder
+    And Sectigi urunun sepete eklendigini kontrol eder
+    Then Kullanici sepeti temizler
 
 
-  Scenario:  TC_15003_PDP_maximum_satinalma
-
-    And PDP urun adedini maximum oranda artirir
-    When Maximum satin alma limitine ulastigini kontrol eder
+#  Scenario:  TC_15003_PDP_maximum_satinalma
+#
+#    And PDP urun adedini maximum oranda artirir
+#    When Maximum satin alma limitine ulastigini kontrol eder
 
 

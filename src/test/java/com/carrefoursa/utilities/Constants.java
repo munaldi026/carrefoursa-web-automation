@@ -19,10 +19,12 @@ public class Constants {
     public static String soldAloneProductSame2="FOSSIL FFS5517 Erkek Kol Saati";
     public static String soldAloneProductDifferent="NEOstill - Çakıltaşı Ayna A341";
     public static String searchOrderProductName="Carrefour Ayçiçek Yağı 5 lt";
-    public static String creditCardNumber="4355084355084358";
+    public static String searchFreshFoodName="Maydanoz";
+    public static String searchCartOrderAmountProductName="Katlanır Kamp Sandalye Wells Yeşil";
+    public static String creditCardNumber="4155650100416111";
     public static String creditCardHolderName="CarrefourSA";
     public static String creditCardExpiryMonth="12";
-    public static String creditCardExpiryYear="2022";
+    public static String creditCardExpiryYear="2030";
     public static String creditCardCVV="000";
     public static String customerNote="This message was written for Automation testing.";
     public static String invalidDiscountCode="otomasyon1";
@@ -35,12 +37,9 @@ public class Constants {
     public static String grantorNameEmpty="";
     public static String orderNoteText="Bu note, CarrefourSA adina yapilan automation testi icin yazilmistir.";
     public static String noProductInStock="Koli Bandı 45*40 cm";
-
-
-
-
-
     public static String itemSoldAlone="FOSSIL FES4610 Kadın Kol Saati";
+    public static String securityCode="";
+
 
 
 

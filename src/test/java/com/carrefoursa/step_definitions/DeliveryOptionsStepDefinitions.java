@@ -23,6 +23,8 @@ public class DeliveryOptionsStepDefinitions {
         ReusableMethods.waitFor(1);
         ReusableMethods.waitForPageToLoad(5);
         deliveryPage.deliveryOptionsLink.click();
+
+
     }
     @Given("Cikan pop-up uzerinde Magazadan Alin tercihini yapar")
     public void cikan_pop_up_uzerinde_magazadan_alin_tercihini_yapar() {
@@ -30,31 +32,34 @@ public class DeliveryOptionsStepDefinitions {
     }
     @Then("Teslim alinacak magazayi secer")
     public void teslim_alinacak_magazayi_secer() {
+        ReusableMethods.waitFor(1);
+        String selectionText = deliveryPage.verifySelection.getText();
+        System.out.println("DELIVERY SELECTION  = " + selectionText.toUpperCase(Locale.ROOT));
         deliveryPage.storeList();
-
     }
     @When("Bu sayfada Devam et butonu tiklanir")
     public void buSayfadaDevamEtButonuTiklanir() {
         deliveryPage.pickupFromStoreSubmitButton.click();
-
     }
     @Then("Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.")
     public void bu_tercih_sonucunda_urunlerde_degisiklik_olacagi_ile_ilgili_uyari_aldigini_kontrol_eder() {
 
-        deliveryPage.getPickupChoiseMsg();
-        Driver.getDriver().navigate().refresh();
-        String selectionText = deliveryPage.verifySelection.getText();
-        System.out.println("DELIVERY SELECTION  = " + selectionText.toUpperCase(Locale.ROOT));
         ReusableMethods.waitFor(3);
+        String changeOrderAlertText = deliveryPage.changeOrderAlert.getText();
+        System.out.println("changeOrderAlertText = " + changeOrderAlertText);
+
     }
     @And("Adres secimi sayfasinda  Magazadan Al tercihini yapar")
     public void adresSecimiSayfasindaMagazadanAlTercihiniYapar() {
+
         deliveryPage.pickupFromStoreOnAddressPage.click();
     }
 
-    @When("Aadres sayfasindaki Teslim alinacak magazayi secer")
-    public void aadresSayfasindakiTeslimAlinacakMagazayiSecer() {
+    @When("Adres sayfasindaki Teslim alinacak magazayi secer")
+    public void adresSayfasindakiTeslimAlinacakMagazayiSecer() {
         deliveryPage.selectedStoreOnAddressPage.click();
+
+
     }
 
     @Given("Sepetim Sayfasindaki Siparisi Tamamla butonuna tiklar")
@@ -73,5 +78,13 @@ public class DeliveryOptionsStepDefinitions {
         String selectionText = deliveryPage.verifySelection.getText();
         System.out.println("DELIVERY SELECTION  = " + selectionText.toUpperCase(Locale.ROOT));
         Assert.assertTrue(deliveryPage.verifySelection.isDisplayed());
+    }
+
+    @When("Gelen pop-up kapatilir")
+    public void gelenPopUpKapatilir() {
+        orderPage.alertPop_UpButton.click();
+        ReusableMethods.waitFor(1);
+        Driver.getDriver().navigate().back();
+
     }
 }

@@ -44,7 +44,9 @@ public class AdditionalOrderStepDefinitions {
         ReusableMethods.waitFor(1);
         String waitToAddingMsgText = orderPage.waitToAddingMsg.getText();
         System.out.println("waitToAddingMsgText = " + waitToAddingMsgText);
-        Assert.assertTrue(orderPage.waitToAddingMsg.isDisplayed());    }
+        Assert.assertTrue(orderPage.waitToAddingMsg.isDisplayed());
+
+    }
 
     @Then("Daha once maksimum miktar siparis yaptigi icin ek siparis yapilamayacagini kontrol eder")
     public void dahaOnceMaksimumMiktarSiparisYaptigiIcinEkSiparisYapilamayacaginiKontrolEder() {
@@ -52,7 +54,6 @@ public class AdditionalOrderStepDefinitions {
         String warningTextMsgText = orderPage.warningTextMsg.getText();
         System.out.println("warningTextMsgText = " + warningTextMsgText);
         Assert.assertTrue(orderPage.warningTextMsg.isDisplayed());
-
 
     }
 

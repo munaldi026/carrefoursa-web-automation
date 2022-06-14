@@ -1,4 +1,4 @@
-@smoke
+
 Feature: US_01 Register Tests
 
   Background:
@@ -20,7 +20,7 @@ Feature: US_01 Register Tests
     Then Kullanici hosgeldiniz pop-up gorur
 
 
-  Scenario Outline: TC_1002_1003_1004_1005_kullanıcı_yanlıs_bilgilerle_uye_olamaz:<phone_number>,<email>
+  Scenario Outline: TC_1002_1003_1004_1005_kullanıcı_yanlıs_bilgilerle_uye_olamaz:<phone_number>,<email>;
 
     And Register Cep Telefonu Numaraniz bolumune bir numara girer"<phoneNumber>"
     And Email bolumune email girilir"<email>"

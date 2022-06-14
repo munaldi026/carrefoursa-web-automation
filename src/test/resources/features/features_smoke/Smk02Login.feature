@@ -1,16 +1,16 @@
-@smoke
+
 Feature: US_02 Login Tests
 
   Background:
     Given Anasayfadaki Giris Yap butonuna tiklar.
-
+  @demo
   Scenario: TC_2001_positive_login
     And Cep Telefonu Numaraniz bolumune gecerli bir numara girer
     And Giris Yapin butonuna tiklar
     And SMS Onay Kodu bolumune gecerli bir Otp kodu girer
     When Tamam butonuna tiklar
     Then Basarili bir giris yaptigini control eder
-
+  @demo
   Scenario: TC_2002_giris_yapamiyorum
     And Kullanıcı giris yapamiyorum buttonuna tiklar
     And Dogrulama kodu icin bir email adresi girilir
@@ -34,9 +34,9 @@ Feature: US_02 Login Tests
     Then kullanici hata mesaji alir "<message>"
 
     Examples:
-      | phoneNumber | message                                                                          |
-      | empty       | Lütfen cep telefonu numaranızı giriniz.                                          |
-      | 50007474    | Geçerli bir telefon numarası girmelisiniz.                                       |
+      | phoneNumber | message                                    |
+      | empty       | Lütfen cep telefonu numaranızı giriniz.    |
+      | 50007474    | Geçerli bir telefon numarası girmelisiniz. |
 
 
   Scenario Outline: TC_2006_2007_kullanıcı_yanlıs_otp_koduyla_giris_yapamaz: <otpCode>
@@ -48,8 +48,8 @@ Feature: US_02 Login Tests
 
     Examples:
 
-      | otpCode   | message                                                                          |
-      | 123458    | Girdiğiniz kod hatalıdır, lütfen kontrol ederek tekrar deneyiniz.                |
-      | empty     | Kodu eksik girdiniz. Lütfen size SMS ile gönderdiğimiz 6 haneli kodu giriniz.    |
+      | otpCode | message                                                                       |
+      | 123458  | Girdiğiniz kod hatalıdır, lütfen kontrol ederek tekrar deneyiniz.             |
+      | empty   | Kodu eksik girdiniz. Lütfen size SMS ile gönderdiğimiz 6 haneli kodu giriniz. |
 
 

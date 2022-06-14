@@ -15,8 +15,10 @@ import java.util.List;
 public class ProductPage extends BasePage {
     HomePage homePage = new HomePage();
     PDPPage pdpPage = new PDPPage();
-    OrderPage orderPage=new OrderPage();
-    Actions actions=new Actions(Driver.getDriver());
+    OrderPage orderPage = new OrderPage();
+
+
+    Actions actions = new Actions(Driver.getDriver());
 
     @FindBy(xpath = "//span[contains(@class,'black-color')][contains(text(),'Gıda, Şekerleme')]")
     public WebElement subMenuSweet;
@@ -44,7 +46,6 @@ public class ProductPage extends BasePage {
 
     @FindBy(xpath = "(//a[@title='İnternet Alışverişlerinde'])[1]")
     public WebElement internetProcessLink;
-
 
 
     @FindBy(css = ".substituteProductElement")
@@ -76,10 +77,9 @@ public class ProductPage extends BasePage {
     public List<WebElement> installmentTableList;
 
 
-
-    public String getInstallmentTableList(){
-        List<String>newInstallmentTableList=new ArrayList<>();
-        for (WebElement element:installmentTableList
+    public String getInstallmentTableList() {
+        List<String> newInstallmentTableList = new ArrayList<>();
+        for (WebElement element : installmentTableList
         ) {
             newInstallmentTableList.add(element.getText());
         }
@@ -106,10 +106,10 @@ public class ProductPage extends BasePage {
     public void searchSupplierProductSame1(String productName) {
 
         //ReusableMethods.retryingFindClick();
-        Driver.getDriver().navigate().refresh();
+        //Driver.getDriver().navigate().refresh();
         //ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
-       // ReusableMethods.waitForClickablility(homePage.searchButton,3);
+        // ReusableMethods.waitForClickablility(homePage.searchButton,3);
         homePage.searchField.sendKeys(Constants.soldAloneProductSame1);
         ReusableMethods.waitFor(1);
         homePage.searchButton.click();
@@ -123,10 +123,9 @@ public class ProductPage extends BasePage {
     }
 
 
-
     public void searchSacrificialName() {
         ReusableMethods.retryingFindClick();
-        ReusableMethods.waitForClickablility(homePage.searchButton,3);
+        ReusableMethods.waitForClickablility(homePage.searchButton, 3);
         homePage.searchField.sendKeys(Constants.sacrificialName);
         homePage.searchButton.click();
         ReusableMethods.waitFor(1);
@@ -137,8 +136,9 @@ public class ProductPage extends BasePage {
 //            System.out.println("Bilgilendirme Pop-up yok");
 //        }
     }
+
     public void searchSupplierProductSame2(String productName) {
-        ReusableMethods.waitForClickablility(homePage.searchButton,3);
+        ReusableMethods.waitForClickablility(homePage.searchButton, 3);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.soldAloneProductSame2);
         homePage.searchButton.click();
@@ -150,8 +150,9 @@ public class ProductPage extends BasePage {
 //            System.out.println("Bilgilendirme Pop-up yok");
 //        }
     }
+
     public void soldAloneProductDifferent(String productName) {
-        ReusableMethods.waitForClickablility(homePage.searchButton,3);
+        ReusableMethods.waitForClickablility(homePage.searchButton, 3);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.soldAloneProductDifferent);
         homePage.searchButton.click();
@@ -179,8 +180,8 @@ public class ProductPage extends BasePage {
 
     public void searchProduct() {
 
-        //Driver.getDriver().navigate().refresh();
-        ReusableMethods.waitForPageToLoad(5);
+
+        ReusableMethods.waitForPageToLoad(10);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.searchOrderProductName);
         homePage.searchButton.click();
@@ -193,10 +194,25 @@ public class ProductPage extends BasePage {
 
     }
 
-    public void searchCertainProduct(String productName) {
+    public void searchProductMiniCart() {
+
+        //Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitForPageToLoad(5);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys(SmkConstants.miniCartProductName);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
+
+    public void searchCertainProduct() {
 
 
-        Driver.getDriver().navigate().refresh();
         ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(Constants.certainProductIdForPDP);
@@ -222,22 +238,24 @@ public class ProductPage extends BasePage {
 //        }
     }
 
-            public void maxSearchCertainProduct () {
-            ReusableMethods.waitFor(1);
-            plusButtonInPDP.click();
-            ReusableMethods.waitFor(1);
-            plusButtonInPDP.click();
-            ReusableMethods.waitFor(1);
-            plusButtonInPDP.click();
-            ReusableMethods.waitFor(1);
-            plusButtonInPDP.click();
-        }
+    public void maxSearchCertainProduct() {
+        ReusableMethods.waitFor(1);
+        plusButtonInPDP.click();
+        ReusableMethods.waitFor(1);
+        plusButtonInPDP.click();
+        ReusableMethods.waitFor(1);
+        plusButtonInPDP.click();
+        ReusableMethods.waitFor(1);
+        //plusButtonInPDP.click();
+
+        pdpPage.addToBasketButton.click();
+        ReusableMethods.waitFor(1);
+        pdpPage.addToBasketButton.click();
+    }
 
 
     public void searchInstallmentProduct() {
 
-
-        Driver.getDriver().navigate().refresh();
         ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(SmkConstants.searchInstallmentProduct);
@@ -249,29 +267,118 @@ public class ProductPage extends BasePage {
 //            System.out.println("Bilgilendirme Pop-up yok");
 //        }
     }
-    public void verifyMinimumAmountPlus(){
-        String priceTotalAmount="60,00 TL";
+
+    public void verifyMinimumAmountPlus() {
+        String priceTotalAmount = "60,00 TL"; //121,00 TL
         System.out.println("priceTotalAmount = " + priceTotalAmount);
-        String strPrice =priceTotalAmount.replace(",00 TL","").trim();
-        int endPrice=Integer.parseInt(strPrice);
+        String strPrice = priceTotalAmount.replace(",00 TL", "").trim();
+        int endPrice = Integer.parseInt(strPrice);
         System.out.println("endPrice = " + endPrice);
         String price = orderPage.productPriceForOrderAmount.getText();
         System.out.println("price = " + price);
-        String strPrice1 =price.replace(",","").replace("TL","").substring(0,2).trim();
-        int endPrice1=Integer.parseInt(strPrice1);
+        String strPrice1 = price.replace(",", "").replace("TL", "").substring(0, 2).trim();
+        int endPrice1 = Integer.parseInt(strPrice1);
         System.out.println("Default Total Price = " + endPrice);
         System.out.println("Current Total Price = " + endPrice1);
-        Assert.assertTrue(endPrice<endPrice1);
+        Assert.assertTrue(endPrice < endPrice1);
+
 
     }
-    public void verifyMinimumAmount(){
-        String priceTotalAmount="60,00 TL";
+
+    public void verifyMinimumAmount() {
+        String priceTotalAmount = "60,00 TL";
         System.out.println("priceTotalAmount = " + priceTotalAmount);
         String price = orderPage.productPriceForOrderAmount.getText();
         System.out.println("price = " + price);
         String totalAmountMsgText = orderPage.orderTotalAmountMsg.getText();
         System.out.println("totalAmountMsgText = " + totalAmountMsgText);
         Assert.assertTrue(orderPage.orderTotalAmountMsg.isDisplayed());
-    }
 
     }
+
+    public void searchCartOrderAmountProduct() {
+
+
+        ReusableMethods.waitForPageToLoad(5);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys(Constants.searchCartOrderAmountProductName);
+        homePage.searchButton.click();
+
+    }
+    public void searchFreshFood() {
+
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys(Constants.searchFreshFoodName);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
+
+    public void searchProductForGlobal() {
+
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys("Gillette Mach3 Yedek Tıraş Bıçağı 8'li");
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
+    public void searchKgProduct() {
+
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys("Dana Strogonof");
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
+    public void searchPromotionProduct() {
+
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys("Johnson's Baby Şampuan 750 ml");
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
+    public void searchDiscountProduct() {
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys("İthal Norveç Somon Dilim kg");
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
+
+}

@@ -1,12 +1,11 @@
 @reg
 Feature: US_024_PDP_Select_Alternative_Product_Test
 
-      Background:
-            Given Kullanici login olmus durumdadir
-
+      
       Scenario: TC_2401 Sepette Alternatif Urun Sec
 
-        Given Kullanici alternatif seciminin yapilabilecegi uygun bir urun aratir
+        Given Kullanici login olmus durumdadir
+        And Kullanici alternatif seciminin yapilabilecegi uygun bir urun aratir
         And PLP sayfasindaki Sepete ekle butonuna tiklar
         And Ana Sayfadaki Sepetim butonuna tiklar
         And Sepette  Alternatif urununu sececegim secimini tiklar

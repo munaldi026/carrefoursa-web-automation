@@ -1,4 +1,4 @@
-@reg
+
 Feature: US_021_Additional_Order_Tests
 
       Background:
@@ -8,7 +8,6 @@ Feature: US_021_Additional_Order_Tests
         And Ana Sayfadaki Sepetim butonuna tiklar
         And Sepette urun adedini maximum sayida artirir
         And Kullanici sepette Siparisi tamamla butonuna tiklar
-        And Gelen sayfada,teslimat sekli olarak Size Getirelim seceneginin secili oldugunu gorur
         And Teslimat adresi secer
         And Adres secimi sayfasinda Devam Et butonuna tiklar
         And Gelen sayfada teslimat zamanini secer

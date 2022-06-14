@@ -9,7 +9,6 @@ Feature: US_027_DeliveryOptions_Tests
       And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
       And Sectigi urunun sepete eklendigini kontrol eder
 
-
       Scenario: US_2701 Tercih Degisikligi
 
       Given Ana sayfadaki Teslimat Seceneginiz linkine tiklar
@@ -23,5 +22,14 @@ Feature: US_027_DeliveryOptions_Tests
 
       Given Sepetim Sayfasindaki Siparisi Tamamla butonuna tiklar
       And Adres secimi sayfasinda  Magazadan Al tercihini yapar
-      When Aadres sayfasindaki Teslim alinacak magazayi secer
-      Then Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.
+      And Adres sayfasindaki Teslim alinacak magazayi secer
+      And Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.
+      When Gelen pop-up kapatilir
+      Then Kullanici sepeti temizler
+
+#      Scenario: US_17002_teslimat_tercih_degisikligi_size_getirelim
+#
+#      And Ana sayfadaki Teslimat Seceneginiz linkine tiklar
+#      And Cikan pop-up uzerinde Size Getirelim tercihini yapar
+#      When Bu sayfada Devam et butonu tiklanir
+#      When Secimin gerceklestigi kontrol edilir

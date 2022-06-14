@@ -19,44 +19,49 @@ public class CheckProductInBasketStepDefinitions {
 
     @Then("Sepette urun adedi artirilir")
     public void sepetteUrunAdediArtirilir() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
         String quantity = Driver.getDriver().findElement(By.id("quantity_0")).getAttribute("value");
         System.out.println("First quantity = " + quantity);
-        ReusableMethods.waitFor(1);
         basketPage.miniCartPlusIcon.click();
+        ReusableMethods.waitFor(1);
         String quantity1 = Driver.getDriver().findElement(By.id("quantity_0")).getAttribute("value");
         System.out.println("Increased Actual quantity = " + quantity1);
 
     }
     @Then("Artma durumu kontrol edilir")
     public void artmaDurumuKontrolEdilir() {
-        basketPage.verifyIncreaseQuantyInMiniCart();    }
-
-    @Then("Sepette urun adedi azaltilir")
-    public void sepetteUrunAdediAzaltilir() {
+        basketPage.verifyIncreaseQuantyInMiniCart();
         ReusableMethods.waitFor(1);
-        basketPage.miniCartMinusIcon.click();
-
+        basketPage.removeMiniCart();
     }
+        @Then("Sepette urun adedi azaltilir")
+        public void sepetteUrunAdediAzaltilir () {
+            ReusableMethods.waitFor(1);
+            basketPage.miniCartMinusIcon.click();
 
-    @Then("Azalma durumu kontrol edilir")
-    public void azalmaDurumuKontrolEdilir() {
-        basketPage.verifydecreaseQuantyInMiniCart();
+        }
+
+        @Then("Azalma durumu kontrol edilir")
+        public void azalmaDurumuKontrolEdilir () {
+            basketPage.verifydecreaseQuantyInMiniCart();
+            ReusableMethods.waitFor(1);
+            basketPage.removeMiniCart();
+        }
+
+
+        @And("Sepette urun adedini maximum oranda artirir")
+        public void sepetteUrunAdediniMaximumOrandaArtirir () {
+            productPage.plusButtonInCart.click();
+            ReusableMethods.waitFor(1);
+            productPage.plusButtonInCart.click();
+        }
+        @When("Maximum satinalma limitine ulastigini kontrol eder")
+        public void maximumSatinalmaLimitineUlastiginiKontrolEder () {
+            String maximumProductAmountMsgText = basketPage.maximumProductAmountMsg.getText();
+            System.out.println("maximumProductAmountMsgText = " + maximumProductAmountMsgText);
+            Assert.assertTrue(basketPage.maximumProductAmountMsg.isDisplayed());
+
+
+        }
     }
-
-
-    @And("Sepette urun adedini maximum oranda artirir")
-    public void sepetteUrunAdediniMaximumOrandaArtirir() {
-        productPage.plusButtonInCart.click();
-        ReusableMethods.waitFor(1);
-        productPage.plusButtonInCart.click();
-    }
-    @When("Maximum satinalma limitine ulastigini kontrol eder")
-    public void maximumSatinalmaLimitineUlastiginiKontrolEder() {
-        String maximumProductAmountMsgText = basketPage.maximumProductAmountMsg.getText();
-        System.out.println("maximumProductAmountMsgText = " + maximumProductAmountMsgText);
-        Assert.assertTrue(basketPage.maximumProductAmountMsg.isDisplayed());
-
-    }
-}
 

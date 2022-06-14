@@ -1,4 +1,4 @@
-@reg
+
 Feature: US_009_Order_Tests
 
   Background:

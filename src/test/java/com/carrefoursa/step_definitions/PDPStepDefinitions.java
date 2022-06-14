@@ -20,6 +20,7 @@ public class PDPStepDefinitions {
         BasketPage basketPage=new BasketPage();
         ProductPage productPage=new ProductPage();
         CreditCardPage creditCardPage=new CreditCardPage();
+        OrderPage orderPage=new OrderPage();
         String selectedProductText = null;
 
         @Given("Kullanici login olmus durumdadir")
@@ -29,7 +30,7 @@ public class PDPStepDefinitions {
 
         @And("Kullanici belirli bir urunu aratir")
         public void kullaniciBelirliBirUrunuAratir() {
-            productPage.searchCertainProduct(Constants.certainProductIdForPDP);
+            productPage.searchCertainProduct();
         }
 
         @When("Kullanici arattigi urunune tiklar")
@@ -83,7 +84,7 @@ public class PDPStepDefinitions {
             System.out.println("Constants.searchOrderProductName = " + Constants.searchOrderProductName);
             Assert.assertTrue(pdpPage.productInBasket.isDisplayed());
             ReusableMethods.waitFor(1);
-            basketPage.removeProductButtonInBasket.click();
+
         }
 
         @Then("Sectigi urunun mini sepete eklendigini kontrol eder")
@@ -105,6 +106,28 @@ public class PDPStepDefinitions {
 
 
         }
+
+    @And("Kullanici mini cart icin bir urunu aratir")
+    public void kullaniciMiniCartIcinBirUrunuAratir() {
+        productPage.searchProductMiniCart();
+
+    }
+
+    @Then("Kullanici sepeti temizler")
+    public void kullaniciSepetiTemizler() {
+        ReusableMethods.waitFor(1);
+        basketPage.removeProductButtonInBasket.click();
+    }
+
+    @When("Gelen pop-up kapatilirarak sepete hover yapilir")
+    public void gelenPopUpKapatilirarakSepeteHoverYapilir() {
+        orderPage.alertPop_UpButton.click();
+        ReusableMethods.waitFor(1);
+        pdpPage.addToBasketButton.click();
+        ReusableMethods.hover(homePage.myBasket);
+        ReusableMethods.waitFor(1);
+        homePage.myBasket.click();
+    }
 
 //    public String getProductCode() {
 //

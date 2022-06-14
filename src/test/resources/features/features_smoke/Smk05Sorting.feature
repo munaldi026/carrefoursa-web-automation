@@ -1,4 +1,4 @@
-@smoke
+@demo
 Feature: US_05 Sorting Tests
 
   Background:

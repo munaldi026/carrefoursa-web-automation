@@ -16,7 +16,7 @@ Feature: US_016_Our_Stores_Test
         Then Secilen en yakin magazanin goruntulendigini kontrol eder
 
 
-      Scenario: TC_2807 Siparis Detayi-Magaza Bilgileri
+      Scenario: TC_1602 Siparis Detayi-Magaza Bilgileri
 
         Given Kullanici magazadan al tercihli bir siparise gider
         Then Siparis Detayi sayfasinda secilen magazaya ait bilgilerin bulundugunu kontrol eder

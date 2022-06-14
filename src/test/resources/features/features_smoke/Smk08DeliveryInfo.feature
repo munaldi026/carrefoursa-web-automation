@@ -1,4 +1,4 @@
-@smoke
+@demo
 Feature: US_08 Delivery Tests
 
   Background:

@@ -17,18 +17,21 @@ import org.junit.runner.RunWith;
         3- Sepetim ( Bosaltilmis olmali )
          */
 
-        plugin = {"pretty","json:target/cucumber.json", "rerun:target/rerun.txt"},
+        plugin = {"pretty","json:target/json-report/cucumber.json"},
         glue = "com/carrefoursa/step_definitions",
+
         //FOR SMOKE
-        //features = "src/test/resources/features/features_smoke",
+        features = "src/test/resources/features/features_smoke",
         //FOR REGRESSION
-        features = "src/test/resources/features/features_regression",
+        //features = "src/test/resources/features/features_regression",
         //FOR MINI REGRESSION
         //features = "src/test/resources/features/features_mini_regression",
+        //"json:target/cucumber.json",
         publish = true,
-        tags = "@reg or @reg1",
+        tags = "@demo",
         dryRun =false
-        //tags = "@smkBasket1 or @smkBasket",
+        //tags = "@reg or @smoke"
+        //"rerun:target/rerun.txt"
 
 
 )

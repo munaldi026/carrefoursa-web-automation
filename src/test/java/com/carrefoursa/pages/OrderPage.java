@@ -32,6 +32,9 @@ public class OrderPage extends BasePage{
     @FindBy(css = ".js-pickupinstore-cargo-choice")
     public WebElement pickUpInStoreButton;
 
+    @FindBy(css = "#deliveryAddressSubmit")
+    public WebElement deliveryAddressSubmitbutton;
+
     @FindBy(css = "a[id='selectDeliveryAddressBtn0'] span")
     public WebElement selectDeliveryAdresButton;
 
@@ -101,12 +104,18 @@ public class OrderPage extends BasePage{
     @FindBy(xpath = "(//span[@class='info'])[1]")
     public WebElement orderNo;
 
-    @FindBy(css = "a[href='/my-account/order/132558247']")
-    public WebElement oldOrderDetailButtonForStore;
+    @FindBy(xpath = "//a[@class='btn btn-primary text-white']")
+    public List<WebElement> oldOrderDetailButtonForStore;
 
 
     @FindBy(xpath = "(//a[@class='btn btn-default btn-block closeColorBox'])[6]")
     public WebElement verifyAdditionalOrderButton;
+
+    @FindBy(id = "cboxClose")
+    public WebElement alertPop_UpButton;
+
+    @FindBy(xpath = "//a[@href='/my-account/orders']")
+    public WebElement myOrdersLink;
 
 
     public String verifyDeleteOrder(){
@@ -136,7 +145,7 @@ public class OrderPage extends BasePage{
         select.selectByVisibleText("Nisan");
         Select select1=new Select(selectYear);
         select1.selectByVisibleText("2022");
-        oldOrderDetailButtonForStore.click();
+        oldOrderDetailButtonForStore.get(0).click();
     }
 
     public void deleteOrder(){

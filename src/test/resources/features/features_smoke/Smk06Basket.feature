@@ -1,4 +1,4 @@
-@smoke
+
 Feature: US_06 Basket Tests
 
   Background:
@@ -6,10 +6,10 @@ Feature: US_06 Basket Tests
     And Kullanici herhangi bir urunu aratir
     When PLP sayfasindaki Sepete ekle butonuna tiklar
     Then Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-
+  @demo
   Scenario: TC_6001_sepete_urun_ekle
     Then Sepete eklemis oldugu urunun dogru urun oldugunu kontrol eder
-
+  @demo
   Scenario: TC_6002_sepette_urunu_sil
     When Sepetteki Urunu Sil butonuna tiklar
     Then Sectigi urunun sepetten kaldirildigini kontrol eder

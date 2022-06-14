@@ -43,7 +43,7 @@ public class LoginStepDefinitions {
     public void tamam_butonuna_tiklar() {
         loginPage.otpConfirmButton.click();
 
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
     @Then("Basarili bir giris yaptigini control eder")
     public void basariliBirGirisYaptiginiControlEder() {

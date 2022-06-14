@@ -3,9 +3,9 @@ package com.carrefoursa.step_definitions;
 import com.carrefoursa.pages.LoginPage;
 import com.carrefoursa.pages.RegisterPage;
 import com.carrefoursa.utilities.ConfigReader;
+import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -31,14 +31,24 @@ public class RegisterStepDefinitions {
     public void email_bolumune_email_girilir() {
 
         registerPage.registerEmail.sendKeys(ConfigReader.getProperty("unregistered_email"));
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
 
     @Given("SMS Onay Kodu bolumune otp kodu girilir")
     public void sms_onay_kodu_bolumune_gecerli_bir_otp_kodu() {
+
+        ReusableMethods.waitFor(1);
+        registerPage.registerotp.click();
+        ReusableMethods.waitFor(1);
         registerPage.registerotp.sendKeys(ConfigReader.getProperty("otp_code"));
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
         registerPage.registerOtpConfirmButton.click();
+        //ReusableMethods.waitFor(1);
+
+
+//        registerPage.registerotp.sendKeys(ConfigReader.getProperty("otp_code"));
+//        ReusableMethods.waitFor(2);
+//        registerPage.registerOtpConfirmButton.click();
     }
 
     @Given("Iletişim izni checkbox tiklanir")
@@ -61,13 +71,13 @@ public class RegisterStepDefinitions {
     @Given("Kullanici uye olun buttonuna tiklar")
     public void kullanici_uye_ol_tiklanir() {
         registerPage.signUpButton.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
     }
 
     @Given("Kullanici eksik numara hata mesajini gorur")
     public void kullanici_eksik_numara_hata_mesaji() {
         loginPage.gecersizNumaraHataMesaji.isDisplayed();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
     }
 
     @Given("Kullanici bulundugu sehiri girer")
@@ -94,7 +104,7 @@ public class RegisterStepDefinitions {
     @Given("Kullanici devam buttonuna tiklar")
     public void kullanici_devam_buttonuna_tiklar() {
         registerPage.contiueButton.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
     }
 
 
@@ -102,7 +112,7 @@ public class RegisterStepDefinitions {
     @Given("Kullanici hosgeldiniz pop-up gorur")
     public void kullanici_hosgeldiniz_pop_gorur() {
         loginPage.wellcomePop_up.isDisplayed();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
     }
 
     @Given("Cep Telefonu Numaraniz bolumune gecersiz bir numara girilir")
@@ -118,7 +128,7 @@ public class RegisterStepDefinitions {
     @Given("Kullanici sms bolumune gecersiz otp girilir")
     public void kullanici_gecersiz_otp_girer(){
         registerPage.registerotp.sendKeys("invalid_otp_code");
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
     }
     @Given("Kullanici gecersiz SMS onay hata mesaji gorulur")
     public void gecersiz_SMS_onay_hata_mesaji_gorulur(){
@@ -233,7 +243,7 @@ public class RegisterStepDefinitions {
 
     @And("Email bolumune bir email girilir")
     public void emailBolumuneBirEmailGirilir() {
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
         registerPage.registerEmail.click();
         registerPage.registerEmail.sendKeys(ReusableMethods.getSaltString()+"@load-csa.com");
     }

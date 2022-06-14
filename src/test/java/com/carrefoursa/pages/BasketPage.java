@@ -67,7 +67,7 @@ public class BasketPage extends BasePage {
     @FindBy(css = ".alert-text")
     public WebElement maximumProductAmountMsg;
 
-    @FindBy(css = "p[id='warning-text'] p")
+    @FindBy(xpath = "//p[@id='warning-text']")
     public WebElement PDPmaximumProductMsg;
 
     @FindBy(css = ".name")
@@ -124,7 +124,7 @@ public class BasketPage extends BasePage {
     }
 
     public void removeAllCart (){
-        //homePage.homePageButton.click();
+        homePage.homePageButton.click();
         ReusableMethods.waitFor(1);
         ReusableMethods.hover(homePage.myBasket);
         ReusableMethods.waitFor(2);
@@ -143,6 +143,7 @@ public class BasketPage extends BasePage {
 
     public void verifyIncreaseQuantyInMiniCart() {
 
+        ReusableMethods.waitFor(1);
         String quantity = Driver.getDriver().findElement(By.id("quantity_0")).getAttribute("value");
         System.out.println("Increased Actual quantity = " + quantity);
         String expected = "2";

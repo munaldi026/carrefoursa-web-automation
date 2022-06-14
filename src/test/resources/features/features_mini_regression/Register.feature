@@ -47,7 +47,7 @@ Feature: US_001_Register_Tests
         Then Lutfen telefon numarasi giriniz yazisi gorulur
 
 
-      Scenario: TC_105 NegativeRegister
+      Scenario: TC_105 NegativeRegister Otp Alani Bos Birakilir
         And Kullanici uye ol buttonuna tiklar
         And Cep Telefonu Numaraniz bolumune kayitli olmayan bir numara girer
         And Email bolumune email girilir

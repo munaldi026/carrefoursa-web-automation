@@ -233,7 +233,17 @@ public class ReusableMethods {
         //806041653
         return phoneNumber;
     }
-
+    public static String generateOtpCode() {
+        Random rand = new Random();
+        int num1, num2, num3;
+        num1 = rand.nextInt(900) + 100;
+        num2 = rand.nextInt(643) + 100;
+        //num3 = rand.nextInt(900) + 100;
+        String otpCode = ((Integer.toString(num1) + Integer.toString(num2)));
+        System.out.println(otpCode);
+        //806041653
+        return otpCode;
+    }
     public static boolean retryingFindClick() {
         boolean result = false;
         int attempts = 0;

@@ -4,16 +4,20 @@ import com.carrefoursa.pages.BasketPage;
 import com.carrefoursa.pages.CreditCardPage;
 import com.carrefoursa.pages.HomePage;
 import com.carrefoursa.pages.OrderPage;
+import com.carrefoursa.utilities.Constants;
 import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
+import com.carrefoursa.utilities.SmkConstants;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
+
+import java.util.Locale;
 
 public class PaymentStepDefinitions {
 
     OrderPage orderPage=new OrderPage();
+
     CreditCardPage creditCardPage=new CreditCardPage();
     BasketPage basketPage=new BasketPage();
     HomePage homePage=new HomePage();
@@ -45,30 +49,29 @@ public class PaymentStepDefinitions {
         //creditCardPage.creditCardRadioButton.click();
 
         creditCardPage.fillCreditCardInformations();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
+        orderPage.continueButton.click();
+        ReusableMethods.waitFor(1);
 
-//        creditCardPage.creditCardNumberField.sendKeys(Constants.creditCardNumber);
-//        creditCardPage.creditCardHolderNameField.sendKeys(Constants.creditCardHolderName);
-//        Select month =new Select(creditCardPage.creditCardExpiryMonth);
-//        month.selectByVisibleText(Constants.creditCardExpiryMonth);
-//        Select year =new Select(creditCardPage.creditCardExpiryYear);
-//        year.selectByVisibleText(Constants.creditCardExpiryYear);
-//        creditCardPage.creditCardCVVField.sendKeys(Constants.creditCardCVV,Keys.TAB);
-
-        //creditCardPage.creditCardNameField.sendKeys(Constants.creditCardName);
-        //creditCardPage.mpSaveCardCheckBox.click();
     }
 
     @Then("Kullanici Kredi Kartiyla odemenin gerceklestigini kontrol eder")
     public void kullaniciKrediKartiylaOdemeninGerceklestiginiKontrolEder() {
 
-        String creditCartMsgText = creditCardPage.verifyCreditCartMsg.getText();
-        System.out.println("creditCartMsgText = " + creditCartMsgText);
-        Assert.assertTrue(creditCardPage.verifyCreditCartMsg.isDisplayed());
-//        ReusableMethods.waitFor(3);
-//        Driver.getDriver().navigate().back();
-//        Driver.getDriver().navigate().refresh();
-//        homePage.homePageButton.click();
+
+        String url=Driver.getDriver().getCurrentUrl();
+        System.out.println("url = " + url);
+
+        String verifyOrderMsg = orderPage.completeOrderMsg.getText();
+        System.out.println("COMPLETE ORDER MESSAGE = " + verifyOrderMsg.toUpperCase(Locale.ROOT));
+        SmkConstants.orderNoText = orderPage.orderNo.getText();
+
+        System.out.println("COMPLETED ORDER NO = " + SmkConstants.orderNoText.toUpperCase(Locale.ROOT));
+        orderPage.completeOrderMsg.isDisplayed();
+
+//        String creditCartMsgText = creditCardPage.verifyCreditCartMsg.getText();
+//        System.out.println("creditCartMsgText = " + creditCartMsgText);
+//        Assert.assertTrue(creditCardPage.verifyCreditCartMsg.isDisplayed());
     }
 
 
@@ -81,6 +84,17 @@ public class PaymentStepDefinitions {
     @And("Kapida nakit odeyin seceneginin secildigini kontrol eder")
     public void kapidaNakitOdeyinSecenegininSecildiginiKontrolEder() {
         creditCardPage.verifyPayByCashAtDelivery();
+
+    }
+
+    @And("Gelen pop-up uzerine gecerli guvenlik kodu girilir")
+    public void gelenPopUpUzerineGecerliGuvenlikKoduGirilir() {
+
+        Constants.securityCode=creditCardPage.getSecurityCodeFromPupup();
+        ReusableMethods.waitFor(2);
+        creditCardPage.securityPasswordBox.sendKeys(Constants.securityCode);
+        creditCardPage.securityCodeSubmitButton.click();
+
 
     }
 }

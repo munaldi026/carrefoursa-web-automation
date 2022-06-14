@@ -1,4 +1,4 @@
-
+@demo
 Feature: US_11 Payment Test
 
   Scenario: TC_11001_payment_by_credit_card
@@ -16,9 +16,7 @@ Feature: US_11 Payment Test
     And Teslimat zamani sayfasinda Devam Et butonuna tiklar
     And Odeme sekli olarak Kredi Karti secenegine tiklar
     And Kredi Karti bilgilerini doldurur
-    When Teslimat zamani sayfasinda Devam Et butonuna tiklar
+    When Gelen pop-up uzerine gecerli guvenlik kodu girilir
     Then Kullanici Kredi Kartiyla odemenin gerceklestigini kontrol eder
-
-
 
 

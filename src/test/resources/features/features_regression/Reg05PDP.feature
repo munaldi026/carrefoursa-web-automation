@@ -15,15 +15,21 @@ Feature: US_010_PDP_Tests
     And PDP sayfasindaki Alisveris listemden cikar linkine tiklar
     Then Urunun Alisveris listesinden cıkarildigini kontrol eder
 
+
   Scenario: TC_1002_PDP_sepete_ekle
 
     And PDP sayfasindaki Sepete ekle butonuna tiklar
     And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
-    Then Sectigi urunun sepete eklendigini kontrol eder
+    And Sectigi urunun sepete eklendigini kontrol eder
+    Then Kullanici sepeti temizler
 
 
   Scenario:  TC_1003_PDP_maximum_satinalma
 
     And PDP urun adedini maximum oranda artirir
     When Maximum satin alma limitine ulastigini kontrol eder
+    When Gelen pop-up kapatilirarak sepete hover yapilir
+    Then Kullanici sepeti temizler
+
+
 

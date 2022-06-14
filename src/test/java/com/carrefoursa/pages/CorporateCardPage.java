@@ -1,7 +1,6 @@
 package com.carrefoursa.pages;
 
 import com.carrefoursa.utilities.ReusableMethods;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -10,7 +9,7 @@ import java.util.Locale;
 public class CorporateCardPage extends BasePage{
 
 
-       @FindBy(xpath = "//span[.='Kurumsal Kart']")
+       @FindBy(xpath = "(//span[@class='headerText'])[3]")
        public WebElement corporateCartLink;
 
        @FindBy(xpath = "//input[@name='cardNumber']")

@@ -40,6 +40,9 @@ public class DeliveryPage extends BasePage {
     @FindBy(css = ".pickupChoice__cargo ")
     public WebElement pickupFromCargo;
 
+    @FindBy(xpath = "//span[contains(text(),'Teslim alacağınız mağazayı değiştirmeniz sonucunda')]")
+    public WebElement changeOrderAlert;
+
     @FindBy(className = "pickupChoice__address-name")
     public List<WebElement> addressOfStores;
 
@@ -104,6 +107,15 @@ public class DeliveryPage extends BasePage {
     @FindBy(xpath = "(//input[@class='deliverySlotRadio'])[10]")
     public WebElement slotTimeRadioButton;
 
+    @FindBy(css = "div[id='cboxLoadedContent'] caption")
+    public WebElement freshFoodAlertMsg;
+
+    @FindBy(css = "div[id='cboxLoadedContent'] button[class='btn btn-primary btn-lg btn-block']")
+    public WebElement continueShoppingButton;
+
+
+
+
 
     public void fillDeliveyAreaInformation() {
 
@@ -118,6 +130,19 @@ public class DeliveryPage extends BasePage {
         ReusableMethods.waitFor(1);
 
     }
+    public void fillDeliveyNewAreaInformation() {
+
+        Select select = new Select(deliveryCity);
+        select.selectByVisibleText("Ardahan");
+        ReusableMethods.waitFor(1);
+        Select select1 = new Select(deliveryTown);
+        select1.selectByVisibleText("Merkez");
+        ReusableMethods.waitFor(1);
+        Select select2 = new Select(deliveryDistrict);
+        select2.selectByVisibleText("Atatürk Mh.");
+        ReusableMethods.waitFor(1);
+
+    }
     public void fillDeliveyExAreaInformation() {
 
         areaOfDeliveryLink.click();
@@ -128,12 +153,13 @@ public class DeliveryPage extends BasePage {
         select1.selectByVisibleText("Kadıköy");
         ReusableMethods.waitFor(1);
         Select select2 = new Select(deliveryDistrict);
-        select2.selectByVisibleText("Acıbadem Mh.");
+        select2.selectByVisibleText("Sahrayıcedit Mh.");
         ReusableMethods.waitFor(1);
         selectStoreSubmitButton.click();
         pickupChoiseSubmitButton.click();
 
     }
+
 
 
     public void verifyIsStoreOnMap() {
@@ -225,6 +251,29 @@ public class DeliveryPage extends BasePage {
     }
 
     public void changeDeliveryOptions(){
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForPageToLoad(5);
+        deliveryOptionsLink.click();
+        pickupFromCargo.click();
+        pickupFromStoreSubmitButton.click();
 
+    }
+
+    public void selectNewDeliveryRegion(){
+        areaOfDeliveryLink.click();
+        verifyAreaOfDelivery();
+        fillDeliveyNewAreaInformation();
+        selectStoreSubmitButton.click();
+       // pickupChoiseSubmitButton.click();
+        //verifyAreaOfDeliveryOnHomePage();
+    }
+    public void selectExDeliveryRegion(){
+        areaOfDeliveryLink.click();
+        verifyAreaOfDelivery();
+        fillDeliveyExAreaInformation();
+        selectStoreSubmitButton.click();
+        pickupChoiseSubmitButton.click();
+        //verifyAreaOfDeliveryOnHomePage();
     }
 }

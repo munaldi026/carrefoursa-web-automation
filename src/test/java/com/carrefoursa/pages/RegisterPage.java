@@ -58,6 +58,8 @@ public class RegisterPage extends BasePage {
     public WebElement registerOtpConfirmButton;
 
 
+    }
 
 
-}
+
+
