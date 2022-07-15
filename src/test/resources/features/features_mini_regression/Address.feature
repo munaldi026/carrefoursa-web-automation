@@ -30,17 +30,16 @@ Feature:US_005_Address_Tests
     And Adresi guncelle buttonu tiklanir
     Then Adresi ismi basarili bir sekilde degistigi gorulur
 
-  Scenario: TC_503_individual_adres_silme
-
-    And Kullanici sil buttonuna tiklar
-    And Popup uzerinde evet tiklanir
-    Then Adresin silindigi gorulur
-
-  Scenario: TC_504 Adres Silme Hayir Popup Secilir
+  Scenario: TC_503 Adres Silme Hayir Popup Secilir
     And Kullanici sil buttonuna tiklar
     And Popup uzerinde hayir tiklanir
     Then Adresin silinmedigi gorulur
 
+  Scenario: TC_504 Adres Silme Evet Popup Secilir
+
+    And Kullanici sil buttonuna tiklar
+    And Popup uzerinde evet tiklanir
+    Then Adresin silindigi gorulur
 
   Scenario: TC_505 Bireysel Adres Tipi Alani Bos Birakilir
 
