@@ -55,6 +55,10 @@ public class AddressStepDefinitions {
     public void adresAlaniSilinir(){
         addressPage.address.clear();
     }
+    @Given("Eposta Alanı Doluysa Silinir")
+    public void ePostaAlaniSilinir(){
+        addressPage.email.clear();
+    }
     @Given("Soyisim Alanı Doluysa Silinir")
     public void soyisimAlaniSilinir(){
         addressPage.lastname.clear();
@@ -103,7 +107,6 @@ public class AddressStepDefinitions {
 
     @Given("Kullanici epostasi girilir")
     public void email_girilir() {
-        addressPage.email.clear();
         addressPage.email.sendKeys(ConfigReader.getProperty("unregistered_email"));
     }
 

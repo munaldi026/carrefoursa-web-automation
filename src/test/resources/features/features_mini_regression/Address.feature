@@ -166,6 +166,7 @@ Feature:US_005_Address_Tests
     And Kullanici ilceyi girer
     And Kullanici mahalleyi girer
     And Kullanici adresi girilir
+    And Eposta Alanı Doluysa Silinir
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen Email giriniz yazısını gorursunuz
