@@ -148,6 +148,7 @@ Feature:US_005_Address_Tests
     And Kullanici sehiri girer
     And Kullanici ilceyi girer
     And Kullanici mahalleyi girer
+    And Adres Alanı Doluysa Silinir
     And Kullanici epostasi girilir
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır

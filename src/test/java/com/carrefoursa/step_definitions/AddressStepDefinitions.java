@@ -51,6 +51,10 @@ public class AddressStepDefinitions {
         addressPage.firstname.clear();
     }
 
+    @Given("Adres Alanı Doluysa Silinir")
+    public void adresAlaniSilinir(){
+        addressPage.address.clear();
+    }
     @Given("Soyisim Alanı Doluysa Silinir")
     public void soyisimAlaniSilinir(){
         addressPage.lastname.clear();
