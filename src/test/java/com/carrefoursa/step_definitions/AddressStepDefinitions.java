@@ -42,6 +42,8 @@ public class AddressStepDefinitions {
 
     @Given("Kullanici ismi girilir")
     public void kullanici_isimi_girilir() {
+        addressPage.addresstype.clear();
+        ReusableMethods.waitFor(2);
         addressPage.firstname.sendKeys("NttData");
 
     }
