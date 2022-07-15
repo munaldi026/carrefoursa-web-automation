@@ -183,6 +183,7 @@ Feature:US_005_Address_Tests
     And Kullanici mahalleyi girer
     And Kullanici adresi girilir
     And Kullanici epostasi girilir
+    And Cep Telefonu Alanı Doluysa Silinir
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen Cep Telefonu giriniz yazısını gorursunuz
 

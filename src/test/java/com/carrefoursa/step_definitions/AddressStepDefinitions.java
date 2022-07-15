@@ -59,6 +59,11 @@ public class AddressStepDefinitions {
     public void ePostaAlaniSilinir(){
         addressPage.email.clear();
     }
+
+    @Given("Cep Telefonu Alanı Doluysa Silinir")
+    public void cepTelefonuAlaniSilinir(){
+        addressPage.phonenumber.clear();
+    }
     @Given("Soyisim Alanı Doluysa Silinir")
     public void soyisimAlaniSilinir(){
         addressPage.lastname.clear();
