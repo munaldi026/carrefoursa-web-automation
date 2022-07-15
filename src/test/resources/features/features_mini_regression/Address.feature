@@ -57,7 +57,6 @@ Feature:US_005_Address_Tests
     Then Bu Alanı Doldurmanız Zorunlu Yazısı Gorulur
 
   Scenario: TC_506 Bireysel Adres İsim Alani Bos Birakilir
-
     And Yeni adres olustur buttonuna tiklar
     And Adres tipi girilir
     And Isim Alanı Doluysa Silinir
@@ -74,10 +73,10 @@ Feature:US_005_Address_Tests
 
 
   Scenario: TC_507 Bireysel Adres Soyisim Alani Bos Birakilir
-
     And Yeni adres olustur buttonuna tiklar
     And Adres tipi girilir
     And Kullanici ismi girilir
+    And Soyisim Alanı Doluysa Silinir
     And Kullanici kimlik numarasi girilir
     And Kullanici sehiri girer
     And Kullanici ilceyi girer
