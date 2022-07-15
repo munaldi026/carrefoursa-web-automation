@@ -40,6 +40,12 @@ public class AddressStepDefinitions {
 
     }
 
+    @Given("Kurumsal Adres tipi girilir")
+    public void kurumsalAdresTipi() {
+        addressPage.addresstype.sendKeys(ConfigReader.getProperty("corporate_address_type"));
+
+    }
+
     @Given("Kullanici ismi girilir")
     public void kullanici_isimi_girilir() {
         ReusableMethods.waitFor(2);
@@ -112,6 +118,7 @@ public class AddressStepDefinitions {
 
     @Given("Kullanici epostasi girilir")
     public void email_girilir() {
+        addressPage.email.clear();
         addressPage.email.sendKeys(ConfigReader.getProperty("unregistered_email"));
     }
 
@@ -140,8 +147,8 @@ public class AddressStepDefinitions {
 
     @Given("Kullanici duzenle buttonuna tiklar")
     public void duzenle_buttonu_tiklanir() {
-        //addressPage.addresseditbutton.click();
-        addressPage.editAddressList.get(1).click();
+        addressPage.addresseditbutton.click();
+        //addressPage.editAddressList.get(1).click();
 
     }
 
@@ -149,6 +156,12 @@ public class AddressStepDefinitions {
     public void adres_ismi_degistirilir() {
         addressPage.addresstype.clear();
         addressPage.addresstype.sendKeys(ConfigReader.getProperty("address_type_edit"));
+    }
+
+    @Given("Kurumsal adres ismini degistirir")
+    public void kurumsal_adres_ismi_degistirilir() {
+        addressPage.corporateAddressType.clear();
+        addressPage.corporateAddressType.sendKeys(ConfigReader.getProperty("corporate_address_type_edit"));
     }
 
     @Given("Adresi guncelle buttonu tiklanir")

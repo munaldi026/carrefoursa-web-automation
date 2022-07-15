@@ -211,18 +211,17 @@ Feature:US_005_Address_Tests
     And Adresi guncelle buttonu tiklanir
     Then Adresi ismi basarili bir sekilde degistigi gorulur
 
-
-  Scenario: TC_516 Kurumsal Adres Silme
-
-    And Kullanici sil buttonuna tiklar
-    And Popup uzerinde evet tiklanir
-    Then Adresin silindigi gorulur
-
-  Scenario: TC_517 Adres Silme Hayir Popup Tiklanir
+  Scenario: TC_516 Adres Silme Hayir Popup Tiklanir
     And Kullanici sil buttonuna tiklar
     And Popup uzerinde hayir tiklanir
     Then Adresin silinmedigi gorulur
 
+
+  Scenario: TC_517 Kurumsal Adres Silme Evet Popup Tikanir
+    And Kurumsal Adres buttonu tiklanir
+    And Kullanici sil buttonuna tiklar
+    And Popup uzerinde evet tiklanir
+    Then Adresin silindigi gorulur
 
   Scenario: TC_518 Kurumsal Adres Adres tipi Bos Birakilir
 
