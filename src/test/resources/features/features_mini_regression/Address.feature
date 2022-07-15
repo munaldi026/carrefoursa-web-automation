@@ -88,6 +88,7 @@ Feature:US_005_Address_Tests
     Then Lutfen soyisim giriniz yazısını gorursunuz
 
 
+    @ignore #Şehir alanı doldurduktan sonra boş bırakılamaz
   Scenario: TC_508 Bireysel Adres sehir Alani Bos Birakilir
 
     And Yeni adres olustur buttonuna tiklar
@@ -104,6 +105,7 @@ Feature:US_005_Address_Tests
     And Bu adresi kaydet buttonuna basılır
     Then Adresin basarili sekilde kaydedildigi gorulur
 
+  @ignore #İlçe alanı doldurduktan sonra boş bırakılamaz
   Scenario: TC_509 Bireysel Adres İlce Alani Bos Birakilir
 
     And Yeni adres olustur buttonuna tiklar
@@ -118,7 +120,7 @@ Feature:US_005_Address_Tests
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen ilce giriniz yazısını gorursunuz
 
-
+  @ignore #Mahalle alanı doldurduktan sonra boş bırakılamaz
   Scenario: TC_510 Bireysel Adres Mahelle Alani Bos Birakilir
 
     And Yeni adres olustur buttonuna tiklar
@@ -134,6 +136,7 @@ Feature:US_005_Address_Tests
     And Kullanici telefon numarasi girilir
     And Bu adresi kaydet buttonuna basılır
     Then Lutfen Mahalle giriniz yazısını gorursunuz
+
 
   Scenario: TC_511 Bireysel Adreste Adres Alani Bos Birakilir
 
