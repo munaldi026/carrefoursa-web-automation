@@ -42,11 +42,20 @@ public class AddressStepDefinitions {
 
     @Given("Kullanici ismi girilir")
     public void kullanici_isimi_girilir() {
-        addressPage.addresstype.clear();
         ReusableMethods.waitFor(2);
         addressPage.firstname.sendKeys("NttData");
 
     }
+    @Given("Isim Alanı Doluysa Silinir")
+    public void isimAlaniSilinir(){
+        addressPage.firstname.clear();
+    }
+
+    @Given("And Soyisim Alanı Doluysa Silinir")
+    public void soyisimAlaniSilinir(){
+        addressPage.lastname.clear();
+    }
+
 
     @Given("Kullanici soyismi girilir")
     public void soy_isimi_girilir() {

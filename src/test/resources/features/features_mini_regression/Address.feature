@@ -60,6 +60,7 @@ Feature:US_005_Address_Tests
 
     And Yeni adres olustur buttonuna tiklar
     And Adres tipi girilir
+    And Isim Alanı Doluysa Silinir
     And Kullanici soyismi girilir
     And Kullanici kimlik numarasi girilir
     And Kullanici sehiri girer
