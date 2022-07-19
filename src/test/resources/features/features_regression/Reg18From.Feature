@@ -20,3 +20,20 @@ Feature:US_031_Form_Test
     And Captcha alanı tıklanır
     And Gönder Buttonuna Tıklanır
     Then Bildirim Alanı doldurulması zorunludur yazısı görülür
+
+
+  @ignore #Captcha Çözülme sorunu nedeniyle ignorlanmıştır
+  Scenario: TC-4002 Form Sayfasında Açıklama Bölümü Boş Bırakılır
+    And Gönder Buttonuna Kadar Swipe Yapılır
+    And Diğer Alanlar uygun Bir Şekilde Doldurulur
+    And Aciklama Alani Bos Birakilir
+    And Captcha alanı tıklanır
+    And Gönder Buttonuna Tıklanır
+    Then Açıklama alanıın doldurulması zorunludur yazısı görülür
+
+
+  Scenario: TC-4003 Form Sayfasında Captcha Bölümü Boş Bırakılır
+    And Gönder Buttonuna Kadar Swipe Yapılır
+    And Diğer Alanlar uygun Bir Şekilde Doldurulur
+    And Gönder Buttonuna Tıklanır
+    Then Kimlik Doğruama Hatası Görülür
