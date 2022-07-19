@@ -48,3 +48,7 @@ Feature:US_031_Form_Test
     And Kurumsal e-posta tıklanır
     Then Outllok sayfasına gittiği görülür
 
+  Scenario: TC-4006 Form Sayfasında Aydınlatma Metnine Gidilir
+    And KVKK Aydıntlatma metnine burdan ulaşabilirsiniz tıklanır
+    Then Aydıtlatma metnine gidildiği görülür
+
