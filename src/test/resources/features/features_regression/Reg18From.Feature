@@ -57,3 +57,17 @@ Feature:US_031_Form_Test
     And Dosya seç buttonu tıklanır
     Then Dosya yüklenebildiği görülür
 
+
+  Scenario: TC-4008 Kiralık Yerler Sayfasında İsim Kısmı Boş Bırakılır
+    And Kullanıci Kiralık Yeriniz Var mı tıklar
+    And SoyAdi Alanini Girirniz
+    And CepTelefonunu Giriniz
+    And Email Giriniz
+    And il Seçiniz
+    And ilce Seciniz
+    And Semt Giriniz
+    And Cadde Giriniz
+    And Sokak Giriniz
+    And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
+    Then Lütfen İsim Girin Yazısı Görülür
+
