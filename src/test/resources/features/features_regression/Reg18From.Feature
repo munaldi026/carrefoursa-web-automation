@@ -86,3 +86,17 @@ Feature:US_031_Form_Test
     Then Lütfen soyisim girin Yazısı Görülür
 
 
+  Scenario: TC-4010 Kiralık Yerler Sayfasında Cep Telefonu Alanı Boş Bırakılır
+    And Kullanıci Kiralık Yeriniz Var mı tıklar
+    And Adiniz Alanini Giriniz
+    And SoyAdi Alanini Girirniz
+    And Email Giriniz
+    And il Seçiniz
+    And ilce Seciniz
+    And Semt Giriniz
+    And Cadde Giriniz
+    And Sokak Giriniz
+    And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
+    Then Lütfen Cep Telefonu Giriniz Yazısı Görülür
+
+
