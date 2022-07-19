@@ -71,3 +71,18 @@ Feature:US_031_Form_Test
     And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
     Then Lütfen İsim Girin Yazısı Görülür
 
+
+  Scenario: TC-4009 Kiralık Yerler Sayfasında Soyİsim Kısmı Boş Bırakılır
+    And Kullanıci Kiralık Yeriniz Var mı tıklar
+    And Adiniz Alanini Giriniz
+    And CepTelefonunu Giriniz
+    And Email Giriniz
+    And il Seçiniz
+    And ilce Seciniz
+    And Semt Giriniz
+    And Cadde Giriniz
+    And Sokak Giriniz
+    And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
+    Then Lütfen soyisim girin Yazısı Görülür
+
+
