@@ -52,3 +52,8 @@ Feature:US_031_Form_Test
     And KVKK Aydıntlatma metnine burdan ulaşabilirsiniz tıklanır
     Then Aydıtlatma metnine gidildiği görülür
 
+  Scenario: TC-4007 Kiralık Yerler Sayfasında Dosya Yükleme Kontrolü
+    And Kullanıcı kiralik Yerler Sayfasına gider
+    And Dosya seç buttonu tıklanır
+    Then Dosya yüklenebildiği görülür
+
