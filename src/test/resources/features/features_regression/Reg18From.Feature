@@ -37,3 +37,9 @@ Feature:US_031_Form_Test
     And Diğer Alanlar uygun Bir Şekilde Doldurulur
     And Gönder Buttonuna Tıklanır
     Then Kimlik Doğruama Hatası Görülür
+
+  Scenario: TC-4004 Form Sayfasında Tüm Bölümler Boş Bırakılır
+    And Gönder Buttonuna Kadar Swipe Yapılır
+    And Gönder Buttonuna Tıklanır
+    Then Kimlik Doğruama Hatası Görülür
+
