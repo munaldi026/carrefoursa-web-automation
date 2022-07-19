@@ -43,3 +43,8 @@ Feature:US_031_Form_Test
     And Gönder Buttonuna Tıklanır
     Then Kimlik Doğruama Hatası Görülür
 
+
+  Scenario: TC-4005 Form Sayfasında Kurumsal E-Posta Alanına Gidilir
+    And Kurumsal e-posta tıklanır
+    Then Outllok sayfasına gittiği görülür
+
