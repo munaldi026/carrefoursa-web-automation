@@ -140,5 +140,16 @@ Feature:US_031_Form_Test
     And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
     Then Lütfen cadde-bulvar bilgisi girin Yazısı Görülür
 
-
+  Scenario: TC-4014 Kiralık Yerler Sayfasında Sokak Alanı Boş Bırakılır
+    And Kullanıci Kiralık Yeriniz Var mı tıklar
+    And Adiniz Alanini Giriniz
+    And SoyAdi Alanini Girirniz
+    And CepTelefonunu Giriniz
+    And Email Giriniz
+    And il Seçiniz
+    And ilce Seciniz
+    And Semt Giriniz
+    And Cadde Giriniz
+    And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
+    Then Lütfen sokak bilgisi girin Yazısı Görülür
 
