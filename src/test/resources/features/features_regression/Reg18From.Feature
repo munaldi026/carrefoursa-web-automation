@@ -100,3 +100,17 @@ Feature:US_031_Form_Test
     Then Lütfen Cep Telefonu Giriniz Yazısı Görülür
 
 
+  Scenario: TC-4011 Kiralık Yerler Sayfasında E-Posta Alanı Boş Bırakılır
+    And Kullanıci Kiralık Yeriniz Var mı tıklar
+    And Adiniz Alanini Giriniz
+    And SoyAdi Alanini Girirniz
+    And CepTelefonunu Giriniz
+    And il Seçiniz
+    And ilce Seciniz
+    And Semt Giriniz
+    And Cadde Giriniz
+    And Sokak Giriniz
+    And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
+    Then Lütfen Eposta Giriniz Yazısı Görülür
+
+
