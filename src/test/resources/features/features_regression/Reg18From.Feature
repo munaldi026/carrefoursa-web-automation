@@ -113,4 +113,17 @@ Feature:US_031_Form_Test
     And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
     Then Lütfen Eposta Giriniz Yazısı Görülür
 
+  Scenario: TC-4012 Kiralık Yerler Sayfasında Semt/Mahalle Alanı Boş Bırakılır
+    And Kullanıci Kiralık Yeriniz Var mı tıklar
+    And Adiniz Alanini Giriniz
+    And SoyAdi Alanini Girirniz
+    And CepTelefonunu Giriniz
+    And Email Giriniz
+    And il Seçiniz
+    And ilce Seciniz
+    And Cadde Giriniz
+    And Sokak Giriniz
+    And Kiralik Sayfasinda Gönder Buttonuna Tıklanır
+    Then Lütfen semt-mahalle bilgisi girin Yazısı Görülür
+
 
