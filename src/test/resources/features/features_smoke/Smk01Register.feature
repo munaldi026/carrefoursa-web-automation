@@ -9,8 +9,8 @@ Feature: US_01 Register Tests
     And Cep Telefonu Numaraniz bolumune bir numara girer
     And Email bolumune bir email girilir
     And Iletişim izni checkbox tiklanir
-    And Uyelik beyani checkbox tiklanir
-    And Aydintlatma beyani checkbox tiklanır
+#    And Uyelik beyani checkbox tiklanir
+#    And Aydintlatma beyani checkbox tiklanır
     And Kullanici uye olun buttonuna tiklar
     And SMS Onay Kodu bolumune otp kodu girilir
     And Kullanici bulundugu sehiri girer
@@ -25,8 +25,8 @@ Feature: US_01 Register Tests
     And Register Cep Telefonu Numaraniz bolumune bir numara girer"<phoneNumber>"
     And Email bolumune email girilir"<email>"
     And Iletişim izni checkbox tiklanir
-    And Uyelik beyani checkbox tiklanir
-    And Aydintlatma beyani checkbox tiklanır
+#    And Uyelik beyani checkbox tiklanir
+#    And Aydintlatma beyani checkbox tiklanır
     And Kullanici uye olun buttonuna tiklar
     Then kullanici hata mesaji alir "<message>"
 
