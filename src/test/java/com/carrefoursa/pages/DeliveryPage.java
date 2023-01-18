@@ -47,11 +47,16 @@ public class DeliveryPage extends BasePage {
     public List<WebElement> addressOfStores;
 
     @FindBy(css = "button[class='btn btn-primary pickupChoice__submit']")
+    public WebElement continueButton;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary pickup-info-submit']")
     public WebElement pickupFromStoreSubmitButton;
 
     @FindBy(css = "button[class='btn btn-primary pickup-info-submit']")
     public WebElement pickupFromDeliveryOptionsSubmitButton;
 
+    @FindBy(xpath = "//button[normalize-space()='Devam Et']")
+    public WebElement deliveryOptionsContinueButton;
 
 
 
@@ -111,8 +116,20 @@ public class DeliveryPage extends BasePage {
     public WebElement freshFoodAlertMsg;
 
     @FindBy(css = "div[id='cboxLoadedContent'] button[class='btn btn-primary btn-lg btn-block']")
+
     public WebElement continueShoppingButton;
 
+    @FindBy(css = "button[class='btn btn-primary pickup-info-submit']")
+    public WebElement changeDeliveryTypeButton;
+
+    @FindBy(xpath = "//div[@id='cboxLoadedContent']//caption[contains(text(),'Seçili konumunuzda bulunmayan ürünler sepetinizden')]")
+    public WebElement deletedProductInCurrentCart;
+
+    @FindBy(css = "div[id='cboxLoadedContent'] button[class='btn btn-primary btn-lg btn-block'] devam butonu")
+    public WebElement continueToShoppingButton;
+
+    @FindBy(css = ".headline-text")
+    public WebElement changedProductInYourCart;
 
 
 
@@ -120,26 +137,26 @@ public class DeliveryPage extends BasePage {
     public void fillDeliveyAreaInformation() {
 
         Select select = new Select(deliveryCity);
-        select.selectByVisibleText("Ankara");
+        select.selectByVisibleText("Amasya");
         ReusableMethods.waitFor(1);
         Select select1 = new Select(deliveryTown);
-        select1.selectByVisibleText("Çankaya");
+        select1.selectByVisibleText("Merzifon");
         ReusableMethods.waitFor(1);
         Select select2 = new Select(deliveryDistrict);
-        select2.selectByVisibleText("Bahçelievler Mh.");
+        select2.selectByVisibleText("Sofular Mh.");
         ReusableMethods.waitFor(1);
 
     }
     public void fillDeliveyNewAreaInformation() {
 
         Select select = new Select(deliveryCity);
-        select.selectByVisibleText("Ardahan");
+        select.selectByVisibleText("Amasya");
         ReusableMethods.waitFor(1);
         Select select1 = new Select(deliveryTown);
-        select1.selectByVisibleText("Merkez");
+        select1.selectByVisibleText("Merzifon");
         ReusableMethods.waitFor(1);
         Select select2 = new Select(deliveryDistrict);
-        select2.selectByVisibleText("Atatürk Mh.");
+        select2.selectByVisibleText("Sofular Mh.");
         ReusableMethods.waitFor(1);
 
     }
@@ -150,10 +167,10 @@ public class DeliveryPage extends BasePage {
         select.selectByVisibleText("İstanbul");
         ReusableMethods.waitFor(1);
         Select select1 = new Select(deliveryTown);
-        select1.selectByVisibleText("Kadıköy");
+        select1.selectByVisibleText("Ataşehir");
         ReusableMethods.waitFor(1);
         Select select2 = new Select(deliveryDistrict);
-        select2.selectByVisibleText("Sahrayıcedit Mh.");
+        select2.selectByVisibleText("İçerenköy Mh.");
         ReusableMethods.waitFor(1);
         selectStoreSubmitButton.click();
         pickupChoiseSubmitButton.click();

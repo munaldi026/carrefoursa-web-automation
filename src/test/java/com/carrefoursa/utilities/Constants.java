@@ -13,12 +13,15 @@ public class Constants {
     public static String comment="The best wishes with you and your friends";
     public static String commentName="NTTDATA TR AUTOMATION TEAM";
     public static String searchProduct= "Yogurt";
-    public static String searchProduct1="peynir";
+    public static String searchPromotioanlProduct= "Yudum Ayçiçek Yağı 4 lt";
+    public static String searchProduct1="Peynir";
     public static String soldAloneProduct="CarrefourSA Hediye Kartı 250 TL";
     public static String soldAloneProductSame1="FOSSIL FES4610 Kadın Kol Saati";
     public static String soldAloneProductSame2="FOSSIL FFS5517 Erkek Kol Saati";
     public static String soldAloneProductDifferent="NEOstill - Çakıltaşı Ayna A341";
-    public static String searchOrderProductName="Carrefour Ayçiçek Yağı 5 lt";
+    public static String searchOrderProductName="Frico Keçi Gouda 220 g;";
+    public static String searchOrderForGlobalProductName="Carrefour Baby 6 Beden XL 28 Adet";
+    public static String searchForGlobalProductName="Papia İpek Havlu 16'lı";
     public static String searchFreshFoodName="Maydanoz";
     public static String searchCartOrderAmountProductName="Katlanır Kamp Sandalye Wells Yeşil";
     public static String creditCardNumber="4155650100416111";

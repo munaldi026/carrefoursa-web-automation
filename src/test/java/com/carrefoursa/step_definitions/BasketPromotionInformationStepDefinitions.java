@@ -16,7 +16,7 @@ public class BasketPromotionInformationStepDefinitions {
     @And("Kullanıcı 2 al 1 öde ürününü aratır")
     public void kullanciUrunAratir()  {
         basketPromotionInformationPage.searchFieldBasketPromotionInformation.click();
-        basketPromotionInformationPage.searchFieldBasketPromotionInformation.sendKeys(ConfigReader.getProperty("promotional_product"));
+        basketPromotionInformationPage.searchFieldBasketPromotionInformation.sendKeys(ConfigReader.getProperty("promotional_product1"));
         ReusableMethods.waitFor(2);
         basketPromotionInformationPage.searchButtonBasketPromotionInformation.click();
     }

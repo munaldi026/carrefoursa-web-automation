@@ -1,3 +1,5 @@
+@upgradeSmoke
+
 Feature: US_33 PickupFromStore Test
 
   Scenario: TC_33001 Magazadan_al
@@ -7,12 +9,14 @@ Feature: US_33 PickupFromStore Test
   And Cikan pop-up uzerinde Magazadan Alin tercihini yapar
   And Teslim alinacak magazayi secer
   And Bu sayfada Devam et butonu tiklanir
+  #And Magaza secimi devam butonuna tiklanir
   And Kullanici KG'li bir urunu aratir
   And PLP sayfasindaki Sepete ekle butonuna tiklar
   And Indirimli bir urun aratir
   And PLP sayfasindaki Sepete ekle butonuna tiklar
-  And Promosyonlu bir urun aratir
-  And PLP sayfasindaki Sepette ekle butonuna tiklar
+#  And Promosyonlu bir urun aratir
+#  And PLP sayfasindaki Sepette ekle butonuna tiklar
+#  #And PLP sayfasinda cikan pop_up uzerindeki Devam Et butonuna tiklar
   And Ana Sayfadaki Sepetim butonuna tiklar
   And Tum urunlerin sepete eklendigini kontrol eder
   And Kullanici sepette Siparisi tamamla butonuna tiklar

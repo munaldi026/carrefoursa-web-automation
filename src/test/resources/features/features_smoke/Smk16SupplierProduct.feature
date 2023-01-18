@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature: US_16 Supplier Products Tests
 
   Background:
@@ -8,15 +8,12 @@ Feature: US_16 Supplier Products Tests
     When PLP sayfasindaki Sepete ekle butonuna tiklar
     Then Kullanici Ana Sayfadaki Arama kutusuna tiklar
 
-
   Scenario: TC_16001_same_supplier
 
     Given Tek basina satilan ve ayni tedarikciye ait baska bir urun adi yazar
     And PLP sayfasindaki Sepete ekle butonuna tiklar
     And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
     When Her iki urununde sepete eklendigini kontrol eder
-
-
 
   Scenario: TC_16002_different_supplier-go_on
 

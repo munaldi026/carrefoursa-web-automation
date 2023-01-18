@@ -30,10 +30,15 @@ public class CreditCardPage extends BasePage {
     @FindBy(css = ".remove-cart-item-link")
     public List<WebElement> removeItemListMiniCart;
     @FindBy(css = "#masterpass")
-    public WebElement payByCreditCard;
-    @FindBy(css = "#cash_at_delivery")
+//    public WebElement payByCreditCard;
+//    @FindBy(css = "#cash_at_delivery")
+
+    public WebElement payByCreditCardSelection;
+    @FindBy(css = "#masterpass")
+
+    //label[@for='cash_Kart22']//span[@class='radiomark']
     public WebElement payByCashAtDelivery;
-    @FindBy(css = "div[class='pay-with-cash'] span[class='description']")
+    @FindBy(css = "#cc_at_delivery")
     public WebElement verifyByCashAtDelivery;
     @FindBy(css = ".other.form-control.rtaPan")
     public WebElement creditCardNumberField;

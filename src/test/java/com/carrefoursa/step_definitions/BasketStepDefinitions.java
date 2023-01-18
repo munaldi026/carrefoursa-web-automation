@@ -29,7 +29,7 @@ public class BasketStepDefinitions {
 
     @When("Kullanici Ana Sayfadaki Sepetim butonuna hover yapar")
     public void kullanici_ana_sayfadaki_sepetim_butonuna_hover_yapar() {
-
+        ReusableMethods.waitFor(1);
         ReusableMethods.hover(homePage.myBasket);
         ReusableMethods.waitFor(1);
 

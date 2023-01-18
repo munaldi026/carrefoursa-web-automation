@@ -28,11 +28,10 @@ import org.junit.runner.RunWith;
         //features = "src/test/resources/features/features_mini_regression",
         //"json:target/cucumber.json",
         publish = true,
-        tags = "@demo",
+        tags = "@upgradeSmoke",
         dryRun =false
         //tags = "@reg or @smoke"
         //"rerun:target/rerun.txt"
-
 
 )
 public class CukesRunner {

@@ -1,8 +1,9 @@
-@demo
+@upgradeSmoke
 Feature: US_05 Sorting Tests
 
   Background:
-    Given Kullanici Ana Sayfadaki Arama kutusuna tiklar
+    Given Kullanici login olmus durumdadir
+    And Kullanici Ana Sayfadaki Arama kutusuna tiklar
     And Aramak istedigi urunun adini yazar
     And Arama butonuna tiklar
 

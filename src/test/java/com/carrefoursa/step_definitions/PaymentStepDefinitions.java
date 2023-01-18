@@ -40,7 +40,10 @@ public class PaymentStepDefinitions {
 
     @Given("Odeme sekli olarak Kredi Karti secenegine tiklar")
     public void odeme_sekli_olarak_kredi_karti_secenegine_tiklar() {
-        creditCardPage.payByCreditCard.click();
+        //creditCardPage.payByCreditCard.click();
+        ReusableMethods.waitForPageToLoad(3);
+        creditCardPage.payByCreditCardSelection.click();
+        System.out.println("Kredi Karti ile odeme secildi");
 
     }
 

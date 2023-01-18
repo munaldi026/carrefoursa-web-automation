@@ -10,7 +10,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class ProductPage extends BasePage {
     HomePage homePage = new HomePage();
@@ -19,6 +21,12 @@ public class ProductPage extends BasePage {
 
 
     Actions actions = new Actions(Driver.getDriver());
+    Random random=new Random();
+
+
+
+    @FindBy(css = ".pl-inner")
+    public List <WebElement> givenList;
 
     @FindBy(xpath = "//span[contains(@class,'black-color')][contains(text(),'Gıda, Şekerleme')]")
     public WebElement subMenuSweet;
@@ -177,13 +185,12 @@ public class ProductPage extends BasePage {
             System.out.println("Bilgilendirme Pop-up yok");
         }
     }
-
-    public void searchProduct() {
-
+    public void searchProductForNational() {
 
         ReusableMethods.waitForPageToLoad(10);
         ReusableMethods.retryingFindClick();
-        homePage.searchField.sendKeys(Constants.searchOrderProductName);
+        ReusableMethods.waitFor(2);
+        homePage.searchField.sendKeys(Constants.searchOrderForGlobalProductName);
         homePage.searchButton.click();
 
 //        try {
@@ -194,6 +201,30 @@ public class ProductPage extends BasePage {
 
     }
 
+    public void searchProduct() {
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        ReusableMethods.waitFor(2);
+        homePage.searchField.sendKeys(Constants.searchOrderProductName);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
+    public void searchPromotionalProduct() {
+
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys(Constants.searchPromotioanlProduct);
+        homePage.searchButton.click();
+    }
+
     public void searchProductMiniCart() {
 
         //Driver.getDriver().navigate().refresh();
@@ -201,6 +232,7 @@ public class ProductPage extends BasePage {
         ReusableMethods.retryingFindClick();
         homePage.searchField.sendKeys(SmkConstants.miniCartProductName);
         homePage.searchButton.click();
+
 
 //        try {
 //            homePage.informationPop_up.click();
@@ -215,6 +247,7 @@ public class ProductPage extends BasePage {
 
         ReusableMethods.waitForPageToLoad(5);
         ReusableMethods.retryingFindClick();
+        ReusableMethods.waitFor(2);
         homePage.searchField.sendKeys(Constants.certainProductIdForPDP);
         homePage.searchButton.click();
 
@@ -336,11 +369,27 @@ public class ProductPage extends BasePage {
 //        }
 
     }
+    public void searchNewProductForGlobal() {
+
+
+        ReusableMethods.waitForPageToLoad(10);
+        ReusableMethods.retryingFindClick();
+        homePage.searchField.sendKeys(Constants.searchForGlobalProductName);
+        homePage.searchButton.click();
+
+//        try {
+//            homePage.informationPop_up.click();
+//        } catch (Exception e) {
+//            System.out.println("Bilgilendirme Pop-up yok");
+//        }
+
+    }
     public void searchKgProduct() {
 
 
         ReusableMethods.waitForPageToLoad(10);
         ReusableMethods.retryingFindClick();
+        ReusableMethods.waitFor(2);
         homePage.searchField.sendKeys("Dana Strogonof");
         homePage.searchButton.click();
 
@@ -356,7 +405,8 @@ public class ProductPage extends BasePage {
 
         ReusableMethods.waitForPageToLoad(10);
         ReusableMethods.retryingFindClick();
-        homePage.searchField.sendKeys("Johnson's Baby Şampuan 750 ml");
+        //homePage.searchField.sendKeys("Johnson's Baby Şampuan 750 ml");
+        homePage.searchField.sendKeys("İçim Pastörize Cam Şişe Süt 1000 ml");
         homePage.searchButton.click();
 
 //        try {
@@ -370,7 +420,8 @@ public class ProductPage extends BasePage {
 
         ReusableMethods.waitForPageToLoad(10);
         ReusableMethods.retryingFindClick();
-        homePage.searchField.sendKeys("İthal Norveç Somon Dilim kg");
+        //homePage.searchField.sendKeys("İthal Norveç Somon Dilim kg");
+        homePage.searchField.sendKeys("Prima Islak Havlu Sensitive Uclu 52'li");
         homePage.searchButton.click();
 
 //        try {

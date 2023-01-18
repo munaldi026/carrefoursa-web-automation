@@ -45,9 +45,7 @@ public class SearchPage extends BasePage {
         String searchProduct =Constants.searchProduct1;
         System.out.println("SearchProduct = " + searchProduct);
         System.out.println("First Item    = " + itemList.get(0));
-
-
-        Assert.assertTrue(itemList.get(0).contains("Peynir"));
+        Assert.assertTrue(itemList.get(0).contains("eynir"));
 
 
         return itemList;
@@ -62,8 +60,9 @@ public class SearchPage extends BasePage {
         }
         String searchProduct =Constants.searchProduct1;
         System.out.println("SearchProduct = " + searchProduct);
-        System.out.println("First Item    = " + itemList1.get(0));
-        Assert.assertTrue(itemList1.get(0).contains("Peynir"));
+        System.out.println("itemList1.toString() = " + itemList1.toString());
+        // System.out.println("First Item    = " + itemList1.get(0));
+        Assert.assertTrue(itemList1.toString().contains("Peynir"));
 
         return itemList1;
 

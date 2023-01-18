@@ -1,3 +1,4 @@
+@upgradeSmoke
 Feature:Basket Promotion Information Page
 
   Background:
@@ -17,6 +18,7 @@ Feature:Basket Promotion Information Page
     And Urun Sayisi iki Yapilir
     Then Sari Uyari Yazisi Kaybolur
 
+    @prom
   Scenario: TC_3002 Promosyon Ürün Alınır Sepete Limiti Karşılanmaz
     And Kullanıci promosyonlu urun aratır
     And Sepete 1 ürün eklenir

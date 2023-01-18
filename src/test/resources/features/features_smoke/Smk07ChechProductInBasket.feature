@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature: US_07 Check Product In Basket Tests
 
   Scenario: TC_7001_sepette_maximum_satinalma

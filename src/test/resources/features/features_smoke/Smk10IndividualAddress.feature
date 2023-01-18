@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature:US_10 Individual Address Tests
 
   Background:
@@ -13,7 +13,7 @@ Feature:US_10 Individual Address Tests
     And Gelen Bireysel form uygun sekilde doldurulur
     And Bu adresi kaydet buttonuna basılır
     Then Adresin basarili sekilde kaydedildigi gorulur
-  @demo
+
   Scenario: TC_10002_individual_adres_guncelleme
 
     And Kullanici duzenle buttonuna tiklar

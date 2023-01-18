@@ -15,8 +15,9 @@ public class SearchStepDefinitions {
     @Given("Kullanici Arama Kismina Aranacak Kelimeyi Girer")
     public void Kullanici_Arama_Kismina_Aranacak_Kelimeyi_Girer() {
         ReusableMethods.retryingFindClick();
-        homePage.searchField.sendKeys(Constants.searchProduct1);
         ReusableMethods.waitFor(1);
+        homePage.searchField.sendKeys(Constants.searchProduct1);
+        //ReusableMethods.waitFor(1);
     }
     @Given("Kullanici Arama Yaptigi Urun Tiplerini Gorur")
     public void kullanici_arama_yaptigi_urun_tiplerini_gorur() {

@@ -60,13 +60,20 @@ public class PLPPage extends BasePage {
 
     public void addToBasketButton() {
         List<WebElement> buttons = Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
+        ReusableMethods.waitFor(1);
         buttons.get(0).click();
+        //ReusableMethods.givenList_shouldReturnARandomElement();
+        ReusableMethods.waitFor(1);
+    }
+    public void addToBasketButtonForSecondProduct() {
+        List<WebElement> buttons = Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
+        buttons.get(1).click();
         ReusableMethods.waitFor(1);
     }
 
     public void addToBasketButtonPromotion() {
         List<WebElement> buttons = Driver.getDriver().findElements(By.cssSelector("#addToCartButton"));
-        buttons.get(1).click();
+        buttons.get(0).click();
         ReusableMethods.waitFor(1);
     }
         public void addToSartificialButton () {

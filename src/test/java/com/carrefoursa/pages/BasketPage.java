@@ -43,7 +43,7 @@ public class BasketPage extends BasePage {
     @FindBy(css = ".remove-cart-item-link")
     public WebElement miniCartRemoveLink;
 
-    @FindBy(css = "div[class='no-result-cart'] h1 strong")
+    @FindBy(css = "div[class='content'] div h1 strong")
     public WebElement miniCartEmptyMsg;
 
     @FindBy(tagName = "h1")

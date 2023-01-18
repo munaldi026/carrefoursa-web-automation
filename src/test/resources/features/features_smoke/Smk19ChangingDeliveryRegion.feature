@@ -1,4 +1,4 @@
-@demo
+@upgradeSmoke
 Feature: US_29 Changing Delivery Region
 
   Scenario: TC_29001 Teslimat Bolgesi Degistirme
@@ -9,8 +9,13 @@ Feature: US_29 Changing Delivery Region
   And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
   And Sepete eklemis oldugu urunun dogru urun oldugunu kontrol eder
   And Teslimat bolgesi olarak Lokalden, Globale gecilir
-  And Global bolgeye gecildiginde, sepetteki taze gida urunlerinin sepetten cikarildigina dair uyarinin geldigi kontrol edilir
-  And Devam edilerek Global bolgede bir urun eklenir
-  And Urunun sepete eklendigi kontrol edilir
+  And Cikan pop-up uzerinde,konumdaki magazada olmayan urunlerin sepetten kaldirildigi uyarisi alinir
+  And Devam edilerek Global bolgede yeni bir urun eklenir
+  And PLP sayfasindaki Sepete ekle butonuna tiklanir
+  And Kullanici Ana Sayfadaki Sepetim butonuna tiklar
+  And Sepete eklemis oldugu urunun dogru urun oldugunu kontrol eder
   When Teslimat bolgesi olarak Globalden, Lokale gecilir
-  Then Urunun sepette kaldigi kontrol edilir
+  And Teslimat tipi degisikligi durumunda sepetteki urunlerin degisebilecegi uyarisi alinir
+  And Sepetteki urunlerin degistigi uyarisi alinir
+  And Urunun sepette kaldigi kontrol edilir
+    Then Kullanici sepeti temizler

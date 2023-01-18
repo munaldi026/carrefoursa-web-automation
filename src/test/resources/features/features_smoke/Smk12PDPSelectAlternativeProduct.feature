@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature: US_12 PDP Select Alternative Product Test
 
 

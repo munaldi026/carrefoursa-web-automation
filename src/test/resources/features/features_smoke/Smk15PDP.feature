@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature: US_15 PDP Tests
 
   Background:

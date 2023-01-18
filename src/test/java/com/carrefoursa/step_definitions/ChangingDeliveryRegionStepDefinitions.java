@@ -40,12 +40,14 @@ public class ChangingDeliveryRegionStepDefinitions {
     @Given("Devam edilerek Global bolgede bir urun eklenir")
     public void devam_edilerek_global_bolgede_bir_urun_eklenir() {
         deliveryPage.continueShoppingButton.click();
-        deliveryPage.fillDeliveyExAreaInformation();
+        ReusableMethods.waitFor(3);
+        //deliveryPage.fillDeliveyExAreaInformation();
         productPage.searchProduct();
         plpPage.addToBasketButton();
         Driver.getDriver().navigate().refresh();
         homePage.myBasket.click();
         ReusableMethods.waitFor(3);
+        deliveryPage.fillDeliveyExAreaInformation();
 
     }
     @Given("Urunun sepete eklendigi kontrol edilir")
@@ -66,4 +68,39 @@ public class ChangingDeliveryRegionStepDefinitions {
     }
 
 
+    @And("Teslimat tipi degisikligi durumunda sepetteki urunlerin degisebilecegi uyarisi alinir")
+    public void teslimatTipiDegisikligiDurumundaSepettekiUrunlerinDegisebilecegiUyarisiAlinir() {
+
+        deliveryPage.changeDeliveryTypeButton.click();
+
+    }
+
+    @And("Cikan pop-up uzerinde,konumdaki magazada olmayan urunlerin sepetten kaldirildigi uyarisi alinir")
+    public void cikanPopUpUzerindeKonumdakiMagazadaOlmayanUrunlerinSepettenKaldirildigiUyarisiAlinir() {
+        String deletedUrun=deliveryPage.deletedProductInCurrentCart.getText();
+        System.out.println("deletedUrun = " + deletedUrun);
+    }
+
+    @And("Pop-up uzerindeki alisverise devam edin butonuna tiklanir")
+    public void popUpUzerindekiAlisveriseDevamEdinButonunaTiklanir() {
+        deliveryPage.continueToShoppingButton.click();
+    }
+
+    @And("Devam edilerek Global bolgede yeni bir urun eklenir")
+    public void devamEdilerekGlobalBolgedeYeniBirUrunEklenir() {
+        deliveryPage.continueShoppingButton.click();
+        ReusableMethods.waitFor(2);
+        productPage.searchNewProductForGlobal();
+    }
+
+    @And("PLP sayfasindaki Sepete ekle butonuna tiklanir")
+    public void plpSayfasindakiSepeteEkleButonunaTiklanir() {
+        plpPage.addToBasketButtonForSecondProduct();
+    }
+
+    @And("Sepetteki urunlerin degistigi uyarisi alinir")
+    public void sepettekiUrunlerinDegistigiUyarisiAlinir() {
+        String changedProductInCart= deliveryPage.changedProductInYourCart.getText();
+        System.out.println("changedProductInCart = " + changedProductInCart);
+    }
 }

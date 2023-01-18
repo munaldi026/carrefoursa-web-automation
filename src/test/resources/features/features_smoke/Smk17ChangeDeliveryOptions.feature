@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature: US_17 Change Delivery Options Tests
 
   Background:
@@ -16,8 +16,10 @@ Feature: US_17 Change Delivery Options Tests
     And Teslim alinacak magazayi secer
     When Bu sayfada Devam et butonu tiklanir
     Then Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.
+    Then Pop-up uzerindeki devam edin butonuna tiklanir
 
-  @demo
+
+
   Scenario: US_17002_teslimat_tercih_degisikligi_size_getirelim
 
     And Ana sayfadaki Teslimat Seceneginiz linkine tiklar

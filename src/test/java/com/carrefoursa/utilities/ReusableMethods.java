@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
@@ -15,6 +16,16 @@ import java.util.function.Function;
 import static java.lang.Thread.sleep;
 
 public class ReusableMethods {
+
+
+    public static String givenList_shouldReturnARandomElement() {
+        List<String> givenList = Arrays.asList();
+        Random rand = new Random();
+        String randomElement = rand.toString();
+        return randomElement;
+    }
+
+
 
 
 

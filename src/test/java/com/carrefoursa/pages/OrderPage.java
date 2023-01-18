@@ -96,8 +96,10 @@ public class OrderPage extends BasePage{
     public WebElement selectMonth;
     @FindBy(css = "#yearOptions1")
     public WebElement selectYear;
-    @FindBy(css = ".text-white")
+
+    @FindBy(xpath = "//a[@class='btn btn-primary text-white']")
     public List<WebElement> orderDetailButtonList;
+
     @FindBy(css = ".cons-cancelled")
     public WebElement deleteOrderMsg;
 
@@ -123,7 +125,7 @@ public class OrderPage extends BasePage{
         homePage.myAccount.click();
         accountPage.orderListIcon.click();
         Select select=new Select(selectMonth);
-        select.selectByVisibleText("Nisan");
+        select.selectByVisibleText("Aralık");
         Select select1=new Select(selectYear);
         select1.selectByVisibleText("2022");
         orderDetailButtonList.get(0).click();
@@ -135,6 +137,7 @@ public class OrderPage extends BasePage{
         Assert.assertTrue(deleteOrderMsg.isDisplayed());
         System.out.println("str1 = " + str1);
         return str1;
+
     }
 
     public void goToOldOrder(){

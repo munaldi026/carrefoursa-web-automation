@@ -17,7 +17,7 @@ public class SmkConstants {
     public static String lastName="SMOKE";
     public static String searchInstallmentProduct="Arzum AR3003 Cam Demlik Çay Makinesi";
     public static String ratingProductName="CARREFOURSA";
-    public static String miniCartProductName="Ferrero Kinder Surprise 21 G";
+    public static String miniCartProductName="Balparmak Apitera Zen 7x7 g";
     public static String orderNoText="";
 
 

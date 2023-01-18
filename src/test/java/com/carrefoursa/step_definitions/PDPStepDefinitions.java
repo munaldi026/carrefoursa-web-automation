@@ -111,6 +111,7 @@ public class PDPStepDefinitions {
     public void kullaniciMiniCartIcinBirUrunuAratir() {
         productPage.searchProductMiniCart();
 
+
     }
 
     @Then("Kullanici sepeti temizler")

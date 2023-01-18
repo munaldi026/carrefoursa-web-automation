@@ -1,6 +1,7 @@
 package com.carrefoursa.step_definitions;
 
 import com.carrefoursa.pages.*;
+import com.carrefoursa.utilities.Driver;
 import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -21,8 +22,8 @@ public class OrderStepDefinitions {
 
     @Given("Kullanici herhangi bir urunu aratir")
     public void kullaniciHerhangiBirUrunuAratir() {
-
         productPage.searchProduct();
+
     }
 
     @Given("PLP sayfasindaki Sepete ekle butonuna tiklar")
@@ -130,9 +131,9 @@ public class OrderStepDefinitions {
     @Then("Kullanici siparisin iptal edildigini kontrol eder")
     public void kullanici_siparisin_iptal_edildigini_kontrol_eder() {
 
-
         orderPage.verifyDeleteOrder();
         System.out.println("orderNoText = " + orderNoText);
+        ReusableMethods.waitFor(1);
     }
 
 

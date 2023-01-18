@@ -7,6 +7,7 @@ import com.carrefoursa.utilities.ReusableMethods;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -19,7 +20,9 @@ public class Hooks {
     public void setUp(){
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        Driver.getDriver().get(ConfigReader.getProperty("url_preProd"));
+        Driver.getDriver().get(ConfigReader.getProperty("upgrade"));
+//        Driver.getDriver().findElement(By.xpath("//button[@id='details-button']")).click();
+//        Driver.getDriver().findElement(By.xpath("//a[@id='proceed-link']")).click();
         Driver.getDriver().manage().deleteAllCookies();
         ReusableMethods.closeCerez();
 

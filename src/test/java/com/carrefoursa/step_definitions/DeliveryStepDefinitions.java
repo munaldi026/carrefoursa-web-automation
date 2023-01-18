@@ -130,4 +130,6 @@ public class DeliveryStepDefinitions {
     public void kullaniciMagazadanAlTercihliBirSipariseGider() {
         orderPage.goToOldOrder();
     }
+
+
 }

@@ -65,15 +65,23 @@ public class LoginPage extends BasePage {
     @FindBy(className = "close-icon")
     public WebElement loginClose;
 
+    @FindBy(xpath = "//button[@id='details-button']")
+    public WebElement advanceLink;
+
+
+
+
 
 
     public void successLogin() {
+
         loginButton.click();
         loginPhoneNumberBox.sendKeys(ConfigReader.getProperty("phone_number"));
         loginButton2.click();
         otpCodeTextBox.sendKeys(ConfigReader.getProperty("otp_code"));
         otpConfirmButton.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(2);
+
 
     }
     public String verifySuccessLogin(){

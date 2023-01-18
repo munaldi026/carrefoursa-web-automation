@@ -39,7 +39,7 @@ public class DeliveryOptionsStepDefinitions {
     }
     @When("Bu sayfada Devam et butonu tiklanir")
     public void buSayfadaDevamEtButonuTiklanir() {
-        deliveryPage.pickupFromStoreSubmitButton.click();
+        deliveryPage.continueButton.click();
     }
     @Then("Bu tercih sonucunda urunlerde degisiklik olacagi ile ilgili uyari aldigini kontrol eder.")
     public void bu_tercih_sonucunda_urunlerde_degisiklik_olacagi_ile_ilgili_uyari_aldigini_kontrol_eder() {
@@ -86,5 +86,15 @@ public class DeliveryOptionsStepDefinitions {
         ReusableMethods.waitFor(1);
         Driver.getDriver().navigate().back();
 
+    }
+
+    @And("Magaza secimi devam butonuna tiklanir")
+    public void magazaSecimiDevamButonunaTiklanir() {
+        deliveryPage.pickupFromStoreSubmitButton.click();
+    }
+
+    @Then("Pop-up uzerindeki devam edin butonuna tiklanir")
+    public void popUpUzerindekiDevamEdinButonunaTiklanir() {
+        deliveryPage.deliveryOptionsContinueButton.click();
     }
 }

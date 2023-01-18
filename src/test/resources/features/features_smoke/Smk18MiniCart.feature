@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature: US_18 MiniCart Tests
 
       Background:
@@ -13,12 +13,12 @@ Feature: US_18 MiniCart Tests
       Scenario:  TC_18002 MC Sepette Urunu Sil
         When Mini sepetteki Urunu Sil butonuna tiklar
         Then Urunun mini sepetten silindigini kontrol eder
-      @demo
+
       Scenario: TC_18003_MC_sepette_urun_miktari_artirma
         And Kullanici Ana Sayfadaki Sepetim butonuna hover yapar
         When Sepette urun adedi artirilir
         Then Artma durumu kontrol edilir
-      @demo
+
       Scenario: TC_18004_MC_sepette_urun_miktari_azaltma
         And Kullanici Ana Sayfadaki Sepetim butonuna hover yapar
         And Sepette urun adedi artirilir

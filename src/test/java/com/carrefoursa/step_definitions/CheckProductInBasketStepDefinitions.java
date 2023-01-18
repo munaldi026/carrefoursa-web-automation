@@ -54,6 +54,11 @@ public class CheckProductInBasketStepDefinitions {
             productPage.plusButtonInCart.click();
             ReusableMethods.waitFor(1);
             productPage.plusButtonInCart.click();
+            ReusableMethods.waitFor(1);
+            productPage.plusButtonInCart.click();
+            ReusableMethods.waitFor(1);
+            productPage.plusButtonInCart.click();
+            ReusableMethods.waitFor(1);
         }
         @When("Maximum satinalma limitine ulastigini kontrol eder")
         public void maximumSatinalmaLimitineUlastiginiKontrolEder () {

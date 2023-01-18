@@ -1,4 +1,4 @@
-
+@upgradeSmoke
 Feature: US_14 Rating Products Tests
 
   Background:

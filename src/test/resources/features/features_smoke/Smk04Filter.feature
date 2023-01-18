@@ -1,9 +1,9 @@
-@demo
+@upgradeSmoke
 Feature: US_04 Filter Tests
 
   Background:
-
-    Given Kullanici Ana Sayfadaki Arama kutusuna tiklar
+    Given Kullanici login olmus durumdadir
+    And Kullanici Ana Sayfadaki Arama kutusuna tiklar
     When Aramak istedigi urunun adini yazar
     Then Arama butonuna tiklar
 

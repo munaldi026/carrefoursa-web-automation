@@ -1,4 +1,4 @@
-@demo
+@upgradeSmoke
 Feature: US_09 Order Tests
 
 

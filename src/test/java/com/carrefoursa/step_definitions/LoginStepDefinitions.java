@@ -146,7 +146,17 @@ public class LoginStepDefinitions {
 //        }
 //        registerPage.registerPhoneNumberBox.sendKeys(phoneNumber);
     }
+
+//    @Given("giris yapilir")
+//    public void girisYapilir() {
+//        loginPage.successLogin();
+//    }
+
+    @And("Advance linkine tiklar")
+    public void advanceLinkineTiklar() {
+        loginPage.advanceLink.click();
     }
+}
 
 
 
